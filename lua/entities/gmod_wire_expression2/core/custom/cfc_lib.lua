@@ -1,5 +1,6 @@
 E2Lib.RegisterExtension("cfclib", true)
 
+-- PvP Functions
 e2function number entity:playerIsInPvpMode()
     if not IsValid(this) or not this:IsPlayer() then return end
     if entity:GetNWBool("CFC_PvP_Mode", false) == true then return 1 end
@@ -28,3 +29,30 @@ e2function table getAllPlayersInPvp()
     return pvpers
 end
 
+
+-- Ping Functions
+e2function number averagePing()
+    local sum = 0
+    local humans = player.GetHumans()
+    for _, v in pairs( humans ) do
+        sum = sum + v:Ping()
+    end
+
+    return sum / table.Count(humans)
+end
+
+-- String Functions
+e2function number string:startsWith(string start)
+    return string.StartWith(this, start)
+end
+
+-- Array Functions
+e2function array array:shuffled()
+    local size = #this
+    for i = size, 1, -1 do
+      local rand = math.random(size)
+      this[i], this[rand] = this[rand], this[i]
+    end
+
+    return this
+end
