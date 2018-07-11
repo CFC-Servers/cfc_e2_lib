@@ -32,10 +32,10 @@ end
 e2function table getBuilders()
     local builders = {}
     for _, v in pairs(player.GetHumans()) do
-        if v:GetNWBool("CFC_PvP_Mode", false) == false then pvpers << v end
+        if v:GetNWBool("CFC_PvP_Mode", false) == false then builders << v end
     end
 
-    return pvpers
+    return builders
 end
 
 
