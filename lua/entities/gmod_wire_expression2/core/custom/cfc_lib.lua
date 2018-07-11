@@ -20,10 +20,19 @@ e2function string entity:getPvpStatus()
 end
 
 
-e2function table getAllPlayersInPvp()
+e2function table getPvpers()
     local pvpers = {}
     for _, v in pairs(player.GetHumans()) do
         if v:GetNWBool("CFC_PvP_Mode", false) then pvpers << v end
+    end
+
+    return pvpers
+end
+
+e2function table getBuilders()
+    local builders = {}
+    for _, v in pairs(player.GetHumans()) do
+        if v:GetNWBool("CFC_PvP_Mode", false) == false then pvpers << v end
     end
 
     return pvpers
