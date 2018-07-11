@@ -65,3 +65,13 @@ e2function array array:shuffled()
 
     return this
 end
+
+e2function array array:difference(array arrayDiff)
+    local difference = {}
+    for _, v in pairs( this ) do
+        if !table.KeyFromValue( arrayDif, v ) then difference << v end
+    end
+
+    return difference
+end
+
