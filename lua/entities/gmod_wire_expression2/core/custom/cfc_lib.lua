@@ -69,7 +69,7 @@ end
 e2function array array:difference(array arrayDiff)
     local difference = {}
     for _, v in pairs( this ) do
-        if !table.KeyFromValue( arrayDif, v ) then difference << v end
+        if !table.KeyFromValue( arrayDiff, v ) then difference << v end
     end
 
     return difference
