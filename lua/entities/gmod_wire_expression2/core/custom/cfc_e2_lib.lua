@@ -47,13 +47,16 @@ e2function number averagePing()
     for _, v in pairs( humans ) do
         sum = sum + v:Ping()
     end
+	local avg = sum / table.Count( humans )
 
-    return sum / table.Count(humans)
+    return avg
 end
 
 -- String Functions
 e2function number string:startsWith(string start)
-	if string.StartWith(this, start) then return 1 else return 0 end
+    if string.StartWith(this, start) then return 1 end
+
+    return 0
 end
 
 -- Array Functions
