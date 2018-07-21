@@ -1,23 +1,23 @@
-E2Lib.RegisterExtension("cfc_e2_lib", true)
+E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 -- PvP Functions
 e2function number entity:playerIsInPvp()
     if not IsValid(this) or not this:IsPlayer() then return 0 end
-    if this:GetNWBool("CFC_PvP_Mode", false) == true then return 1 end
+    if this:GetNWBool( "CFC_PvP_Mode", false ) == true then return 1 end
 
     return 0
 end
 
 e2function number entity:playerIsInBuild()
     if not IsValid(this) or not this:IsPlayer() then return 0 end
-    if this:GetNWBool("CFC_PvP_Mode", false) == false then return 1 end
+    if this:GetNWBool( "CFC_PvP_Mode", false ) == false then return 1 end
 
     return 0
 end
 
 e2function string entity:getPvpStatus()
     if not IsValid(this) or not this:IsPlayer() then return "" end
-    if this:GetNWBool("CFC_PvP_Mode", false) == true then return "pvp" end
+    if this:GetNWBool( "CFC_PvP_Mode", false ) == true then return "pvp" end
 
     return "build"
 end
@@ -25,7 +25,7 @@ end
 e2function table getPvpers()
     local pvpers = {}
     for _, v in pairs(player.GetHumans()) do
-        if v:GetNWBool("CFC_PvP_Mode", false) then pvpers[#pvpers + 1] = v end
+        if v:GetNWBool( "CFC_PvP_Mode", false ) then pvpers[#pvpers + 1] = v end
     end
 
     return pvpers
@@ -34,7 +34,7 @@ end
 e2function table getBuilders()
     local builders = {}
     for _, v in pairs(player.GetHumans()) do
-        if v:GetNWBool("CFC_PvP_Mode", false) == false then builders[#builders + 1] = v end
+        if v:GetNWBool( "CFC_PvP_Mode", false ) == false then builders[#builders + 1] = v end
     end
 
     return builders
@@ -54,7 +54,7 @@ end
 
 -- String Functions
 e2function number string:startsWith(string start)
-    if string.StartWith(this, start) then return 1 end
+    if string.StartWith( this, start ) then return 1 end
 
     return 0
 end
@@ -63,7 +63,7 @@ end
 e2function array array:shuffled()
     local size = #this
     for i = size, 1, -1 do
-      local rand = math.random(size)
+      local rand = math.random( size )
       this[i], this[rand] = this[rand], this[i]
     end
 
@@ -80,7 +80,7 @@ e2function array array:difference(array arrayDiff)
 end
 
 e2function array array:reversed()
-    return table.Reverse(this)
+    return table.Reverse( this )
 end
 
 e2function array array:sub(number n1, number n2)
