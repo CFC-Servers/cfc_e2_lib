@@ -123,7 +123,7 @@ e2function number array:indexOf(angle ang)
 end
 
 e2function number array:indexOf(vector vec)
-	return indexOfPackedValue( this, vec )
+    return indexOfPackedValue( this, vec )
 end
 
 e2function number array:indexOf(vector2 vec2)
