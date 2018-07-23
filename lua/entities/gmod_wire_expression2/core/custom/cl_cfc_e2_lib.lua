@@ -12,9 +12,9 @@ E2Helper.Descriptions["averagePing"] = "Returns a floating-point number represen
 E2Helper.Descriptions["startsWith"] = "Returns 1 if the string on which it was called starts with start, and 0 otherwise."
 
 -- Array Functions
-E2Helper.Descriptions["shuffled"]    = "Returns a shuffled array."
-E2Helper.Descriptions["difference"]  = "Returns an array filled with the differing elements between the calling and argument arrays."
-E2Helper.Descriptions["reversed"]    = "Returns a reversed array."
-E2Helper.Descriptions["sub"]         = "Returns an array representing the subset between indexes n1 and n2."
-E2Helper.Descriptions["sub"]         = "Returns an array representing the subset between index n1 and the end of the array."
-E2Helper.Descriptions["indexOf"]     = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
+E2Helper.Descriptions["shuffled"]   = "Returns a shuffled array."
+E2Helper.Descriptions["difference"] = "Returns an array filled with the differing elements between the calling and argument arrays."
+E2Helper.Descriptions["reversed"]   = "Returns a reversed array."
+E2Helper.Descriptions["sub(N, N)"]  = "Returns an array representing the subset between indexes n1 and n2, inclusively."
+E2Helper.Descriptions["sub(N)"]     = "Returns an array representing the subset between index n and the end of the array, inclusively."
+E2Helper.Descriptions["indexOf"]    = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
