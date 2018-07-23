@@ -22,7 +22,7 @@ e2function string entity:getPvpStatus()
     return "build"
 end
 
-e2function table getPvpers()
+e2function array getPvpers()
     local pvpers = {}
     for _, v in pairs(player.GetHumans()) do
         if v:GetNWBool( "CFC_PvP_Mode", false ) then pvpers[#pvpers + 1] = v end
@@ -31,7 +31,7 @@ e2function table getPvpers()
     return pvpers
 end
 
-e2function table getBuilders()
+e2function array getBuilders()
     local builders = {}
     for _, v in pairs(player.GetHumans()) do
         if v:GetNWBool( "CFC_PvP_Mode", false ) == false then builders[#builders + 1] = v end
@@ -44,10 +44,12 @@ end
 e2function number averagePing()
     local sum = 0
     local humans = player.GetHumans()
+
     for _, v in pairs( humans ) do
         sum = sum + v:Ping()
     end
-	local avg = sum / table.Count( humans )
+
+    local avg = sum / table.Count( humans )
 
     return avg
 end
@@ -55,7 +57,6 @@ end
 -- String Functions
 e2function number string:startsWith(string start)
     if string.StartWith( this, start ) then return 1 end
-
     return 0
 end
 
@@ -63,8 +64,8 @@ end
 e2function array array:shuffled()
     local size = #this
     for i = size, 1, -1 do
-      local rand = math.random( size )
-      this[i], this[rand] = this[rand], this[i]
+        local rand = math.random( size )
+        this[i], this[rand] = this[rand], this[i]
     end
 
     return this
@@ -86,30 +87,29 @@ end
 e2function array array:sub(number n1, number n2)
     if n1 < 1 then n1 = 1 end
     if n2 > #this then n2 = #this end
-    
+
     return {unpack( this, n1, n2 )}
 end
 
-e2function array array:sub(number n1)
-    if n1 > #this then return {this[#this]} end
-    
-    return {unpack( this, n1 )}
+e2function array array:sub(number n)
+    if n > #this then return {this[#this]} end
+    return {unpack( this, n )}
 end
 
 local function indexOfNormalValue(arr, val)
     for idx = 1, #arr do
         if arr[idx] == val then return idx end
     end
-    
+
     return 0
 end
 
 local function indexOfPackedValue(arr, val)
-	local unpacked = unpack( val )
-	for idx = 1, #arr do
-		if unpacked == unpack( arr[idx] ) then return idx end
-	end
-    
+    local unpacked = unpack( val )
+    for idx = 1, #arr do
+        if unpacked == unpack( arr[idx] ) then return idx end
+    end
+
     return 0
 end
 
@@ -136,3 +136,4 @@ end
 e2function number array:indexOf(vector4 vec4)
     return indexOfPackedValue( this, vec4 )
 end
+
