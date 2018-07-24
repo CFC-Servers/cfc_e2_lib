@@ -18,7 +18,7 @@ registerType("cfc_matrix", "cm", { 0,0 },
 	end
 )
 
---Static functions and constants
+--Static functions and constants -------------------------------------------------------------------------
 
 E2Lib.registerConstant("EMPTY", {0,0})
 
@@ -36,9 +36,19 @@ e2function cfc_matrix identity(n)
 	return ret
 end
 
+e2function cfc_matrix new(width,height)
+	local ret ={width,height}
+	local size = width*height
+	for i in 0..size
+		ret[2+i] = 0
+	end
+	return ret
+end
+
+
 e2function cfc_matrix add(a, b)
 
-	if a:rows()~=b:rows() and a:columns() ~= b:columns() then error("Cannot add matrices with different dimentions") end
+	if a:rows()~=b:rows() or a:columns() ~= b:columns() then error("Cannot add matrices with different dimentions") end
 	
 	local ret = {a:rows(),a:columns()}
 	
@@ -50,7 +60,22 @@ e2function cfc_matrix add(a, b)
 	return ret
 end
 
-e2function cfc_matrix multiply(a,b)
+e2function cfc_matrix scalar_multiply(a,b)
+
+	local rows = a:rows()
+	local cols = a:columns()
+	local ret = {rows,columns}
+	
+	for i in 0..rows
+		for j in 0..cols
+			ret[2+j+(i*n)] = b*a:get(i,j)
+		end
+	end
+	
+	return ret
+end
+
+e2function cfc_matrix matrix_multiply(a,b)
 
 	if a:columns()~=b:rows() then error("Cannot multiply matrices with incompatible dimentions") end
 
@@ -74,7 +99,55 @@ e2function cfc_matrix multiply(a,b)
 	return ret
 end
 
---Non static functions
+e2function cfc_matrix transpose( a )
+
+	local rows = a:columns()
+	local cols = a:rows()
+	
+	local ret = {rows,cols}
+	
+	for i in 0..rows
+		for j in 0..cols
+			ret[2+j+(i*n)] = a:get(j,i)
+		end
+	end
+	
+	return ret
+end 
+
+-- This should be an array of cfc_matrix
+e2function cfc_matrix LU_factorization( a )
+
+	-- Implement alg from https://www.geeksforgeeks.org/doolittle-algorithm-lu-decomposition/
+	-- When not stoned on allergy pills
+
+end
+
+e2function number determinant(a)
+
+	local factorization = LU_factorization(a)
+	local rows = a:rows()
+	local cols = a:columns()
+	local ret = 1
+
+	--determinent is the diagonal product of LU factorized matrices
+	for i in 0..rows
+		ret = ret*factorization[1]:get(i,i)*factorization[2]:get(i,i)
+	end
+
+	return ret
+end
+
+e2function cfc_matrix inverse(a)
+
+	if determinant(a) == 0 then error("Given matrix is not invertible.") end
+	
+	-- Investigate paper at http://www.irma-international.org/viewtitle/41011/ for possible
+	-- better algorithm for deteriment and inverse
+
+end
+
+--Non static functions -------------------------------------------------------------------------------
 
 local cfc_matrix:entry_exists(i,j)
 	if i>0 and i<this[1] and j>0 and j<this[2]
