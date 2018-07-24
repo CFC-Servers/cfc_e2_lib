@@ -36,6 +36,44 @@ e2function cfc_matrix identity(n)
 	return ret
 end
 
+e2function cfc_matrix add(a, b)
+
+	if a:rows()~=b:rows() and a:columns() ~= b:columns() then error("Cannot add matrices with different dimentions") end
+	
+	local ret = {a:rows(),a:columns()}
+	
+	for i in 0..ret[1]
+		for j in 0..ret[2]
+			ret[2+j+(i*n)]=a:get(i,j)+b:get(i,j)
+		end
+	end
+	return ret
+end
+
+e2function cfc_matrix multiply(a,b)
+
+	if a:columns()~=b:rows() then error("Cannot multiply matrices with incompatible dimentions") end
+
+	local rows = a:rows()
+	local cols = b:columns()
+	local dot_range = a:columns()
+	
+	local ret = {rows,cols}
+	
+	--naive O(n^3) multiplication. Replace this with recursive method eventually
+	for i in 0..rows
+		for j in 0..cols
+			local dot = 0
+			for k in 0..dot_range
+				dot = dot + a:get(i,k)*b:get(k,j)
+			end
+			ret[2+j+(i*n)] = dot
+		end
+	end
+	
+	return ret
+end
+
 --Non static functions
 
 local cfc_matrix:entry_exists(i,j)
@@ -61,10 +99,10 @@ e2function cfc_matrix:set(val, i, j)
 	end
 end
 
-e2function number cfc_matrix:rows(mat)
+e2function number cfc_matrix:rows()
 	return this[1]
 end
 
-e2function number cfc_matrix:columns(mat)
+e2function number cfc_matrix:columns()
 	return this[2]
 end
