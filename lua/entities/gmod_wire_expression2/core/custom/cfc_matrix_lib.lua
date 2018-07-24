@@ -36,9 +36,9 @@ e2function cfc_matrix identity(n)
 	return ret
 end
 
-e2function cfc_matrix new(width,height)
-	local ret ={width,height}
-	local size = width*height
+e2function cfc_matrix new(rows,columns)
+	local ret ={rows,columns}
+	local size = rows*columns
 	for i in 0..size
 		ret[2+i] = 0
 	end
