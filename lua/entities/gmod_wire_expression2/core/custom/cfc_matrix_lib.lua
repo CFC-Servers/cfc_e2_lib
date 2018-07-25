@@ -22,7 +22,7 @@ registerType("cfc_matrix", "cm", { 0,0 },
 
 E2Lib.registerConstant("EMPTY", {0,0})
 
-e2function cfc_matrix identity(n)
+e2function cfc_matrix identityMatrix(n)
 	local ret = { n, n }
 	for i in 0..n
 		for j in 0..n
@@ -36,7 +36,7 @@ e2function cfc_matrix identity(n)
 	return ret
 end
 
-e2function cfc_matrix new(rows,columns)
+e2function cfc_matrix newMatrix(rows,columns)
 	local ret ={rows,columns}
 	local size = rows*columns
 	for i in 0..size
@@ -46,7 +46,7 @@ e2function cfc_matrix new(rows,columns)
 end
 
 
-e2function cfc_matrix add(a, b)
+e2function cfc_matrix addMatrix(a, b)
 
 	if a:rows()~=b:rows() or a:columns() ~= b:columns() then error("Cannot add matrices with different dimentions") end
 	
@@ -60,7 +60,7 @@ e2function cfc_matrix add(a, b)
 	return ret
 end
 
-e2function cfc_matrix scalar_multiply(a,b)
+e2function cfc_matrix scalarMultiply(a,b)
 
 	local rows = a:rows()
 	local cols = a:columns()
@@ -75,7 +75,7 @@ e2function cfc_matrix scalar_multiply(a,b)
 	return ret
 end
 
-e2function cfc_matrix matrix_multiply(a,b)
+e2function cfc_matrix matrixMultiply(a,b)
 
 	if a:columns()~=b:rows() then error("Cannot multiply matrices with incompatible dimentions") end
 
@@ -99,7 +99,7 @@ e2function cfc_matrix matrix_multiply(a,b)
 	return ret
 end
 
-e2function cfc_matrix transpose( a )
+e2function cfc_matrix transposeMatrix( a )
 
 	local rows = a:columns()
 	local cols = a:rows()
@@ -149,7 +149,7 @@ end
 
 --Non static functions -------------------------------------------------------------------------------
 
-local cfc_matrix:entry_exists(i,j)
+local cfc_matrix:entryExists(i,j)
 	if i>0 and i<this[1] and j>0 and j<this[2]
 		return true
 	else
