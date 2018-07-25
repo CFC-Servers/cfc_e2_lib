@@ -13,4 +13,3 @@ E2Helper.Descriptions["get(cm:nn)"] = "Returns (i,j)th entry of this matrix."
 E2Helper.Descriptions["set(cm:nnn)"] = "Sets the (i,j)th entry of this matrix to the first parameter."
 E2Helper.Descriptions["rows(cm:)"] = "Returns the number of rows in this matrix."
 E2Helper.Descriptions["columns(cm:)"] = "Returns the number of columns in this matrix."
-
