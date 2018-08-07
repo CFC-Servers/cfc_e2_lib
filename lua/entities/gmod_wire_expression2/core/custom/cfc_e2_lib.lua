@@ -150,3 +150,56 @@ e2function number array:indexOf(vector4 vec4)
     return indexOfPackedValue( this, vec4 )
 end
 
+
+-- String Functions
+e2function number string:isNumber()
+    -- This regex tests for only digits
+    if string.find( this, "^%d*$" ) then return 1 end
+    return 0
+end
+
+e2function number string:isLetters()
+    -- This regex tests for only letters (case insensitive) and spaces
+    if string.find( this, "^[%a ]*$" ) then return 1 end
+    return 0
+end
+
+e2function number string:hasNumber()
+    -- This regex looks for existance of a digit
+    if string.find( this, "%d" ) then return 1 end
+    return 0
+end
+
+e2function number string:hasLetter()
+    -- This regex looks for existance of a character
+    if string.find( this, "%a" ) then return 1 end
+    return 0
+end
+
+e2function string string:toUpper()
+    return string.upper( this )
+end
+
+e2function string string:toLower()
+    return string.lower( this )
+end
+
+e2function number string:isUpper()
+    -- This regex finds and replaces all non-letter characters
+    local justLetters = string.gsub( this, "[^%a]", "" )
+
+    -- This regex checks that the string contains only uppercase letters
+    if string.find( justLetters, "^[%u]*$" ) then return 1 end
+
+    return 0
+end
+
+e2function number string:isLower()
+    -- This regex finds and replaces all non-letter characters
+    local justLetters = string.gsub( this, "[^%a]", "" )
+
+    -- This regex checks that the string contains only lowercase letters
+    if string.find( justLetters, "^[%l]*$" ) then return 1 end
+
+    return 0
+end
