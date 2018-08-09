@@ -80,6 +80,19 @@ e2function array array:difference(array arrayDiff)
     return difference
 end
 
+e2function array array:intersect(array arrayDiff)
+    local same = {}
+    local added = {}
+    for _, v in pairs( this ) do
+        if not added[v] then
+            if table.KeyFromValue( arrayDiff, v ) then same[#same + 1] = v end
+            added[v] = true
+        end
+    end
+
+    return same
+end
+
 e2function array array:reversed()
     return table.Reverse( this )
 end
