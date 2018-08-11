@@ -5,6 +5,11 @@ E2Helper.Descriptions["getPvpStatus(e:)"]      = "Returns \"pvp\" if a player is
 E2Helper.Descriptions["getPvpers()"]           = "Returns a table of all players currently in Pvp."
 E2Helper.Descriptions["getBuilders()"]         = "Returns a table of all players currently in Build."
 
+-- Faction Functions
+E2Helper.Descriptions["getFactionID(e:)"]      = "Returns a string of the player's faction ID. '0' if no faction, '' if invalid entity."
+E2Helper.Descriptions["getFactionRank(e:)"]    = "Returns a string of the player's rank or ''."
+E2Helper.Descriptions["isInFaction(e:)"]       = "Returns 1 if player is in faction, 0 otherwise."
+
 -- Ping Functions
 E2Helper.Descriptions["averagePing()"] = "Returns a floating-point number representing the average ping of players in the server."
 
@@ -23,5 +28,3 @@ E2Helper.Descriptions["indexOf(r:n)"]      = "Returns the first index at which t
 E2Helper.Descriptions["indexOf(r:s)"]      = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
 E2Helper.Descriptions["indexOf(r:a)"]      = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
 E2Helper.Descriptions["indexOf(r:v)"]      = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
-
-

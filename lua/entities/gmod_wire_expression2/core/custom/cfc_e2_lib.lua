@@ -22,6 +22,21 @@ e2function string entity:getPvpStatus()
     return "build"
 end
 
+e2function string entity:getFactionID()
+    if not IsValid(this) or not this:IsPlayer() then return "" end
+    return this:GetFactionID()
+end
+
+e2function string entity:getFactionRank()
+    if not IsValid(this) or not this:IsPlayer() then return "" end
+    return this:GetFactionRank()
+end
+
+e2function number entity:isInFaction()
+    if not IsValid(this) or not this:IsPlayer() then return 0 end
+    return this:IsInFaction()
+end
+
 e2function array getPvpers()
     local pvpers = {}
     for _, v in pairs(player.GetHumans()) do
