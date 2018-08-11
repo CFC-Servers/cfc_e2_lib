@@ -191,14 +191,6 @@ e2function number string:hasLetter()
     return 0
 end
 
-e2function string string:toUpper()
-    return string.upper( this )
-end
-
-e2function string string:toLower()
-    return string.lower( this )
-end
-
 e2function number string:isUpper()
     if this == string.upper( this ) then return 1 end
     return 0
