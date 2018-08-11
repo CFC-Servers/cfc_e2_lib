@@ -141,7 +141,7 @@ end
 -- String Functions
 e2function number string:isNumber()
     -- This regex tests for only digits
-    if string.find( this, "^%d*$" ) then return 1 end
+    if tonumber( this ) then return 1 end
     return 0
 end
 
