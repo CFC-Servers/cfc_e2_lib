@@ -172,11 +172,11 @@ e2function string string:toLower()
 end
 
 e2function number string:isUpper()
-    if justLetters == string.upper( this ) then return 1 end
+    if this == string.upper( this ) then return 1 end
     return 0
 end
 
 e2function number string:isLower()
-    if justLetters == string.lower( this ) then return 1 end
+    if this == string.lower( this ) then return 1 end
     return 0
 end
