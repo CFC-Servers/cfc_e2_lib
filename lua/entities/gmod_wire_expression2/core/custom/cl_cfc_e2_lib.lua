@@ -19,8 +19,6 @@ E2Helper.Descriptions["isNumber(s:)"]    = "Returns 1 if string is a number, 0 o
 E2Helper.Descriptions["isLetters(s:)"]   = "Returns 1 if string provided is letters and spaces, 0 otherwise."
 E2Helper.Descriptions["hasNumber(s:)"]   = "Returns 1 if string contains numbers, 0 otherwise."
 E2Helper.Descriptions["hasLetter(s:)"]   = "Returns 1 if string has letters, 0 otherwise."
-E2Helper.Descriptions["toUpper(s:)"]     = "Returns an uppercase version of the string."
-E2Helper.Descriptions["toLower(s:)"]     = "Returns a lowercase version of the string."
 E2Helper.Descriptions["isUpper(s:)"]     = "Returns 1 if string is uppercase, 0 otherwise."
 E2Helper.Descriptions["isLower(s:)"]     = "Returns 1 if string is lowercase, 0 otherwise."
 
