@@ -185,21 +185,11 @@ e2function string string:toLower()
 end
 
 e2function number string:isUpper()
-    -- This regex finds and replaces all non-letter characters
-    local justLetters = string.gsub( this, "[^%a]", "" )
-
-    -- This regex checks that the string contains only uppercase letters
-    if string.find( justLetters, "^[%u]*$" ) then return 1 end
-
+    if justLetters == string.upper( this ) then return 1 end
     return 0
 end
 
 e2function number string:isLower()
-    -- This regex finds and replaces all non-letter characters
-    local justLetters = string.gsub( this, "[^%a]", "" )
-
-    -- This regex checks that the string contains only lowercase letters
-    if string.find( justLetters, "^[%l]*$" ) then return 1 end
-
+    if justLetters == string.lower( this ) then return 1 end
     return 0
 end
