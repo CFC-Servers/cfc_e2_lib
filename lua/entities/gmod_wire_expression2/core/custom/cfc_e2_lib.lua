@@ -80,7 +80,7 @@ e2function array array:difference(array arrayDiff)
     return difference
 end
 
-e2function array array:intersect(array arrayDiff)
+e2function array array:intersection(array arrayDiff)
     local same = {}
     local added = {}
     for _, v in pairs( this ) do
