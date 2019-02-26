@@ -37,7 +37,7 @@ e2function number averagePing()
 end
 
 e2function number minPing()
-    local min = 0
+    local min = math.huge
     local humans = player.GetHumans()
 
     for _, human in pairs( humans ) do
