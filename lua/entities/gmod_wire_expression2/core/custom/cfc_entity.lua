@@ -43,13 +43,10 @@ end
 -- Vehicle Entities
 e2function void entity:ejectPodTP(vector pos)
     if not IsValid(this) or not this:IsVehicle() then return end
-    print(1)
     if not isOwner(self.player, this) then return end
-    print(2)
 
     local driver = this:GetDriver()
     if not IsValid(driver) or not driver:IsPlayer() then return end
-    print(3)
 
     driver:ExitVehicle()
     driver:SetPos(Vector(math.Clamp(pos[1],-16000,16000), math.Clamp(pos[2],-16000,16000), math.Clamp(pos[3],-16000,16000)))
