@@ -1,7 +1,8 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 -- E2 Library Includes
-local isOwner  = E2Lib.isOwner
+local isOwner = E2Lib.isOwner
+local clamp   = E2Lib.clampPos
 
 --Player Entities
 e2function number entity:playerIsInPvp()
@@ -42,6 +43,8 @@ end
 
 -- Vehicle Entities
 e2function void entity:ejectPodTP(vector pos)
+    pos = clamp(pos)
+
     if not IsValid(this) or not this:IsVehicle() then return end
     if not isOwner(self.player, this) then return end
 
@@ -49,5 +52,5 @@ e2function void entity:ejectPodTP(vector pos)
     if not IsValid(driver) or not driver:IsPlayer() then return end
 
     driver:ExitVehicle()
-    driver:SetPos(Vector(math.Clamp(pos[1],-16000,16000), math.Clamp(pos[2],-16000,16000), math.Clamp(pos[3],-16000,16000)))
+    driver:SetPos(pos)
 end
