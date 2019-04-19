@@ -43,4 +43,4 @@ E2Helper.Descriptions["indexOf(r:a)"]          = "Returns the first index at whi
 E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
 
 -- Vehicle Functions
-E2Helper.Descriptions["ejectPodTP(e:v)"]       = "Ejects driver of seat to desired location."
+E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."

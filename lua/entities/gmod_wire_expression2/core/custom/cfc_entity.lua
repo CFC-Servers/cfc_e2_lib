@@ -42,8 +42,8 @@ e2function number entity:isInFaction()
 end
 
 -- Vehicle Entities
-e2function void entity:ejectPodTP(vector pos)
-    pos = clamp(pos)
+e2function void entity:ejectPodTo(vector pos)
+    local clampedPos = clamp(pos)
 
     if not IsValid(this) or not this:IsVehicle() then return end
     if not isOwner(self.player, this) then return end
@@ -52,5 +52,5 @@ e2function void entity:ejectPodTP(vector pos)
     if not IsValid(driver) or not driver:IsPlayer() then return end
 
     driver:ExitVehicle()
-    driver:SetPos(pos)
+    driver:SetPos(clampedPos)
 end
