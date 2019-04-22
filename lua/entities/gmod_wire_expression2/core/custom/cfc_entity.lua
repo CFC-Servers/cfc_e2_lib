@@ -1,7 +1,6 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 -- E2 Library Includes
-local isOwner = E2Lib.isOwner
 local clamp   = E2Lib.clampPos
 
 --Player Entities
