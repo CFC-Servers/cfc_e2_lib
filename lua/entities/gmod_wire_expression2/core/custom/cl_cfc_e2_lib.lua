@@ -48,6 +48,8 @@ E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desir
 
 -- Number Functions
 E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n,n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+
 
 -- Vector 2 Functions
 E2Helper.Descriptions["exp(xv2,xv2)"]         = "Returns a vector2 with the outcome of raising the x of the first vector 2 to the x of the second and the same for y"

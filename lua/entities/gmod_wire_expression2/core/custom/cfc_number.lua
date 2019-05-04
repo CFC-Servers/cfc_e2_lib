@@ -8,3 +8,10 @@ e2function vector2 number:plusMinus(number otherNum)
             this - otherNum
     }
 end
+
+e2function vector2 plusMinus(number firstNum, number otherNum)
+    return {
+            firstNum + otherNum,
+            firstNum - otherNum
+    }
+end
