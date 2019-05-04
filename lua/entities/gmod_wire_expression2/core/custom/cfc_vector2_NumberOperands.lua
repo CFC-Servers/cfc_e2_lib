@@ -32,6 +32,7 @@ local frexp  = math.frexp
 local log    = math.log
 local log10  = math.log10
 local sqrt   = math.sqrt
+local abs    = math.abs
 
 local floor  = math.floor
 local ceil   = math.ceil
@@ -50,256 +51,97 @@ local sinh   = math.sinh
 local cosh   = math.cosh
 local tanh   = math.tanh
 
-
---[[************************************************************************]]--
---  Numeric support
---[[************************************************************************]]--
-
-registerType("normal", "n", 0,
-	nil,
-	nil,
-	function(retval)
-		if !isnumber(retval) then error("Return value is not a number, but a "..type(retval).."!",0) end
-	end,
-	function(v)
-		return !isnumber(v)
-	end
-)
-
-E2Lib.registerConstant("PI", pi)
-E2Lib.registerConstant("E", exp(1))
-E2Lib.registerConstant("PHI", (1+sqrt(5))/2)
-
---[[************************************************************************]]--
-
-__e2setcost(2)
-
-registerOperator("ass", "n", "n", function(self, args)
-	local op1, op2, scope = args[2], args[3], args[4]
-	local      rv2 = op2[1](self, op2)
-	self.Scopes[scope][op1] = rv2
-	self.Scopes[scope].vclk[op1] = true
-	return rv2
-end)
-
-__e2setcost(1.5)
-
-registerOperator("inc", "n", "", function(self, args)
-	local op1, scope = args[2], args[3]
-	self.Scopes[scope][op1] = self.Scopes[scope][op1] + 1
-	self.Scopes[scope].vclk[op1] = true
-end)
-
-registerOperator("dec", "n", "", function(self, args)
-	local op1, scope = args[2], args[3]
-	self.Scopes[scope][op1] = self.Scopes[scope][op1] - 1
-	self.Scopes[scope].vclk[op1] = true
-end)
-
---[[************************************************************************]]--
-
-__e2setcost(1.5)
-
-registerOperator("eq", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	local rvd      = op1[1](self, op1) - op2[1](self, op2)
-	if rvd <= delta && -rvd <= delta
-	   then return 1 else return 0 end
-end)
-
-registerOperator("neq", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	local rvd      = op1[1](self, op1) - op2[1](self, op2)
-	if rvd > delta || -rvd > delta
-	   then return 1 else return 0 end
-end)
-
-__e2setcost(1.25)
-
-registerOperator("geq", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	local rvd      = op1[1](self, op1) - op2[1](self, op2)
-	if -rvd <= delta
-	   then return 1 else return 0 end
-end)
-
-registerOperator("leq", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-
-	local rvd      = op1[1](self, op1) - op2[1](self, op2)
-	if rvd <= delta
-	   then return 1 else return 0 end
-end)
-
-registerOperator("gth", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	local rvd      = op1[1](self, op1) - op2[1](self, op2)
-	if rvd > delta
-	   then return 1 else return 0 end
-end)
-
-registerOperator("lth", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	local rvd      = op1[1](self, op1) - op2[1](self, op2)
-	if -rvd > delta
-	   then return 1 else return 0 end
-end)
-
---[[************************************************************************]]--
-
-__e2setcost(0.5) -- approximation
-
-registerOperator("neg", "n", "n", function(self, args)
-	local op1 = args[2]
-	return -op1[1](self, op1)
-end)
-
 __e2setcost(1)
 
-registerOperator("add", "nn", "n", function(self, args)
+registerOperator("exp", "xv2xv2", "xv2", function(self, args)
 	local op1, op2 = args[2], args[3]
-	return op1[1](self, op1) + op2[1](self, op2)
+	return {
+		op1[1](self, op1) ^ op2[1](self, op2),
+		op1[2](self, op1) ^ op2[2](self, op2),
+	}
 end)
 
-registerOperator("sub", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	return op1[1](self, op1) - op2[1](self, op2)
-end)
-
-registerOperator("mul", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	return op1[1](self, op1) * op2[1](self, op2)
-end)
-
-registerOperator("div", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	return op1[1](self, op1) / op2[1](self, op2)
-end)
-
-registerOperator("exp", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	return op1[1](self, op1) ^ op2[1](self, op2)
-end)
-
-registerOperator("mod", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	return op1[1](self, op1) % op2[1](self, op2)
-end)
-
---[[************************************************************************]]--
--- TODO: select, average
--- TODO: is the shifting correct for rounding arbitrary decimals?
-
-__e2setcost(1)
-
-registerFunction("min", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	if rv1 < rv2 then return rv1 else return rv2 end
-end)
-
-registerFunction("min", "nnn", "n", function(self, args)
-	local op1, op2, op3 = args[2], args[3], args[4]
-	local rv1, rv2, rv3 = op1[1](self, op1), op2[1](self, op2), op3[1](self, op3)
-	local val
-	if rv1 < rv2 then val = rv1 else val = rv2 end
-	if rv3 < val then return rv3 else return val end
-end)
-
-registerFunction("min", "nnnn", "n", function(self, args)
-	local op1, op2, op3, op4 = args[2], args[3], args[4], args[5]
-	local rv1, rv2, rv3, rv4 = op1[1](self, op1), op2[1](self, op2), op3[1](self, op3), op4[1](self, op4)
-	local val
-	if rv1 < rv2 then val = rv1 else val = rv2 end
-	if rv3 < val then val = rv3 end
-	if rv4 < val then return rv4 else return val end
-end)
-
-registerFunction("max", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	if rv1 > rv2 then return rv1 else return rv2 end
-end)
-
-registerFunction("max", "nnn", "n", function(self, args)
-	local op1, op2, op3 = args[2], args[3], args[4]
-	local rv1, rv2, rv3 = op1[1](self, op1), op2[1](self, op2), op3[1](self, op3)
-	local val
-	if rv1 > rv2 then val = rv1 else val = rv2 end
-	if rv3 > val then return rv3 else return val end
-end)
-
-registerFunction("max", "nnnn", "n", function(self, args)
-	local op1, op2, op3, op4 = args[2], args[3], args[4], args[5]
-	local rv1, rv2, rv3, rv4 = op1[1](self, op1), op2[1](self, op2), op3[1](self, op3), op4[1](self, op4)
-	local val
-	if rv1 > rv2 then val = rv1 else val = rv2 end
-	if rv3 > val then val = rv3 end
-	if rv4 > val then return rv4 else return val end
-end)
-
---[[************************************************************************]]--
 
 __e2setcost(2) -- approximation
 
 --- Returns true (1) if given value is a finite number; otherwise false (0).
-e2function number isfinite(value)
-	return (value > -inf and value < inf) and 1 or 0
+e2function vector2 isfinite(vector2)
+	return {
+		(vector2[1] > -inf and vector2[1] < inf) and 1 or 0,
+		(vector2[2] > -inf and vector2[2] < inf) and 1 or 0
+	}
 end
 
 --- Returns 1 if given value is a positive infinity or -1 if given value is a negative infinity; otherwise 0.
-e2function number isinf(value)
-	if value == inf then return 1 end
-	if value == -inf then return -1 end
-	return 0
+e2function vector2 isinf(vector2)
+	local function numIsInf(number) 
+		if number == inf then return 1 elseif number == -inf then return -1 end
+		return 0 
+	end
+	return {
+		numIsInf(vector2[1]),
+		numIsInf(vector2[2])
+	}
 end
 
 --- Returns true (1) if given value is not a number (NaN); otherwise false (0).
-e2function number isnan(value)
-	return (value ~= value) and 1 or 0
+e2function vector2 isnan(vector2)
+	local function isNaNNum(number)
+		return (value ~= value) and 1 or 0 
+	end
+	return {
+		isNaNNum(vector2[1]),
+		isNaNNum(vector2[2])
+	}
 end
 
 --[[************************************************************************]]--
 
 __e2setcost(2) -- approximation
 
-e2function number abs(value)
-	if value >= 0 then return value else return -value end
+e2function vector2 abs(vector2)
+	return {
+		abs(vector2[1]),
+		abs(vector2[2])
+	}
 end
 
---- rounds towards +inf
-e2function number ceil(rv1)
-	return ceil(rv1)
-end
-
-e2function number ceil(value, decimals)
-	local shf = 10 ^ floor(decimals + 0.5)
-	return ceil(value * shf) / shf
-end
-
---- rounds towards -inf
-e2function number floor(rv1)
-	return floor(rv1)
+e2function vector2 ceil(vector2, v2decimals)
+	local shf1 = 10 ^ floor(v2decimals[1] + 0.5)
+	local shf2 = 10 ^ floor(v2decimals[2] + 0.5)
+	return { 
+		ceil(vector2[1] * shf1) / shf1,
+		ceil(vector2[2] * shf2) / shf2
+	}
 end
 
 e2function number floor(value, decimals)
-	local shf = 10 ^ floor(decimals + 0.5)
-	return floor(value * shf) / shf
-end
-
---- rounds to the nearest integer
-e2function number round(rv1)
-	return floor(rv1 + 0.5)
+	local shf1 = 10 ^ floor(v2decimals[1] + 0.5)
+	local shf2 = 10 ^ floor(v2decimals[2] + 0.5)
+	return { 
+		floor(vector2[1] * shf1) / shf1,
+		floor(vector2[2] * shf2) / shf2
+	}
 end
 
 e2function number round(value, decimals)
-	local shf = 10 ^ floor(decimals + 0.5)
-	return floor(value * shf + 0.5) / shf
+	local shf1 = 10 ^ floor(v2decimals[1] + 0.5)
+	local shf2 = 10 ^ floor(v2decimals[2] + 0.5)
+	return { 
+		floor(vector2[1] * shf1 + 0.5) / shf1,
+		floor(vector2[2] * shf2 + 0.5) / shf2
+	}
 end
 
 --- rounds towards zero
-e2function number int(rv1)
-	if rv1 >= 0 then return floor(rv1) else return ceil(rv1) end
+e2function vector2 int(vector2)
+	local function intNum(number)
+		if rv1 >= 0 then return floor(rv1) else return ceil(rv1) end
+	end
+	return {
+		intNum(vector2[1]),
+		intNum(vector2[2])
+	}
 end
 
 --- returns the fractional part. (frac(-1.5) == 0.5 & frac(3.2) == 0.2)
@@ -665,16 +507,19 @@ end)
 --[[************************************************************************]]--
 
 __e2setcost(15) -- approximation
--- here
+
 
 e2function vector2 toStringV2(vector2 vector)
 	return {
-    tostring(vector[1]),
-    tostring(vector[1])
-  }
+    	tostring(vector[1]),
+    	tostring(vector[2])
+  	}
 end
 
-e2function vector2 number:toStringV2()
-	return tostring(this)
+e2function vector2 vector2:toStringV2()
+	return {
+		tostring(this[1]),
+		tostring(this[2])
+	}
 end
 
