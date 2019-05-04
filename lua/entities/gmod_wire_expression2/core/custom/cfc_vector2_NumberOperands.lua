@@ -1,24 +1,5 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
-Skip to content
- 
-Search or jump to…
-
-Pull requests
-Issues
-Marketplace
-Explore
- 
-@TechnichalDoge 
-62
-340 276 wiremod/wire
- Code  Issues 104  Pull requests 17  Projects 1  Wiki  Insights
-wire/lua/entities/gmod_wire_expression2/core/number.lua
-@AbigailBuccaneer AbigailBuccaneer Remove some dead code around operator$
-14f5991 on Apr 15, 2018
-@TomyLobo @Nebual @Divran @AbigailBuccaneer @CaptainPRICE @Xandaros @haavard @ArcticFqx @syranide
-681 lines (548 sloc)  17.3 KB
-  
 -- these upvalues (locals in an enclosing scope) are faster to access than globals.
 local delta  = wire_expression2_delta
 
@@ -74,9 +55,9 @@ end
 
 --- Returns 1 if given value is a positive infinity or -1 if given value is a negative infinity; otherwise 0.
 e2function vector2 isinf(vector2)
-	local function numIsInf(number) 
+	local function numIsInf(number)
 		if number == inf then return 1 elseif number == -inf then return -1 end
-		return 0 
+		return 0
 	end
 	return {
 		numIsInf(vector2[1]),
@@ -87,7 +68,7 @@ end
 --- Returns true (1) if given value is not a number (NaN); otherwise false (0).
 e2function vector2 isnan(vector2)
 	local function isNaNNum(number)
-		return (value ~= value) and 1 or 0 
+		return (value ~= value) and 1 or 0
 	end
 	return {
 		isNaNNum(vector2[1]),
@@ -109,7 +90,7 @@ end
 e2function vector2 ceil(vector2, v2decimals)
 	local shf1 = 10 ^ floor(v2decimals[1] + 0.5)
 	local shf2 = 10 ^ floor(v2decimals[2] + 0.5)
-	return { 
+	return {
 		ceil(vector2[1] * shf1) / shf1,
 		ceil(vector2[2] * shf2) / shf2
 	}
@@ -118,7 +99,7 @@ end
 e2function number floor(value, decimals)
 	local shf1 = 10 ^ floor(v2decimals[1] + 0.5)
 	local shf2 = 10 ^ floor(v2decimals[2] + 0.5)
-	return { 
+	return {
 		floor(vector2[1] * shf1) / shf1,
 		floor(vector2[2] * shf2) / shf2
 	}
@@ -127,7 +108,7 @@ end
 e2function number round(value, decimals)
 	local shf1 = 10 ^ floor(v2decimals[1] + 0.5)
 	local shf2 = 10 ^ floor(v2decimals[2] + 0.5)
-	return { 
+	return {
 		floor(vector2[1] * shf1 + 0.5) / shf1,
 		floor(vector2[2] * shf2 + 0.5) / shf2
 	}
@@ -522,4 +503,3 @@ e2function vector2 vector2:toStringV2()
 		tostring(this[2])
 	}
 end
-
