@@ -136,22 +136,13 @@ e2function vector2 frac(vector)
 	}
 end
 
--- TODO: what happens with negative modulo?
-registerFunction("mod", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	if rv1 >= 0 then return rv1 % rv2 else return rv1 % -rv2 end
-end)
-
--- TODO: change to a more suitable name? (cyclic modulo?)
---       add helpers for wrap90 wrap180, wrap90r wrap180r? or pointless?
---       wrap90(Pitch), wrap(Pitch, 90)
---       should be added...
-
-registerFunction("wrap", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return (rv1 + rv2) % (rv2 * 2) - rv2
+registerFunction("wrap", "xv2xv2", "xv2", function(self, args)
+	local op1, op2, op3, op4 = args[2][1], args[2][2], args[3][1], args[3][2]
+	local rv1, rv2, rv3, rv4 = op1[1](self, op1), op2[1](self, op2), op3[1](self, op3), op4[1](self, op4)
+	return {
+		(rv1 + rv3) % (rv3 * 2) - rv3,
+		(rv2 + rv4) % (rv4 * 2) - rv4
+	}
 end)
 
 registerFunction("clamp", "nnn", "n", function(self, args)
