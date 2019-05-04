@@ -157,11 +157,6 @@ registerFunction("exp", "xv2", "xv2", function(self, args)
 		exp(rv2)
 	}
 end)
-registerFunction("exp", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return exp(rv1)
-end)
 
 e2function vector2 frexp(x)
 	local mantissa, exponent = frexp(x)
