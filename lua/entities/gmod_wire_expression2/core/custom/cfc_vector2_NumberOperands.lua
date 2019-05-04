@@ -149,45 +149,6 @@ registerFunction("root", "xv2n", "xv2", function(self, args)
 	}
 end)
 
-registerFunction("exp", "xv2", "xv2", function(self, args)
-	local op1, op2 = args[2][1], args[2][2]
-	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return {
-		exp(rv1),
-		exp(rv2)
-	}
-end)
-
-e2function vector2 frexp(x)
-	local mantissa, exponent = frexp(x)
-	return { mantissa, exponent }
-end
-
-registerFunction("ln", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return log(rv1)
-end)
-
-local const_log2 = log(2)
-registerFunction("log2", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return log(rv1) / const_log2
-end)
-
-registerFunction("log10", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return log10(rv1)
-end)
-
-registerFunction("log", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
-	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return log(rv1) / log(rv2)
-end)
-
 --[[************************************************************************]]--
 
 __e2setcost(2) -- approximation
