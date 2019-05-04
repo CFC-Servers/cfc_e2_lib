@@ -165,7 +165,7 @@ registerFunction("toRad", "xv2", "xv2", function(self, args)
 	}
 end)
 
-registerFunction("toDeg", "n", "n", function(self, args)
+registerFunction("toDeg", "xv2", "xv2", function(self, args)
 	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
 	return {
@@ -174,31 +174,40 @@ registerFunction("toDeg", "n", "n", function(self, args)
 	}
 end)
 
-registerFunction("acos", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return acos(rv1) * rad2deg
-end)
-
-registerFunction("asin", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return asin(rv1) * rad2deg
-end)
-
-registerFunction("atan", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return atan(rv1) * rad2deg
-end)
-
-registerFunction("atan", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
+registerFunction("acos", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return atan2(rv1, rv2) * rad2deg
+	return {
+		acos(rv1) * rad2deg,
+		acos(rv2) * rad2deg
+	}
 end)
 
-registerFunction("cos", "n", "n", function(self, args)
+registerFunction("asin", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		asin(rv1) * rad2deg,
+		asin(rv2) * rad2deg
+	}
+end)
+
+registerFunction("atanvec2", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		atan(rv1) * rad2deg,
+		atan(rv2) * rad2deg
+	}
+end)
+
+registerFunction("atan", "xv2", "n", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return atan(rv2/rv1) * rad2deg
+end)
+
+registerFunction("cos", "xv2", "xv2", function(self, args)
 	local op1 = args[2]
 	local rv1 = op1[1](self, op1)
 	return cos(rv1 * deg2rad)
