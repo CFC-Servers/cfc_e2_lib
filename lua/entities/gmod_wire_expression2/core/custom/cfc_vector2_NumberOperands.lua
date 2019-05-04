@@ -145,12 +145,6 @@ registerFunction("wrap", "xv2xv2", "xv2", function(self, args)
 	}
 end)
 
-registerFunction("clamp", "nnn", "n", function(self, args)
-	local op1, op2, op3 = args[2], args[3], args[4]
-	local rv1, rv2, rv3 = op1[1](self, op1), op2[1](self, op2), op3[1](self, op3)
-	if rv1 < rv2 then return rv2 elseif rv1 > rv3 then return rv3 else return rv1 end
-end)
-
 --- Returns 1 if <value> is in the interval [<min>; <max>], 0 otherwise.
 e2function number inrange(value, min, max)
 	if value < min then return 0 end
