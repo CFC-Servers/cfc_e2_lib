@@ -1,0 +1,4 @@
+E2Lib.RegisterExtension( "cfc_e2_lib", true )
+
+E2Lib.registerConstant("True", 1)
+E2Lib.registerConstant("False", 0)
