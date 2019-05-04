@@ -174,7 +174,7 @@ registerFunction("toDeg", "xv2", "xv2", function(self, args)
 	}
 end)
 
-registerFunction("acos", "xv2", "xv2", function(self, args)
+registerFunction("acosvec2", "xv2", "xv2", function(self, args)
 	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
 	return {
@@ -183,13 +183,25 @@ registerFunction("acos", "xv2", "xv2", function(self, args)
 	}
 end)
 
-registerFunction("asin", "xv2", "xv2", function(self, args)
+registerFunction("acos", "xv2", "n", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return acos(rv2/rv1) * rad2deg
+end)
+
+registerFunction("asinvec2", "xv2", "xv2", function(self, args)
 	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
 	return {
 		asin(rv1) * rad2deg,
 		asin(rv2) * rad2deg
 	}
+end)
+
+registerFunction("asin", "xv2", "n", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return asin(rv2/rv1) * rad2deg
 end)
 
 registerFunction("atanvec2", "xv2", "xv2", function(self, args)
@@ -208,171 +220,102 @@ registerFunction("atan", "xv2", "n", function(self, args)
 end)
 
 registerFunction("cos", "xv2", "xv2", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return cos(rv1 * deg2rad)
-end)
-
-registerFunction("sec", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/cos(rv1 * deg2rad)
-end)
-
-registerFunction("sin", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return sin(rv1 * deg2rad)
-end)
-
-registerFunction("csc", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/sin(rv1 * deg2rad)
-end)
-
-registerFunction("tan", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return tan(rv1 * deg2rad)
-end)
-
-registerFunction("cot", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/tan(rv1 * deg2rad)
-end)
-
-registerFunction("cosh", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return cosh(rv1)
-end)
-
-registerFunction("sech", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/cosh(rv1)
-end)
-
-registerFunction("sinh", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return sinh(rv1)
-end)
-
-registerFunction("csch", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/sinh(rv1)
-end)
-
-registerFunction("tanh", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return tanh(rv1)
-end)
-
-registerFunction("coth", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/tanh(rv1)
-end)
-
-registerFunction("acosr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return acos(rv1)
-end)
-
-registerFunction("asinr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return asin(rv1)
-end)
-
-registerFunction("atanr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return atan(rv1)
-end)
-
-registerFunction("atanr", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
+	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return atan2(rv1, rv2)
+	return {
+		cos(rv1 * deg2rad),
+		cos(rv2 * deg2rad)
+	}
 end)
 
-registerFunction("cosr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return cos(rv1)
+registerFunction("sec", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		1/cos(rv1 * deg2rad),
+		1/cos(rv2 * deg2rad)
+	}
 end)
 
-registerFunction("secr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/cos(rv1)
+registerFunction("sin", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		sin(rv1 * deg2rad),
+		sin(rv2 * deg2rad)
+	}
 end)
 
-registerFunction("sinr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return sin(rv1)
+registerFunction("csc", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		1/sin(rv1 * deg2rad),
+		1/sin(rv2 * deg2rad)
+	}
 end)
 
-registerFunction("cscr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/sin(rv1)
+registerFunction("tan", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		tan(rv1 * deg2rad),
+		tan(rv2 * deg2rad)
+	}
 end)
 
-registerFunction("tanr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return tan(rv1)
+registerFunction("cot", "xv2", "xv2" function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		1/tan(rv1 * deg2rad),
+		1/tan(rv2 * deg2rad)
+	}
 end)
 
-registerFunction("cotr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/tan(rv1)
+registerFunction("acosrvec2", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		acos(rv1),
+		acos(rv2)
+	}
 end)
 
-registerFunction("coshr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return cosh(rv1)
+registerFunction("acosr", "xv2", "n", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return acos(rv2/rv1)
 end)
 
-registerFunction("sechr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/cosh(rv1)
+registerFunction("asinrvec2", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		asin(rv1),
+		asin(rv2)
+	}
 end)
 
-registerFunction("sinhr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return sinh(rv1)
+registerFunction("asinr", "xv2", "n", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return asin(rv2/rv1)
 end)
 
-registerFunction("cschr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/sinh(rv1)
+registerFunction("atanrvec2", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		atan(rv1),
+		atan(rv2)
+	}
 end)
 
-registerFunction("tanhr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return tanh(rv1)
-end)
-
-registerFunction("cothr", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return 1/tanh(rv1)
+registerFunction("atanr", "xv2", "n", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return atan(rv2/rv1)
 end)
 
 --[[************************************************************************]]--
