@@ -87,6 +87,5 @@ E2Helper.Descriptions["atanrvec2(xv2)"]       = "Returns a vector2 of the arctan
 E2Helper.Descriptions["acosr(xv2)"]           = "Returns a number of the arccosine of x over the distance of the vector in radians."
 E2Helper.Descriptions["asinr(xv2)"]           = "Returns a number of the arcsine of y over the distance of the vector in radians."
 E2Helper.Descriptions["atanr(xv2)"]           = "Returns a number of the arctangent of y over x in radians. "
-
 E2Helper.Descriptions["toStringV2(xv2)"]      = "Returns a vector2 with the string form of x and the string form of y"
 E2Helper.Descriptions["toStringV2(xv2:)"]      = "Returns a vector2 with the string form of x and the string form of y"
