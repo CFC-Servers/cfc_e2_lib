@@ -87,33 +87,6 @@ e2function vector2 abs(vector2)
 	}
 end
 
-e2function vector2 ceil(vector2, v2decimals)
-	local shf1 = 10 ^ floor(v2decimals[1] + 0.5)
-	local shf2 = 10 ^ floor(v2decimals[2] + 0.5)
-	return {
-		ceil(vector2[1] * shf1) / shf1,
-		ceil(vector2[2] * shf2) / shf2
-	}
-end
-
-e2function number floor(value, decimals)
-	local shf1 = 10 ^ floor(v2decimals[1] + 0.5)
-	local shf2 = 10 ^ floor(v2decimals[2] + 0.5)
-	return {
-		floor(vector2[1] * shf1) / shf1,
-		floor(vector2[2] * shf2) / shf2
-	}
-end
-
-e2function number round(value, decimals)
-	local shf1 = 10 ^ floor(v2decimals[1] + 0.5)
-	local shf2 = 10 ^ floor(v2decimals[2] + 0.5)
-	return {
-		floor(vector2[1] * shf1 + 0.5) / shf1,
-		floor(vector2[2] * shf2 + 0.5) / shf2
-	}
-end
-
 --- rounds towards zero
 e2function vector2 int(vector2)
 	local function intNum(number)
@@ -145,82 +118,45 @@ registerFunction("wrap", "xv2xv2", "xv2", function(self, args)
 	}
 end)
 
---- Returns 1 if <value> is in the interval [<min>; <max>], 0 otherwise.
-e2function number inrange(value, min, max)
-	if value < min then return 0 end
-	if value > max then return 0 end
-	return 1
-end
-
-registerFunction("sign", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	if rv1 > delta then return 1
-	elseif rv1 < -delta then return -1
-	else return 0 end
-end)
-
 --[[************************************************************************]]--
 
 __e2setcost(2) -- approximation
 
-registerFunction("random", "", "n", function(self, args)
-	return random()
-end)
-
-registerFunction("random", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return random() * rv1
-end)
-
-registerFunction("random", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
+registerFunction("sqrt", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return rv1 + random() * (rv2 - rv1)
+	return {
+		rv1 ^ (1 / 2),
+		rv2 ^ (1 / 2)
+	}
 end)
 
-registerFunction("randint", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return random(rv1)
-end)
-
-registerFunction("randint", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
+registerFunction("cbrt", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	local temp = rv1
-	if (rv1 > rv2) then rv1 = rv2 rv2 = temp end
-	return random(rv1, rv2)
+	return {
+		rv1 ^ (1 / 3),
+		rv2 ^ (1 / 3)
+	}
 end)
 
---[[************************************************************************]]--
-
-__e2setcost(2) -- approximation
-
-registerFunction("sqrt", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return rv1 ^ (1 / 2)
+registerFunction("root", "xv2n", "xv2", function(self, args)
+	local op1, op2, op3 = args[2][1], args[2][2], args[3]
+	local rv1, rv2, rv3 = op1[1](self, op1), op2[1](self,op2), op3[1](self, op3)
+	return {
+		rv1 ^ (1 / rv3),
+		rv2 ^ (1 / rv3)
+	}
 end)
 
-registerFunction("cbrt", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return rv1 ^ (1 / 3)
-end)
-
-registerFunction("root", "nn", "n", function(self, args)
-	local op1, op2 = args[2], args[3]
+registerFunction("exp", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return rv1 ^ (1 / rv2)
+	return {
+		exp(rv1),
+		exp(rv2)
+	}
 end)
-
-local const_e = exp(1)
-registerFunction("e", "", "n", function(self, args)
-	return const_e
-end)
-
 registerFunction("exp", "n", "n", function(self, args)
 	local op1 = args[2]
 	local rv1 = op1[1](self, op1)
