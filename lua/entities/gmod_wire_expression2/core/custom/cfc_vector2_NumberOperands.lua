@@ -156,24 +156,22 @@ __e2setcost(2) -- approximation
 local deg2rad = pi / 180
 local rad2deg = 180 / pi
 
-registerFunction("inf", "", "n", function(self, args)
-	return inf
-end)
-
-registerFunction("pi", "", "n", function(self, args)
-	return pi
-end)
-
-registerFunction("toRad", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return rv1 * deg2rad
+registerFunction("toRad", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		rv1 * deg2rad,
+		rv2 * deg2rad
+	}
 end)
 
 registerFunction("toDeg", "n", "n", function(self, args)
-	local op1 = args[2]
-	local rv1 = op1[1](self, op1)
-	return rv1 * rad2deg
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		rv1 * rad2deg,
+		rv2 * rad2deg
+	}
 end)
 
 registerFunction("acos", "n", "n", function(self, args)
