@@ -1,11 +1,11 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
-e2function vector2 number:plusMinus()
-    local size = #this
-    for i = size, 1, -1 do
-        local rand = math.random( size )
-        this[i], this[rand] = this[rand], this[i]
-    end
+__e2setcost(3)
 
-    return this
+e2function vector2 number:plusMinus(number otherNum)
+    local firstNum = this
+    return {
+            firstNum + otherNum,
+            firstNum - otherNum
+    }
 end
