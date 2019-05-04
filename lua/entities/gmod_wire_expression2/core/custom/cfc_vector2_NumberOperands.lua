@@ -186,7 +186,8 @@ end)
 registerFunction("acos", "xv2", "n", function(self, args)
 	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return acos(rv2/rv1) * rad2deg
+	local hypo = sqrt(rv1*rv1+rv2*rv2)
+	return acos(rv1/hypo) * rad2deg
 end)
 
 registerFunction("asinvec2", "xv2", "xv2", function(self, args)
@@ -201,7 +202,8 @@ end)
 registerFunction("asin", "xv2", "n", function(self, args)
 	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return asin(rv2/rv1) * rad2deg
+	local hypo = sqrt(rv1*rv1+rv2*rv2)
+	return acos(rv2/hypo) * rad2deg
 end)
 
 registerFunction("atanvec2", "xv2", "xv2", function(self, args)
@@ -285,7 +287,8 @@ end)
 registerFunction("acosr", "xv2", "n", function(self, args)
 	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return acos(rv2/rv1)
+	local hypo = sqrt(rv1*rv1+rv2*rv2)
+	return acos(rv1/hypo)
 end)
 
 registerFunction("asinrvec2", "xv2", "xv2", function(self, args)
@@ -300,7 +303,8 @@ end)
 registerFunction("asinr", "xv2", "n", function(self, args)
 	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-	return asin(rv2/rv1)
+	local hypo = sqrt(rv1*rv1+rv2*rv2)
+	return acos(rv2/hypo)
 end)
 
 registerFunction("atanrvec2", "xv2", "xv2", function(self, args)
