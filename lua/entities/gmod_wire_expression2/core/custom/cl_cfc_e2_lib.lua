@@ -44,3 +44,7 @@ E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at whi
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+
+-- Number Functions
+E2Helper.Deskcriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
