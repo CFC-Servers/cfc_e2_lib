@@ -47,4 +47,23 @@ E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desir
 
 
 -- Number Functions
-E2Helper.Deskcriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+
+-- Vector 2 Functions
+E2Helper.Descriptions["exp(xv2:xv2)"]         = "Returns a vector2 with the outcome of raising the x of the first vector 2 to the x of the second and the same for y"
+E2Helper.Descriptions["isfinite(xv2)"]        = "Returns a vector2 with the results of testing if the x is finite and the y is finite"
+E2Helper.Descriptions["isinf(xv2)"]           = "Returns a vector2 with the results of testing if the x is infinite and the y is infinite"
+E2Helper.Descriptions["isnan(xv2)"]           = "Returns a vector2 with the results of testing both values in the vector 2 if they are nan"
+E2Helper.Descriptions["abs(xv2)"]             = "Returns a vector2 with the absolute values of the inputted vector 2"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
+E2Helper.Descriptions["plusMinus(n:n)"]       = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
