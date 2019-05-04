@@ -126,8 +126,14 @@ e2function vector2 int(vector2)
 end
 
 --- returns the fractional part. (frac(-1.5) == 0.5 & frac(3.2) == 0.2)
-e2function number frac(rv1)
-	if rv1 >= 0 then return rv1 % 1 else return rv1 % -1 end
+e2function vector2 frac(vector)
+	local function fracnum(number)
+		if rv1 >= 0 then return rv1 % 1 else return rv1 % -1 end
+	end
+	return {
+		fracnum(vector[1]),
+		fracnum(vector[2])
+	}
 end
 
 -- TODO: what happens with negative modulo?
