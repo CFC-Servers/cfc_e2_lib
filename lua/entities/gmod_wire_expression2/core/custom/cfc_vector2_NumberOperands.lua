@@ -275,6 +275,60 @@ registerFunction("cot", "xv2", "xv2" function(self, args)
 	}
 end)
 
+registerFunction("rcos", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		cos(rv1),
+		cos(rv2)
+	}
+end)
+
+registerFunction("rsec", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		1/cos(rv1),
+		1/cos(rv2)
+	}
+end)
+
+registerFunction("rsin", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		sin(rv1),
+		sin(rv2)
+	}
+end)
+
+registerFunction("rcsc", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		1/sin(rv1),
+		1/sin(rv2)
+	}
+end)
+
+registerFunction("rtan", "xv2", "xv2", function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		tan(rv1),
+		tan(rv2)
+	}
+end)
+
+registerFunction("rcot", "xv2", "xv2" function(self, args)
+	local op1, op2 = args[2][1], args[2][2]
+	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+	return {
+		1/tan(rv1),
+		1/tan(rv2)
+	}
+end)
+
 registerFunction("acosrvec2", "xv2", "xv2", function(self, args)
 	local op1, op2 = args[2][1], args[2][2]
 	local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
