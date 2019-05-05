@@ -1,6 +1,5 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
--- Shuffle the indexes in a given array
 e2function array array:shuffled()
     local size = #this -- puts the length of the array into a variable
     for i = size, 1, -1 do -- for all of the indexes down until index 1
