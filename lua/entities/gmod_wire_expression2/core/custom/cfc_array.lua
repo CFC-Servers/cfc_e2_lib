@@ -1,13 +1,13 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
+-- Shuffle the indexes in a given array
 e2function array array:shuffled()
-    local size = #this
-    for i = size, 1, -1 do
-        local rand = math.random( size )
-        this[i], this[rand] = this[rand], this[i]
-    end
-
-    return this
+    local size = #this -- puts the length of the array into a variable
+    for i = size, 1, -1 do -- for all of the indexes down until index 1
+        local rand = math.random( size ) -- generate a random number from 0 to the length of the array
+        this[i], this[rand] = this[rand], this[i] -- replace the index that is i, and replace it with the random index
+    end -- end the for loop
+    return this --return the array
 end
 
 e2function array array:difference(array arrayDiff)
@@ -89,4 +89,3 @@ end
 e2function number array:indexOf(vector4 vec4)
     return indexOfPackedValue( this, vec4 )
 end
-
