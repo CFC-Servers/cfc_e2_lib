@@ -10,9 +10,10 @@ e2function array array:shuffled()
     return this --return the array
 end
 
+-- Whats the difference between array a and array b?
 e2function array array:difference(array arrayDiff)
-    local difference = {}
-    for _, v in pairs( this ) do
+    local difference = {} -- start with an empty table
+    for _, v in pairs( this ) do --
         if !table.KeyFromValue( arrayDiff, v ) then difference[#difference + 1] = v end
     end
 
