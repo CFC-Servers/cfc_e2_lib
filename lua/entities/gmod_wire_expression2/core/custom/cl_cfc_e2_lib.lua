@@ -98,5 +98,6 @@
   E2Helper.Descriptions["polar3DtoGrid3DDeg(n,a)"]  = "Input a distance number and a 3d angle in degrees, and itll give you the vector coords of the point at that angle and distance."
   E2Helper.Descriptions["polar3DtoGrid3DRad(n,a)"]  = "Input a distance number and a 3d angle in degrees, and itll give you the vector coords of the point at that angle and distance."
 
+
 -- You have to be fair sometimes
   E2Helper.Descriptions["e:setFairPos(v)"]          = "Sets an entity (nonplayer)s position, as long as it is in the fair limits. Outputs a 0 for success, 1 for target pos out of bounds, 2 for target entity out of bounds, 3 for target being a player."
