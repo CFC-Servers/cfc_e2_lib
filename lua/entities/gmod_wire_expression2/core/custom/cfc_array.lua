@@ -13,7 +13,7 @@ end
 -- Whats the difference between array a and array b?
 e2function array array:difference(array arrayDiff)
     local difference = {}
-    for _, v in pairs( this ) do --
+    for _, v in pairs( this ) do
         if !table.KeyFromValue( arrayDiff, v ) then difference[#difference + 1] = v end
     end
 
