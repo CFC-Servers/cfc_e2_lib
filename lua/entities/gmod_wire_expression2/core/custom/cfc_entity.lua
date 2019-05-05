@@ -54,7 +54,6 @@ e2function void entity:ejectPodTo(vector pos)
     driver:SetPos(clampedPos)
 end
 
--- Easy way to have some of the setPos benefits without mostly being able to be abused.
 e2function number entity:setFairPos(vector pos)
     if this:IsPlayer() then return 4 end -- Debug output 4 if the target is a player, because we dont want someone tping themselves around the e2 or any other player.
     local CFCMaxFairSetDist = GetConVar("CFC_Lib_MaxFairSetDistance"):GetFloat()
