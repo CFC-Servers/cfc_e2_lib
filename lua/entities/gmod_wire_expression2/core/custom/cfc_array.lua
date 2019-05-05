@@ -1,12 +1,12 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 e2function array array:shuffled()
-    local size = #this -- puts the length of the array into a variable
+    local size = #this
     for i = size, 1, -1 do -- for all of the indexes down until index 1
         local rand = math.random( size ) -- generate a random number from 0 to the length of the array
         this[i], this[rand] = this[rand], this[i] -- replace the index that is i, and replace it with the random index
-    end -- end the for loop
-    return this --return the array
+    end
+    return this
 end
 
 -- Whats the difference between array a and array b?
