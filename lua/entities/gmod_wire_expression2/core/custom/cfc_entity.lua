@@ -54,10 +54,10 @@ e2function void entity:ejectPodTo(vector pos)
     driver:SetPos(clampedPos)
 end
 
-e2function number entity:setFairPos(vector pos)
+e2function number entity:setFairPos(vector target)
     if this:IsPlayer() then return 4 end -- Debug output 4 if the target is a player, because we dont want someone tping themselves around the e2 or any other player.
     local CFCMaxFairSetDist = GetConVar("CFC_Lib_MaxFairSetDistance"):GetFloat()
-    local posToLoc = pos - self:GetPos() -- distance to the wanted position
+    local posToLoc = target - self:GetPos() -- distance to the wanted position
     local lengthPos = posToLoc[1]^2 + posToLoc[2]^2 + posToLoc[3]^2 -- we dont need to do the square root on this, itll just waste time and resources
 
     local entB4PosLoc = this:GetPos() - self:GetPos() -- get distance to target entity
@@ -67,5 +67,5 @@ e2function number entity:setFairPos(vector pos)
     if entLength >= CFCMaxFairSetDist^2 then return 3 end -- Debug output 3 if the target entity pos is out of bounds and end
 
     return 1 --passed all tests, debug 1 for success and move on
-    this:setPos(pos) -- set the pos and end it
+    this:setPos(target) -- set the pos and end it
 end
