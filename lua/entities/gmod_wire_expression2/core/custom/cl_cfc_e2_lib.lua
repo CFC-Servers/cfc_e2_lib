@@ -93,7 +93,7 @@
   E2Helper.Descriptions["toStringV2(xv2:)"]         = "Returns a vector2 with the string form of x and the string form of y"
 
 -- Geometry / Trigonometry
-  E2Helper.Descriptions["polar2DtoGrid2DDeg(n,n)"]  = "Input a distance number and a number angle in degrees, and it'll give you the vector 2 coords of the point at that angle and distance."
-  E2Helper.Descriptions["polar2DtoGrid2DRad(n,n)"]  = "Input a distance number and a number angle in radians, and it'll give you the vector 2 coords of the point at that angle and distance."
-  E2Helper.Descriptions["polar3DtoGrid3DDeg(n,a)"]  = "Input a distance number and a 3d angle in degrees, and it'll give you the vector coords of the point at that angle and distance."
-  E2Helper.Descriptions["polar3DtoGrid3DRad(n,a)"]  = "Input a distance number and a 3d angle in degrees, and it'll give you the vector coords of the point at that angle and distance."
+  E2Helper.Descriptions["polar2DtoGrid2DDeg(n,n)"]  = "Input a distance number and a number angle in degrees, and itll give you the vector 2 coords of the point at that angle and distance."
+  E2Helper.Descriptions["polar2DtoGrid2DRad(n,n)"]  = "Input a distance number and a number angle in radians, and itll give you the vector 2 coords of the point at that angle and distance."
+  E2Helper.Descriptions["polar3DtoGrid3DDeg(n,a)"]  = "Input a distance number and a 3d angle in degrees, and itll give you the vector coords of the point at that angle and distance."
+  E2Helper.Descriptions["polar3DtoGrid3DRad(n,a)"]  = "Input a distance number and a 3d angle in degrees, and itll give you the vector coords of the point at that angle and distance."
