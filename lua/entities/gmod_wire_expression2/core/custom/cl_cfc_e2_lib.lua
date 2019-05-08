@@ -45,12 +45,6 @@
 -- Vehicle Functions
   E2Helper.Descriptions["ejectPodTo(e:v)"]          = "Ejects driver of seat to desired location."
 
-
--- Number Functions
-  E2Helper.Descriptions["plusMinus(n:n)"]           = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
-  E2Helper.Descriptions["plusMinus(n,n)"]           = "Returns a vector2 with the outcomes of subtracting and adding two numbers"
-
-
 -- Vector 2 Functions
   E2Helper.Descriptions["exp(xv2,xv2)"]             = "Returns a vector2 with the outcome of raising the x of the first vector 2 to the x of the second and the same for y"
   E2Helper.Descriptions["isfinite(xv2)"]            = "Returns a vector2 with the results of testing if the x is finite and the y is finite"
@@ -91,13 +85,3 @@
   E2Helper.Descriptions["atanr(xv2)"]               = "Returns a number of the arctangent of y over x in radians. "
   E2Helper.Descriptions["toStringV2(xv2)"]          = "Returns a vector2 with the string form of x and the string form of y"
   E2Helper.Descriptions["toStringV2(xv2:)"]         = "Returns a vector2 with the string form of x and the string form of y"
-
--- Geometry / Trigonometry
-  E2Helper.Descriptions["polar2DtoGrid2DDeg(n,n)"]  = "Input a distance number and a number angle in degrees, and itll give you the vector 2 coords of the point at that angle and distance."
-  E2Helper.Descriptions["polar2DtoGrid2DRad(n,n)"]  = "Input a distance number and a number angle in radians, and itll give you the vector 2 coords of the point at that angle and distance."
-  E2Helper.Descriptions["polar3DtoGrid3DDeg(n,a)"]  = "Input a distance number and a 3d angle in degrees, and itll give you the vector coords of the point at that angle and distance."
-  E2Helper.Descriptions["polar3DtoGrid3DRad(n,a)"]  = "Input a distance number and a 3d angle in degrees, and itll give you the vector coords of the point at that angle and distance."
-
-
--- You have to be fair sometimes
-  E2Helper.Descriptions["e:setFairPos(v)"]          = "Sets an entity (nonplayer)s position, as long as it is in the fair limits. Outputs a 0 for success, 1 for target pos out of bounds, 2 for target entity out of bounds, 3 for target being a player."
