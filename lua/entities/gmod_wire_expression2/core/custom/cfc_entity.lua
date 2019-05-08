@@ -55,12 +55,12 @@ e2function void entity:ejectPodTo(vector pos)
 end
 
 e2function number entity:setFairPos(vector target)
-    if this:IsPlayer() then return 4 end -- Debug output 4 if the target is a player, because we dont want someone tping themselves around the e2 or any other player.
+    if this:IsPlayer() then return 4 end -- Debug output 4 if the target is a player
     local CFCMaxFairSetDist = GetConVar("CFC_Lib_MaxFairSetDistance"):GetFloat()
-    local posToLoc = target - self:GetPos() -- distance to the wanted position
-    local lengthPos = posToLoc[1]^2 + posToLoc[2]^2 + posToLoc[3]^2 -- we dont need to do the square root on this, itll just waste time and resources
+    local posToLoc = target - self:GetPos() -- Localized the position of the target to the e2
+    local lengthPos = posToLoc[1]^2 + posToLoc[2]^2 + posToLoc[3]^2 -- this uses 3d pythagorean therom, but doesnt square root the end result, as that would just waste time when we could square the convar
 
-    local entB4PosLoc = this:GetPos() - self:GetPos() -- get distance to target entity
+    local entB4PosLoc = this:GetPos() - self:GetPos() -- Localizes the target entity
     local entLength = entB4PosLoc[1]^2 + entB4PosLoc[2]^2 + entB4PosLoc[3]^2 -- we dont need to do the square root on this, itll just waste time and resources
 
     if lengthPos >= CFCMaxFairSetDist^2 then return 2 end -- Debug output 2 if the wanted pos is out of bounds and end
