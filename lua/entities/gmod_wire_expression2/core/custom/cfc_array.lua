@@ -2,14 +2,14 @@ E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 e2function array array:shuffled()
     local size = #this
-    for i = size, 1, -1 do -- for all of the indexes down until index 1
-        local rand = math.random( size ) -- generate a random number from 0 to the length of the array
-        this[i], this[rand] = this[rand], this[i] -- replace the index that is i, and replace it with the random index
+    for i = size, 1, -1 do
+        local rand = math.random( size )
+        this[i], this[rand] = this[rand], this[i]
     end
+
     return this
 end
 
--- Whats the difference between array a and array b?
 e2function array array:difference(array arrayDiff)
     local difference = {}
     for _, v in pairs( this ) do
@@ -89,3 +89,4 @@ end
 e2function number array:indexOf(vector4 vec4)
     return indexOfPackedValue( this, vec4 )
 end
+
