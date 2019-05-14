@@ -51,7 +51,8 @@ end
 --- Returns 1 if given value is a positive infinity or -1 if given value is a negative infinity; otherwise 0.
 e2function vector2 isinf(vector2)
     local function numIsInf(number)
-        if number == inf then return 1 elseif number == -inf then return -1 end
+        if number == inf then return 1 end
+        if number == -inf then return -1 end
         return 0
     end
     return {
