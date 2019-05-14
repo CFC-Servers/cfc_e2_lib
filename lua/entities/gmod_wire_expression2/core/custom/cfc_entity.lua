@@ -66,6 +66,6 @@ e2function number entity:setFairPos(vector target)
     if lengthPos >= CFCMaxFairSetDist^2 then return -1 end -- Debug output -1 if the wanted pos is out of bounds and end
     if entLength >= CFCMaxFairSetDist^2 then return -2 end -- Debug output -2 if the target entity pos is out of bounds and end
 
-    return 1 --passed all tests, debug 1 for success and move on
     this:setPos(target) -- set the pos and end it
+    return 1 --passed all tests, debug 1 for success
 end
