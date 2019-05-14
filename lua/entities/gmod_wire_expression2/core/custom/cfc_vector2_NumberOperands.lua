@@ -372,20 +372,3 @@ registerFunction("atanr", "xv2", "n", function(self, args)
 end)
 
 --[[************************************************************************]]--
-
-__e2setcost(15) -- approximation
-
-
-e2function vector2 toStringV2(vector2 vector)
-    return {
-        tostring(vector[1]),
-        tostring(vector[2])
-      }
-end
-
-e2function vector2 vector2:toStringV2()
-    return {
-        tostring(this[1]),
-        tostring(this[2])
-    }
-end
