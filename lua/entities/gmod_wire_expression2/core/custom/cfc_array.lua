@@ -94,16 +94,16 @@ e2function number array:indexOf(vector4 vec4)
     return indexOfPackedValue( this, vec4 )
 end
 
-registerFunction( "first", "r:", id, function(self,args)
-    local op1 = args[2]
-    local array = op1[1](self,op1)
+registerFunction( "first", "r:", id, function(self,arguments)
+    local inputedArray = arguments[2]
+    local array = inputedArray[1](self,inputedArray)
     if (!array) then return fixdef( default ) end
     return getter( self, array, 1, false )
 end) --https://github.com/wiremod/wire/blob/master/lua/entities/gmod_wire_expression2/core/array.lua#L234 https://github.com/wiremod/wire/blob/master/lua/entities/gmod_wire_expression2/core/array.lua#L141
 
-registerFunction( "last", "r:", id, function(self,args)
-    local op1 = args[2]
-    local array = op1[1](self,op1)
+registerFunction( "last", "r:", id, function(self,arguments)
+    local inputedArray = arguments[2]
+    local array = inputedArray[1](self,inputedArray)
     if (!array) then return fixdef( default ) end
     return getter( self, array, #array, false )
 end) --https://github.com/wiremod/wire/blob/master/lua/entities/gmod_wire_expression2/core/array.lua#L234 https://github.com/wiremod/wire/blob/master/lua/entities/gmod_wire_expression2/core/array.lua#L141
