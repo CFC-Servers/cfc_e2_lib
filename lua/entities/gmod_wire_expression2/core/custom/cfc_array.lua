@@ -3,7 +3,7 @@ E2Lib.RegisterExtension( "cfc_e2_lib", true )
 e2function array array:shuffled()
     local size = #this
     for i = size, 1, -1 do
-        local rand = math.random( size )
+    local rand = math.random( size )
         this[i], this[rand] = this[rand], this[i]
     end
 
@@ -95,15 +95,15 @@ e2function number array:indexOf(vector4 vec4)
 end
 
 registerFunction( "first", "r:", id, function(self,args)
-  local op1 = args[2]
-  local array = op1[1](self,op1)
-  if (!array) then return fixdef( default ) end
-  return getter( self, array, 1, false )
+    local op1 = args[2]
+    local array = op1[1](self,op1)
+    if (!array) then return fixdef( default ) end
+    return getter( self, array, 1, false )
 end) --https://github.com/wiremod/wire/blob/master/lua/entities/gmod_wire_expression2/core/array.lua#L234 https://github.com/wiremod/wire/blob/master/lua/entities/gmod_wire_expression2/core/array.lua#L141
 
 registerFunction( "last", "r:", id, function(self,args)
-  local op1 = args[2]
-  local array = op1[1](self,op1)
-  if (!array) then return fixdef( default ) end
-  return getter( self, array, #array, false )
+    local op1 = args[2]
+    local array = op1[1](self,op1)
+    if (!array) then return fixdef( default ) end
+    return getter( self, array, #array, false )
 end) --https://github.com/wiremod/wire/blob/master/lua/entities/gmod_wire_expression2/core/array.lua#L234 https://github.com/wiremod/wire/blob/master/lua/entities/gmod_wire_expression2/core/array.lua#L141
