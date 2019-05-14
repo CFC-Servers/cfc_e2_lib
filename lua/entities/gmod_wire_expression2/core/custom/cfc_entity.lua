@@ -56,15 +56,15 @@ end
 
 e2function number entity:setFairPos(vector target)
     if this:IsPlayer() then return -3 end -- Debug output -3 if the target is a player
-    local CFCMaxFairSetDist = GetConVar("CFC_Lib_MaxFairSetDistance"):GetFloat()
+    local MaxFairDistance = GetConVar("MaxFairDistance"):GetFloat()
     local posToLoc = target - self:GetPos() -- Localized the position of the target to the e2
     local lengthPos = posToLoc[1]^2 + posToLoc[2]^2 + posToLoc[3]^2 -- this uses 3d pythagorean therom, but doesnt square root the end result, as that would just waste time when we could square the convar, which would use less power to calculate
 
     local entB4PosLoc = this:GetPos() - self:GetPos() -- Localizes the target entity
     local entLength = entB4PosLoc[1]^2 + entB4PosLoc[2]^2 + entB4PosLoc[3]^2 -- we dont need to do the square root on this, itll just waste time and resources
 
-    if lengthPos >= CFCMaxFairSetDist^2 then return -1 end -- Debug output -1 if the wanted pos is out of bounds and end
-    if entLength >= CFCMaxFairSetDist^2 then return -2 end -- Debug output -2 if the target entity pos is out of bounds and end
+    if lengthPos >= MaxFairDistance^2 then return -1 end -- Debug output -1 if the wanted pos is out of bounds and end
+    if entLength >= MaxFairDistance^2 then return -2 end -- Debug output -2 if the target entity pos is out of bounds and end
 
     this:setPos(target) -- set the pos and end it
     return 1 --passed all tests, debug 1 for success
