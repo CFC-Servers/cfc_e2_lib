@@ -26,11 +26,6 @@ local tan    = math.tan
 local acos   = math.acos
 local asin   = math.asin
 local atan   = math.atan
-local atan2  = math.atan2
-
-local sinh   = math.sinh
-local cosh   = math.cosh
-local tanh   = math.tanh
 
 __e2setcost(1)
 
