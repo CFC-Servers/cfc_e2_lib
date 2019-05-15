@@ -38,3 +38,6 @@ e2function number string:isLower()
     if this == string.lower( this ) then return 1 end
     return 0
 end
+e2function string alphabet()
+	return "abcdefghijklmnopqrstuvwxyz"
+end
