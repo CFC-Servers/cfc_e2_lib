@@ -39,5 +39,5 @@ e2function number string:isLower()
     return 0
 end
 e2function string alphabet()
-	return "abcdefghijklmnopqrstuvwxyz"
+    return "abcdefghijklmnopqrstuvwxyz"
 end
