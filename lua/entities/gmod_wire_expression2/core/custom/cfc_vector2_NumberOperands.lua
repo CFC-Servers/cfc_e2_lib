@@ -105,14 +105,12 @@ e2function vector2 frac(vector)
     }
 end
 
-registerFunction("wrap", "xv2xv2", "xv2", function(self, args)
-    local op1, op2, op3, op4 = args[2][1], args[2][2], args[3][1], args[3][2]
-    local rv1, rv2, rv3, rv4 = op1[1](self, op1), op2[1](self, op2), op3[1](self, op3), op4[1](self, op4)
+e2function vector2 vector2:wrap(vector2 wrapby)
     return {
-        (rv1 + rv3) % (rv3 * 2) - rv3,
-        (rv2 + rv4) % (rv4 * 2) - rv4
+        (this[1] + wrapby[1]) % (wrapby[1] * 2) - wrapby[1],
+        (this[2] + wrapby[2]) % (wrapby[2] * 2) - wrapby[2]
     }
-end)
+end)           
 
 --[[************************************************************************]]--
 
