@@ -1,5 +1,8 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
+local sin    = math.sin
+local cos    = math.cos
+
 __e2setcost(4) --arbitrary
 
 local deg2rad = pi / 180
