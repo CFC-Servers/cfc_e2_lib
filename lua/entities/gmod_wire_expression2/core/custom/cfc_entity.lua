@@ -53,7 +53,7 @@ e2function entity:propIgnite(duration)
         if not this:CPPIGetOwner() == self.player then return end
     end
     
-    this:Ignite(time,0)
+    this:Ignite(duration,0)
 end
 
 -- Vehicle Entities
