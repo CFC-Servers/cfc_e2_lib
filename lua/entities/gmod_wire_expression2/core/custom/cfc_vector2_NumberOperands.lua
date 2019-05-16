@@ -41,34 +41,62 @@ end)
 __e2setcost(2) -- approximation
 
 --- Returns true (1) if given value is a finite number; otherwise false (0).
-e2function vector2 isfinite(vector2)
+e2function vector2 isfinite(vector2 vectah)
     return {
-        (vector2[1] > -inf and vector2[1] < inf) and 1 or 0,
-        (vector2[2] > -inf and vector2[2] < inf) and 1 or 0
+        (vectah[1] > -inf and vectah[1] < inf) and 1 or 0,
+        (vectah[2] > -inf and vectah[2] < inf) and 1 or 0
+    }
+end
+
+e2function vector2 vector2:isfinite()
+    return {
+        (this[1] > -inf and this[1] < inf) and 1 or 0,
+        (this[2] > -inf and this[2] < inf) and 1 or 0
     }
 end
 
 --- Returns 1 if given value is a positive infinity or -1 if given value is a negative infinity; otherwise 0.
-e2function vector2 isinf(vector2)
+e2function vector2 isinf(vector2 vectah)
     local function numIsInf(number)
         if number == inf then return 1 end
         if number == -inf then return -1 end
         return 0
     end
     return {
-        numIsInf(vector2[1]),
-        numIsInf(vector2[2])
+        numIsInf(vectah[1]),
+        numIsInf(vectah[2])
+    }
+end
+
+e2function vector2 vector2:isinf()
+    local function numIsInf(number)
+        if number == inf then return 1 end
+        if number == -inf then return -1 end
+        return 0
+    end
+    return {
+        numIsInf(this[1]),
+        numIsInf(this[2])
     }
 end
 
 --- Returns true (1) if given value is not a number (NaN); otherwise false (0).
-e2function vector2 isnan(vector2)
+e2function vector2 isnan(vector2 vectah)
     local function isNaNNum(number)
         return (value ~= value) and 1 or 0
     end
     return {
-        isNaNNum(vector2[1]),
-        isNaNNum(vector2[2])
+        isNaNNum(vectah[1]),
+        isNaNNum(vectah[2])
+    }
+end
+e2function vector2 vector2:isnan()
+    local function isNaNNum(number)
+        return (value ~= value) and 1 or 0
+    end
+    return {
+        isNaNNum(this[1]),
+        isNaNNum(this[2])
     }
 end
 
@@ -76,32 +104,57 @@ end
 
 __e2setcost(2) -- approximation
 
-e2function vector2 abs(vector2)
+e2function vector2 abs(vector2 vectah)
     return {
-        abs(vector2[1]),
-        abs(vector2[2])
+        abs(vectah[1]),
+        abs(vectah[2])
+    }
+end
+e2function vector2 vector2:abs()
+    return {
+        abs(this[1]),
+        abs(this[2])
     }
 end
 
 --- rounds towards zero
-e2function vector2 int(vector2)
+e2function vector2 int(vector2 vectah)
     local function intNum(number)
         if rv1 >= 0 then return floor(rv1) else return ceil(rv1) end
     end
     return {
-        intNum(vector2[1]),
-        intNum(vector2[2])
+        intNum(vectah[1]),
+        intNum(vectah[2])
+    }
+end
+e2function vector2 vector2:int()
+    local function intNum(number)
+        if rv1 >= 0 then return floor(rv1) else return ceil(rv1) end
+    end
+    return {
+        intNum(this[1]),
+        intNum(this[2])
     }
 end
 
 --- returns the fractional part. (frac(-1.5) == 0.5 & frac(3.2) == 0.2)
-e2function vector2 frac(vector)
+e2function vector2 frac(vector2 vectah)
     local function fracnum(number)
         if rv1 >= 0 then return rv1 % 1 else return rv1 % -1 end
     end
     return {
-        fracnum(vector[1]),
-        fracnum(vector[2])
+        fracnum(vectah[1]),
+        fracnum(vectah[2])
+    }
+end
+
+e2function vector2 vector2:frac(vector2)
+    local function fracnum(number)
+        if rv1 >= 0 then return rv1 % 1 else return rv1 % -1 end
+    end
+    return {
+        fracnum(this[1]),
+        fracnum(this[2])
     }
 end
 
@@ -110,20 +163,31 @@ e2function vector2 vector2:wrap(vector2 wrapby)
         (this[1] + wrapby[1]) % (wrapby[1] * 2) - wrapby[1],
         (this[2] + wrapby[2]) % (wrapby[2] * 2) - wrapby[2]
     }
-end)           
+end
+
+e2function vector2 wrap(vector2 wrapped, vector2 wrapby)
+    return {
+        (wrapped[1] + wrapby[1]) % (wrapby[1] * 2) - wrapby[1],
+        (wrapped[2] + wrapby[2]) % (wrapby[2] * 2) - wrapby[2]
+    }
+end
 
 --[[************************************************************************]]--
 
 __e2setcost(2) -- approximation
 
-registerFunction("sqrt", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 sqrt(vector2 vectah)
     return {
-        rv1 ^ (1 / 2),
-        rv2 ^ (1 / 2)
+        vectah[1] ^ (1 / 2),
+        vectah[2] ^ (1 / 2)
     }
-end)
+end
+e2function vector2 vector2:sqrt()
+    return {
+        this[1] ^ (1 / 2),
+        this[2] ^ (1 / 2)
+    }
+end
 
 registerFunction("cbrt", "xv2", "xv2", function(self, args)
     local op1, op2 = args[2][1], args[2][2]
