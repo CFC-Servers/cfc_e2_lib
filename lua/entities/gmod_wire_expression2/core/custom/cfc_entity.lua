@@ -40,6 +40,22 @@ e2function number entity:isInFaction()
     return this:IsInFaction()
 end
 
+local whitelist = {
+    ["prop_physics"] = true
+}
+e2function entity:propIgnite(duration)
+    duration = duration or 30
+    if not IsValid(this) then return end
+    
+    if not whitelist[this:GetClass()] then return end
+    
+    if not this.player:IsSuperAdmin() then --admins can do what they want
+        if not this:CPPIGetOwner() == self.player then return end
+    end
+    
+    this:Ignite(time,0)
+end
+
 -- Vehicle Entities
 e2function void entity:ejectPodTo(vector pos)
     local clampedPos = clamp(pos)
