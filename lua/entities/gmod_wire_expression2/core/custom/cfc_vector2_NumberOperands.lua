@@ -27,17 +27,6 @@ local acos   = math.acos
 local asin   = math.asin
 local atan   = math.atan
 
-__e2setcost(1)
-
-registerOperator("exp", "xv2xv2", "xv2", function(self, args)
-    local op1, op2 = args[2], args[3]
-    return {
-        op1[1](self, op1) ^ op2[1](self, op2),
-        op1[2](self, op1) ^ op2[2](self, op2),
-    }
-end)
-
-
 __e2setcost(2) -- approximation
 
 --- Returns true (1) if given value is a finite number; otherwise false (0).
