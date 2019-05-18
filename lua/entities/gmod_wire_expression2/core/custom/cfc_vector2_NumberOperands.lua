@@ -148,7 +148,7 @@ e2function vector2 frac(vector2 vectah)
     }
 end
 
-e2function vector2 vector2:frac(vector2)
+e2function vector2 vector2:frac()
     local function fracnum(number)
         if rv1 >= 0 then return rv1 % 1 else return rv1 % -1 end
     end
