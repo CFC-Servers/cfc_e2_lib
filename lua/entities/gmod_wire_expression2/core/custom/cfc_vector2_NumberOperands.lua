@@ -189,23 +189,44 @@ e2function vector2 vector2:sqrt()
     }
 end
 
-registerFunction("cbrt", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 cbrt(vector2 vectah)
     return {
-        rv1 ^ (1 / 3),
-        rv2 ^ (1 / 3)
+        vectah[1] ^ (1 / 3),
+        vectah[2] ^ (1 / 3)
     }
-end)
+end
+e2function vector2 vector2:cbrt()
+    return {
+        this[1] ^ (1 / 3),
+        this[2] ^ (1 / 3)
+    }
+end
 
-registerFunction("root", "xv2n", "xv2", function(self, args)
-    local op1, op2, op3 = args[2][1], args[2][2], args[3]
-    local rv1, rv2, rv3 = op1[1](self, op1), op2[1](self,op2), op3[1](self, op3)
+e2function vector2 root(vector2 vectah, number num)
     return {
-        rv1 ^ (1 / rv3),
-        rv2 ^ (1 / rv3)
+        vectah[1] ^ (1 / num),
+        vectah[2] ^ (1 / num)
     }
-end)
+end
+e2function vector2 vector2:root(number num)
+    return {
+        this[1] ^ (1 / num),
+        this[2] ^ (1 / num)
+    }
+end
+
+e2function vector2 root2(vector2 vectah, vector2 vecta)
+    return {
+        vectah[1] ^ (1 / vecta[1]),
+        vectah[2] ^ (1 / vecta[2])
+    }
+end
+e2function vector2 vector2:root2(vector2 vecta)
+    return {
+        this[1] ^ (1 / vecta[1]),
+        this[2] ^ (1 / vecta[2])
+    }
+end
 
 --[[************************************************************************]]--
 
