@@ -338,150 +338,211 @@ e2function vector2 vector2:cos()
     }
 end
 
-registerFunction("sec", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 sec(vector2 vectah)
     return {
-        1/cos(rv1 * deg2rad),
-        1/cos(rv2 * deg2rad)
+        1/cos(vectah[1]*deg2rad),
+        1/cos(vectah[2]*deg2rad)
     }
-end)
-
-registerFunction("sin", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+end
+e2function vector2 vector2:sec()
     return {
-        sin(rv1 * deg2rad),
-        sin(rv2 * deg2rad)
+        1/cos(this[1]*deg2rad),
+        1/cos(this[2]*deg2rad)
     }
-end)
+end
 
-registerFunction("csc", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 sin(vector2 vectah)
     return {
-        1/sin(rv1 * deg2rad),
-        1/sin(rv2 * deg2rad)
+        sin(vectah[1]*deg2rad),
+        sin(vectah[2]*deg2rad)
     }
-end)
-
-registerFunction("tan", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+end
+e2function vector2 vector2:sin()
     return {
-        tan(rv1 * deg2rad),
-        tan(rv2 * deg2rad)
+        sin(this[1]*deg2rad),
+        sin(this[2]*deg2rad)
     }
-end)
+end
 
-registerFunction("cot", "xv2", "xv2" function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 csc(vector2 vectah)
     return {
-        1/tan(rv1 * deg2rad),
-        1/tan(rv2 * deg2rad)
+        1/sin(vectah[1]*deg2rad),
+        1/sin(vectah[2]*deg2rad)
     }
-end)
-
-registerFunction("rcos", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+end
+e2function vector2 vector2:csc()
     return {
-        cos(rv1),
-        cos(rv2)
+        1/sin(this[1]*deg2rad),
+        1/sin(this[2]*deg2rad)
     }
-end)
+end
 
-registerFunction("rsec", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 tan(vector2 vectah)
     return {
-        1/cos(rv1),
-        1/cos(rv2)
+        tan(vectah[1]*deg2rad),
+        tan(vectah[2]*deg2rad)
     }
-end)
-
-registerFunction("rsin", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+end
+e2function vector2 vector2:tan()
     return {
-        sin(rv1),
-        sin(rv2)
+        tan(this[1]*deg2rad),
+        tan(this[2]*deg2rad)
     }
-end)
+end
 
-registerFunction("rcsc", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 cot(vector2 vectah)
     return {
-        1/sin(rv1),
-        1/sin(rv2)
+        1/tan(vectah[1]*deg2rad),
+        1/tan(vectah[2]*deg2rad)
     }
-end)
-
-registerFunction("rtan", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+end
+e2function vector2 vector2:cot()
     return {
-        tan(rv1),
-        tan(rv2)
+        1/tan(this[1]*deg2rad),
+        1/tan(this[2]*deg2rad)
     }
-end)
+end
 
-registerFunction("rcot", "xv2", "xv2" function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 rcos(vector2 vectah)
     return {
-        1/tan(rv1),
-        1/tan(rv2)
+        cos(vectah[1]),
+        cos(vectah[2])
     }
-end)
-
-registerFunction("acosrvec2", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+end
+e2function vector2 vector2:rcos()
     return {
-        acos(rv1),
-        acos(rv2)
+        cos(this[1]),
+        cos(this[2])
     }
-end)
+end
 
-registerFunction("acosr", "xv2", "n", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-    local hypo = sqrt(rv1*rv1+rv2*rv2)
-    return acos(rv1/hypo)
-end)
-
-registerFunction("asinrvec2", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 rsec(vector2 vectah)
     return {
-        asin(rv1),
-        asin(rv2)
+        1/cos(vectah[1]),
+        1/cos(vectah[2])
     }
-end)
-
-registerFunction("asinr", "xv2", "n", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-    local hypo = sqrt(rv1*rv1+rv2*rv2)
-    return acos(rv2/hypo)
-end)
-
-registerFunction("atanrvec2", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+end
+e2function vector2 vector2:rsec()
     return {
-        atan(rv1),
-        atan(rv2)
+        1/cos(this[1]),
+        1/cos(this[2])
     }
-end)
+end
 
-registerFunction("atanr", "xv2", "n", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-    return atan(rv2/rv1)
-end)
+e2function vector2 rsin(vector2 vectah)
+    return {
+        sin(vectah[1]),
+        sin(vectah[2])
+    }
+end
+e2function vector2 vector2:rsin()
+    return {
+        sin(this[1]),
+        sin(this[2])
+    }
+end
 
---[[************************************************************************]]--
+e2function vector2 rcsc(vector2 vectah)
+    return {
+        1/sin(vectah[1]),
+        1/sin(vectah[2])
+    }
+end
+e2function vector2 vector2:rcsc()
+    return {
+        1/sin(this[1]),
+        1/sin(this[2])
+    }
+end
+
+e2function vector2 rtan(vector2 vectah)
+    return {
+        tan(vectah[1]),
+        tan(vectah[2])
+    }
+end
+e2function vector2 vector2:rtan()
+    return {
+        tan(this[1]),
+        tan(this[2])
+    }
+end
+
+e2function vector2 rcot(vector2 vectah)
+    return {
+        1/tan(vectah[1]),
+        1/tan(vectah[2])
+    }
+end
+e2function vector2 vector2:rcot()
+    return {
+        1/tan(this[1]),
+        1/tan(this[2])
+    }
+end
+
+e2function vector2 acosrvec2(vector2 vectah)
+    return {
+        acos(vectah[1]),
+        acos(vectah[2])
+    }
+end
+e2function vector2 vector2:acosrvec2()
+    return {
+        acos(this[1]),
+        acos(this[2])
+    }
+end
+
+e2function number acosr(vector2 vectah)
+    local hypo = sqrt(vectah[1]^2+vectah[2]^2)
+    return acos(vectah[1]/hypo)
+end
+e2function number vector2:acosr()
+    local hypo = sqrt(this[1]^2+this[2]^2)
+    return acos(this[1]/hypo)
+end
+
+e2function vector2 asinrvec2(vector2 vectah)
+    return {
+        asin(vectah[1]),
+        asin(vectah[2])
+    }
+end
+e2function vector2 vector2:asinrvec2()
+    return {
+        asin(this[1]),
+        asin(this[2])
+    }
+end
+
+e2function number asinr(vector2 vectah)
+    local hypo = sqrt(vectah[1]^2+vectah[2]^2)
+    return asin(vectah[2]/hypo)
+end
+e2function number vector2:asinr()
+    local hypo = sqrt(this[1]^2+this[2]^2)
+    return asin(this[2]/hypo)
+end
+
+e2function vector2 asinrvec2(vector2 vectah)
+    return {
+        atan(vectah[1]),
+        atan(vectah[2])
+    }
+end
+e2function vector2 vector2:asinrvec2()
+    return {
+        atan(this[1]),
+        atan(this[2])
+    }
+end
+
+e2function number atanr(vector2 vectah)
+    local hypo = sqrt(vectah[1]^2+vectah[2]^2)
+    return atan(vectah[2]/vectah[1])
+end
+e2function number vector2:atanr()
+    local hypo = sqrt(this[1]^2+this[2]^2)
+    return atan(this[2]/this[1])
+end
