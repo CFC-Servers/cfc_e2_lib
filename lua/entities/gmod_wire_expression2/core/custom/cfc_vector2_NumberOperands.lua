@@ -316,79 +316,79 @@ end
 
 e2function vector2 cos(vector2 vectah)
     return {
-        cos(vectah[1]*deg2rad) * rad2deg,
-        cos(vectah[2]*deg2rad) * rad2deg
+        cos(vectah[1]*deg2rad),
+        cos(vectah[2]*deg2rad)
     }
 end
 e2function vector2 vector2:cos()
     return {
-        cos(this[1]*deg2rad) * rad2deg,
-        cos(this[2]*deg2rad) * rad2deg
+        cos(this[1]*deg2rad),
+        cos(this[2]*deg2rad)
     }
 end
 
 e2function vector2 sec(vector2 vectah)
     return {
-        1/cos(vectah[1]*deg2rad) * rad2deg,
-        1/cos(vectah[2]*deg2rad) * rad2deg
+        1/cos(vectah[1]*deg2rad),
+        1/cos(vectah[2]*deg2rad)
     }
 end
 e2function vector2 vector2:sec()
     return {
-        1/cos(this[1]*deg2rad) * rad2deg,
-        1/cos(this[2]*deg2rad) * rad2deg
+        1/cos(this[1]*deg2rad),
+        1/cos(this[2]*deg2rad)
     }
 end
 
 e2function vector2 sin(vector2 vectah)
     return {
-        sin(vectah[1]*deg2rad) * rad2deg,
-        sin(vectah[2]*deg2rad) * rad2deg
+        sin(vectah[1]*deg2rad),
+        sin(vectah[2]*deg2rad)
     }
 end
 e2function vector2 vector2:sin()
     return {
-        sin(this[1]*deg2rad) * rad2deg,
-        sin(this[2]*deg2rad) * rad2deg
+        sin(this[1]*deg2rad),
+        sin(this[2]*deg2rad)
     }
 end
 
 e2function vector2 csc(vector2 vectah)
     return {
-        1/sin(vectah[1]*deg2rad) * rad2deg,
-        1/sin(vectah[2]*deg2rad) * rad2deg
+        1/sin(vectah[1]*deg2rad),
+        1/sin(vectah[2]*deg2rad)
     }
 end
 e2function vector2 vector2:csc()
     return {
-        1/sin(this[1]*deg2rad) * rad2deg,
-        1/sin(this[2]*deg2rad) * rad2deg
+        1/sin(this[1]*deg2rad),
+        1/sin(this[2]*deg2rad)
     }
 end
 
 e2function vector2 tan(vector2 vectah)
     return {
-        tan(vectah[1]*deg2rad) * rad2deg,
-        tan(vectah[2]*deg2rad) * rad2deg
+        tan(vectah[1]*deg2rad),
+        tan(vectah[2]*deg2rad)
     }
 end
 e2function vector2 vector2:tan()
     return {
-        tan(this[1]*deg2rad) * rad2deg,
-        tan(this[2]*deg2rad) * rad2deg
+        tan(this[1]*deg2rad),
+        tan(this[2]*deg2rad)
     }
 end
 
 e2function vector2 cot(vector2 vectah)
     return {
-        1/tan(vectah[1]*deg2rad) * rad2deg,
-        1/tan(vectah[2]*deg2rad) * rad2deg
+        1/tan(vectah[1]*deg2rad),
+        1/tan(vectah[2]*deg2rad)
     }
 end
 e2function vector2 vector2:cot()
     return {
-        1/tan(this[1]*deg2rad) * rad2deg,
-        1/tan(this[2]*deg2rad) * rad2deg
+        1/tan(this[1]*deg2rad),
+        1/tan(this[2]*deg2rad)
     }
 end
 
