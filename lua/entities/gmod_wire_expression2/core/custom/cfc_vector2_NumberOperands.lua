@@ -285,19 +285,6 @@ e2function vector2 vector2:asinvec2()
     }
 end
 
-e2function vector2 acscvec2(vector2 vectah)
-    return {
-        asin(1/vectah[1]) * rad2deg,
-        asin(1/vectah[2]) * rad2deg
-    }
-end
-e2function vector2 vector2:acscvec2()
-    return {
-        asin(1/this[1]) * rad2deg,
-        asin(1/this[2]) * rad2deg
-    }
-end
-
 e2function number asin(vector2 vectah)
     local hypo = sqrt(vectah[1]^2+vectah[2]^2)
     return asin(vectah[2]/hypo) * rad2deg
@@ -305,15 +292,6 @@ end
 e2function number vector2:asin()
     local hypo = sqrt(this[1]^2+this[2]^2)
     return asin(this[2]/hypo) * rad2deg
-end
-
-e2function number acsc(vector2 vectah)
-    local hypo = sqrt(vectah[1]^2+vectah[2]^2)
-    return asin(hypo/vectah[2]) * rad2deg
-end
-e2function number vector2:acsc()
-    local hypo = sqrt(this[1]^2+this[2]^2)
-    return asin(hypo/this[2]) * rad2deg
 end
 
 e2function vector2 atanvec2(vector2 vectah)
@@ -329,31 +307,11 @@ e2function vector2 vector2:atanvec2()
     }
 end
 
-e2function vector2 atanvec2(vector2 vectah)
-    return {
-        atan(1/vectah[1]) * rad2deg,
-        atan(1/vectah[2]) * rad2deg
-    }
-end
-e2function vector2 vector2:atanvec2()
-    return {
-        atan(1/this[1]) * rad2deg,
-        atan(1/this[2]) * rad2deg
-    }
-end
-
 e2function number atan(vector2 vectah)
     return atan(vectah[2]/vectah[1]) * rad2deg
 end
 e2function number vector2:atan()
     return atan(this[2]/this[1]) * rad2deg
-end
-
-e2function number acot(vector2 vectah)
-    return atan(vectah[1]/vectah[2]) * rad2deg
-end
-e2function number vector2:acot()
-    return atan(this[1]/this[2]) * rad2deg
 end
 
 e2function vector2 cos(vector2 vectah)
