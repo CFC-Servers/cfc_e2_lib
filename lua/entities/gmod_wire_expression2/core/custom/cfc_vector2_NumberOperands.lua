@@ -235,79 +235,108 @@ __e2setcost(2) -- approximation
 local deg2rad = pi / 180
 local rad2deg = 180 / pi
 
-registerFunction("toRad", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 toRad(vector2 vectah)
     return {
-        rv1 * deg2rad,
-        rv2 * deg2rad
+        vectah[1] * deg2rad,
+        vectah[2] * deg2rad
     }
-end)
-
-registerFunction("toDeg", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+end
+e2function vector2 vector2:toRad()
     return {
-        rv1 * rad2deg,
-        rv2 * rad2deg
+        this[1] * deg2rad,
+        this[2] * deg2rad
     }
-end)
+end
 
-registerFunction("acosvec2", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 toDeg(vector2 vectah)
     return {
-        acos(rv1) * rad2deg,
-        acos(rv2) * rad2deg
+        vectah[1] * rad2deg,
+        vectah[2] * rad2deg
     }
-end)
-
-registerFunction("acos", "xv2", "n", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-    local hypo = sqrt(rv1*rv1+rv2*rv2)
-    return acos(rv1/hypo) * rad2deg
-end)
-
-registerFunction("asinvec2", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+end
+e2function vector2 vector2:toDeg()
     return {
-        asin(rv1) * rad2deg,
-        asin(rv2) * rad2deg
+        this[1] * rad2deg,
+        this[2] * rad2deg
     }
-end)
+end
 
-registerFunction("asin", "xv2", "n", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-    local hypo = sqrt(rv1*rv1+rv2*rv2)
-    return acos(rv2/hypo) * rad2deg
-end)
-
-registerFunction("atanvec2", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+e2function vector2 acosvec2(vector2 vectah)
     return {
-        atan(rv1) * rad2deg,
-        atan(rv2) * rad2deg
+        acos(vectah[1]) * rad2deg,
+        acos(vectah[2]) * rad2deg
     }
-end)
-
-registerFunction("atan", "xv2", "n", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
-    return atan(rv2/rv1) * rad2deg
-end)
-
-registerFunction("cos", "xv2", "xv2", function(self, args)
-    local op1, op2 = args[2][1], args[2][2]
-    local rv1, rv2 = op1[1](self, op1), op2[1](self, op2)
+end
+e2function vector2 vector2:acosvec2()
     return {
-        cos(rv1 * deg2rad),
-        cos(rv2 * deg2rad)
+        acos(this[1]) * rad2deg,
+        acos(this[2]) * rad2deg
     }
-end)
+end
+
+e2function number acos(vector2 vectah)
+    local hypo = sqrt(vectah[1]^2+vectah[2]^2)
+    return acos(vectah[1]/hypo) * rad2deg
+end
+e2function number vector2:acos()
+    local hypo = sqrt(this[1]^2+this[2]^2)
+    return acos(this[1]/hypo) * rad2deg
+end
+
+e2function vector2 asinvec2(vector2 vectah)
+    return {
+        asin(vectah[1]) * rad2deg,
+        asin(vectah[2]) * rad2deg
+    }
+end
+e2function vector2 vector2:asinvec2()
+    return {
+        asin(this[1]) * rad2deg,
+        asin(this[2]) * rad2deg
+    }
+end
+
+e2function number asin(vector2 vectah)
+    local hypo = sqrt(vectah[1]^2+vectah[2]^2)
+    return asin(vectah[2]/hypo) * rad2deg
+end
+e2function number vector2:asin()
+    local hypo = sqrt(this[1]^2+this[2]^2)
+    return asin(this[2]/hypo) * rad2deg
+end
+
+e2function vector2 atanvec2(vector2 vectah)
+    return {
+        atan(vectah[1]) * rad2deg,
+        atan(vectah[2]) * rad2deg
+    }
+end
+e2function vector2 vector2:atanvec2()
+    return {
+        atan(this[1]) * rad2deg,
+        atan(this[2]) * rad2deg
+    }
+end
+
+e2function number atan(vector2 vectah)
+    return atan(vectah[2]/vectah[1]) * rad2deg
+end
+e2function number vector2:atan()
+    return atan(this[2]/this[1]) * rad2deg
+end
+
+e2function vector2 cos(vector2 vectah)
+    return {
+        cos(vectah[1]*deg2rad),
+        cos(vectah[2]*deg2rad)
+    }
+end
+e2function vector2 vector2:cos()
+    return {
+        cos(this[1]*deg2rad),
+        cos(this[2]*deg2rad)
+    }
+end
 
 registerFunction("sec", "xv2", "xv2", function(self, args)
     local op1, op2 = args[2][1], args[2][2]
