@@ -27,17 +27,32 @@ local acos   = math.acos
 local asin   = math.asin
 local atan   = math.atan
 
+local function numIsInf(number)
+    if number == inf then return 1 end
+    if number == -inf then return -1 end
+    return 0
+end
+local function isNaNNum(number)
+    return (value ~= value) and 1 or 0
+end
+local function intNum(number)
+    if rv1 >= 0 then return floor(rv1) else return ceil(rv1) end
+end
+local function fracnum(number)
+    if rv1 >= 0 then return rv1 % 1 else return rv1 % -1 end
+end
+
 __e2setcost(2) -- approximation
 
 --- Returns true (1) if given value is a finite number; otherwise false (0).
-e2function vector2 isfinite(vector2 vectah)
+e2function vector2 isFinite(vector2 vectah)
     return {
         (vectah[1] > -inf and vectah[1] < inf) and 1 or 0,
         (vectah[2] > -inf and vectah[2] < inf) and 1 or 0
     }
 end
 
-e2function vector2 vector2:isfinite()
+e2function vector2 vector2:isFinite()
     return {
         (this[1] > -inf and this[1] < inf) and 1 or 0,
         (this[2] > -inf and this[2] < inf) and 1 or 0
@@ -46,11 +61,6 @@ end
 
 --- Returns 1 if given value is a positive infinity or -1 if given value is a negative infinity; otherwise 0.
 e2function vector2 isinf(vector2 vectah)
-    local function numIsInf(number)
-        if number == inf then return 1 end
-        if number == -inf then return -1 end
-        return 0
-    end
     return {
         numIsInf(vectah[1]),
         numIsInf(vectah[2])
@@ -58,11 +68,6 @@ e2function vector2 isinf(vector2 vectah)
 end
 
 e2function vector2 vector2:isinf()
-    local function numIsInf(number)
-        if number == inf then return 1 end
-        if number == -inf then return -1 end
-        return 0
-    end
     return {
         numIsInf(this[1]),
         numIsInf(this[2])
@@ -71,18 +76,12 @@ end
 
 --- Returns true (1) if given value is not a number (NaN); otherwise false (0).
 e2function vector2 isnan(vector2 vectah)
-    local function isNaNNum(number)
-        return (value ~= value) and 1 or 0
-    end
     return {
         isNaNNum(vectah[1]),
         isNaNNum(vectah[2])
     }
 end
 e2function vector2 vector2:isnan()
-    local function isNaNNum(number)
-        return (value ~= value) and 1 or 0
-    end
     return {
         isNaNNum(this[1]),
         isNaNNum(this[2])
@@ -108,18 +107,12 @@ end
 
 --- rounds towards zero
 e2function vector2 int(vector2 vectah)
-    local function intNum(number)
-        if rv1 >= 0 then return floor(rv1) else return ceil(rv1) end
-    end
     return {
         intNum(vectah[1]),
         intNum(vectah[2])
     }
 end
 e2function vector2 vector2:int()
-    local function intNum(number)
-        if rv1 >= 0 then return floor(rv1) else return ceil(rv1) end
-    end
     return {
         intNum(this[1]),
         intNum(this[2])
@@ -128,9 +121,6 @@ end
 
 --- returns the fractional part. (frac(-1.5) == 0.5 & frac(3.2) == 0.2)
 e2function vector2 frac(vector2 vectah)
-    local function fracnum(number)
-        if rv1 >= 0 then return rv1 % 1 else return rv1 % -1 end
-    end
     return {
         fracnum(vectah[1]),
         fracnum(vectah[2])
@@ -138,9 +128,6 @@ e2function vector2 frac(vector2 vectah)
 end
 
 e2function vector2 vector2:frac()
-    local function fracnum(number)
-        if rv1 >= 0 then return rv1 % 1 else return rv1 % -1 end
-    end
     return {
         fracnum(this[1]),
         fracnum(this[2])
