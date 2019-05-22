@@ -1,23 +1,16 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
--- these upvalues (locals in an enclosing scope) are faster to access than globals.
-local delta  = wire_expression2_delta
-
 local math   = math
-local random = math.random
+
 local pi     = math.pi
 local inf    = math.huge
 
-local exp    = math.exp
-local frexp  = math.frexp
-local log    = math.log
-local log10  = math.log10
 local sqrt   = math.sqrt
+
 local abs    = math.abs
 
 local floor  = math.floor
 local ceil   = math.ceil
-local Round  = math.Round
 
 local sin    = math.sin
 local cos    = math.cos
