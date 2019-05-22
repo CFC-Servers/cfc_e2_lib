@@ -81,8 +81,6 @@ e2function vector2 vector2:isNan()
     }
 end
 
---[[************************************************************************]]--
-
 __e2setcost(2) -- approximation
 
 e2function vector2 abs(vector2 vectah)
@@ -140,8 +138,6 @@ e2function vector2 wrap(vector2 wrapped, vector2 wrapby)
         (wrapped[2] + wrapby[2]) % (wrapby[2] * 2) - wrapby[2]
     }
 end
-
---[[************************************************************************]]--
 
 __e2setcost(2) -- approximation
 
