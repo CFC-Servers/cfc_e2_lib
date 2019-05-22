@@ -75,13 +75,13 @@ e2function vector2 vector2:isinf()
 end
 
 --- Returns true (1) if given value is not a number (NaN); otherwise false (0).
-e2function vector2 isnan(vector2 vectah)
+e2function vector2 isNan(vector2 vectah)
     return {
         isNaNNum(vectah[1]),
         isNaNNum(vectah[2])
     }
 end
-e2function vector2 vector2:isnan()
+e2function vector2 vector2:isNan()
     return {
         isNaNNum(this[1]),
         isNaNNum(this[2])
