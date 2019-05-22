@@ -1,5 +1,6 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
+local math   = math
 local sin    = math.sin
 local cos    = math.cos
 
