@@ -197,8 +197,6 @@ e2function vector2 vector2:root2(vector2 vecta)
     }
 end
 
---[[************************************************************************]]--
-
 __e2setcost(2) -- approximation
 
 local deg2rad = pi / 180
