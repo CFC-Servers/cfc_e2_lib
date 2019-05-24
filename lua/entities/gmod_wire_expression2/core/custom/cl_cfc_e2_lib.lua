@@ -44,3 +44,27 @@ E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at whi
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+-- Historical Trig
+E2Helper.Descriptions["ver(n)"]                = "Returns the versed sine of n. https://en.wikipedia.org/wiki/Versine#Versine_and_coversine"
+E2Helper.Descriptions["vcs(n)"]                = "Returns the versed cosine of n. https://en.wikipedia.org/wiki/Versine"
+E2Helper.Descriptions["cvs(n)"]                = "Returns the coversed sine of n. https://en.wikipedia.org/wiki/Versine#Versine_and_coversine"
+E2Helper.Descriptions["cvc(n)"]                = "Returns the coversed cosine of n. https://en.wikipedia.org/wiki/Versine"
+E2Helper.Descriptions["hav(n)"]                = "Returns the haversed sine of n. https://en.wikipedia.org/wiki/Versine#Haversine"
+E2Helper.Descriptions["hvc(n)"]                = "Returns the haversed cosine of n. https://en.wikipedia.org/wiki/Versine#Haversine"
+E2Helper.Descriptions["hcv(n)"]                = "Returns the hacoversed sine of n. https://en.wikipedia.org/wiki/Versine#Haversine"
+E2Helper.Descriptions["hcc(n)"]                = "Returns the hacoversed cosine of n. https://en.wikipedia.org/wiki/Versine#Haversine"
+E2Helper.Descriptions["exs(n)"]                = "Returns the exterior secant of n. https://en.wikipedia.org/wiki/Exsecant"
+E2Helper.Descriptions["exc(n)"]                = "Returns the exterior cosecant of n. https://en.wikipedia.org/wiki/Exsecant#Excosecant"
+E2Helper.Descriptions["crd(n)"]                = "Returns the chord function of n. https://en.wikipedia.org/wiki/Chord_(geometry)#crd"
+E2Helper.Descriptions["aver(n)"]               = "Returns the inverse versed sine of n. https://en.wikipedia.org/wiki/Versine#Inverse_functions"
+E2Helper.Descriptions["avcs(n)"]               = "Returns the inverse versed cosine of n. https://en.wikipedia.org/wiki/Versine#Inverse_functions"
+E2Helper.Descriptions["acvs(n)"]               = "Returns the inverse coversed sine of n. https://en.wikipedia.org/wiki/Versine#Inverse_functions"
+E2Helper.Descriptions["acvc(n)"]               = "Returns the inverse coversed cosine of n. https://en.wikipedia.org/wiki/Versine#Inverse_functions"
+E2Helper.Descriptions["ahav(n)"]               = "Returns the inverse haversed sine of n. https://en.wikipedia.org/wiki/Versine#Inverse_functions"
+E2Helper.Descriptions["ahvc(n)"]               = "Returns the inverse haversed cosine of n. https://en.wikipedia.org/wiki/Versine#Inverse_functions"
+E2Helper.Descriptions["ahcv(n)"]               = "Returns the inverse hacoversed sine of n. https://en.wikipedia.org/wiki/Versine#Inverse_functions https://www.desmos.com/calculator/gjtuv8jvpm"
+E2Helper.Descriptions["ahcc(n)"]               = "Returns the inverse hacoversed cosine of n. https://en.wikipedia.org/wiki/Versine#Inverse_functions https://www.desmos.com/calculator/y7xi4iagps"
+E2Helper.Descriptions["aexs(n)"]               = "Returns the inverse exterior secant of n. https://en.wikipedia.org/wiki/Exsecant#Inverse_functions"
+E2Helper.Descriptions["aexc(n)"]               = "Returns the inverse exterior cosecant of n. https://en.wikipedia.org/wiki/Exsecant#Inverse_functions"
+E2Helper.Descriptions["acrd(n)"]               = "Returns the inverse chord function of n. https://en.wikipedia.org/wiki/Chord_(geometry)#crd"
