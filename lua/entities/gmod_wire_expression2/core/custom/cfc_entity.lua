@@ -53,3 +53,50 @@ e2function void entity:ejectPodTo(vector pos)
     driver:ExitVehicle()
     driver:SetPos(clampedPos)
 end
+
+e2function array entities()
+    local arr = {}
+    local allents = ents.GetAll()
+    local do_not_show_entities = {
+        [""] = true,
+    	["player_manager"] = true,
+    	["info_player_start"] = true,
+        ["gmod_gamerules"] = true,
+        ["soundent"] = true,
+        ["worldspawn"] = true,
+        ["bodyque"] = true,
+        ["env_sun"] = true,
+        ["ai_network"] = true,
+        ["env_skypaint"] = true,
+        ["env_tonemap_controller"] = true,
+        ["env_fog_controller"] = true,
+        ["shadow_control"] = true,
+        ["sky_camera"] = true,
+        ["predicted_viewmodel"] = true,
+        ["filter_activator_name"] = true,
+        ["scene_manager"] = true,
+        ["ai_network"] = true,
+        ["env_sprite"] = true,
+        ["env_spritetrail"] = true,
+        ["env_smoketrail"] = true,
+        ["phys_constraintsystem"] = true
+    }
+    for _, chk in pairs( allents ) do
+		if not (do_not_show_entities[chk:GetClass()]) then
+            arr[#arr + 1] = chk
+        end
+    end
+    return arr
+end
+
+e2function array props()
+    local strEx = string.Explode
+    local arr = {}
+    local allents = ents.GetAll()
+    for _, chk in pairs( allents ) do
+		if (strEx( "_", chk:GetClass() )[1] == "prop") then
+            arr[#arr + 1] = chk
+        end
+    end
+    return arr
+end
