@@ -44,3 +44,6 @@ E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at whi
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+-- Entity Functions
+E2Helper.Descriptions["setFairPos(e:v)"]       = "Sets a prop's position only if the prop is within a certain radius of the e2 as well as the target position is also in that radius too."
