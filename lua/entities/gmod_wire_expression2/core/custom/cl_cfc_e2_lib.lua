@@ -44,3 +44,9 @@ E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at whi
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+-- Geometry / Trigonometry
+E2Helper.Descriptions["polar2DtoGrid2DDeg(n,n)"]  = "Input a distance number and a number angle in degrees, and itll give you the vector 2 coords of the point at that angle and distance."
+E2Helper.Descriptions["polar2DtoGrid2DRad(n,n)"]  = "Input a distance number and a number angle in radians, and itll give you the vector 2 coords of the point at that angle and distance."
+E2Helper.Descriptions["polar3DtoGrid3DDeg(n,a)"]  = "Input a distance number and a 3d angle in degrees, and itll give you the vector coords of the point at that angle and distance."
+E2Helper.Descriptions["polar3DtoGrid3DRad(n,a)"]  = "Input a distance number and a 3d angle in degrees, and itll give you the vector coords of the point at that angle and distance."
