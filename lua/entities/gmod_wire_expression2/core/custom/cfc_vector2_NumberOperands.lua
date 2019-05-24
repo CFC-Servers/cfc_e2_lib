@@ -46,7 +46,7 @@ e2function vector2 isFinite(vector2 vectah)
 end
 
 --- Returns 1 if given value is a positive infinity or -1 if given value is a negative infinity; otherwise 0.
-e2function vector2 isinf(vector2 vectah)
+e2function vector2 isInf(vector2 vectah)
     return {
         numIsInf(vectah[1]),
         numIsInf(vectah[2])

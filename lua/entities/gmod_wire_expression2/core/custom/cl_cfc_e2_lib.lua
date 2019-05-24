@@ -47,8 +47,8 @@ E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desir
 
 -- Vector 2 Functions
 E2Helper.Descriptions["isFinite(xv2)"]         = "Returns a vector2 with the results of testing if the x is finite and the y is finite"
-E2Helper.Descriptions["isinf(xv2)"]            = "Returns a vector2 with the results of testing if the x is infinite and the y is infinite"
-E2Helper.Descriptions["isnan(xv2)"]            = "Returns a vector2 with the results of testing both values in the vector 2 if they are nan"
+E2Helper.Descriptions["isInf(xv2)"]            = "Returns a vector2 with the results of testing if the x is infinite and the y is infinite"
+E2Helper.Descriptions["isNan(xv2)"]            = "Returns a vector2 with the results of testing both values in the vector 2 if they are nan"
 E2Helper.Descriptions["abs(xv2)"]              = "Returns a vector2 with the absolute values of the inputted vector 2"
 E2Helper.Descriptions["int(xv2)"]              = "Returns a vector2 with the results of rounding to the closest number to 0"
 E2Helper.Descriptions["frac(xv2)"]             = "Returns a vector2 with the fractional component of x and y"
