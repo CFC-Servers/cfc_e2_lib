@@ -61,8 +61,6 @@ e2function vector2 isNan(vector2 vectah)
     }
 end
 
-__e2setcost(2) -- approximation
-
 e2function vector2 abs(vector2 vectah)
     return {
         abs(vectah[1]),
@@ -93,8 +91,6 @@ e2function vector2 wrap(vector2 wrapped, vector2 wrapby)
     }
 end
 
-__e2setcost(2) -- approximation
-
 e2function vector2 sqrt(vector2 vectah)
     return {
         vectah[1] ^ (1 / 2),
@@ -122,8 +118,6 @@ e2function vector2 root2(vector2 vectah, vector2 vecta)
         vectah[2] ^ (1 / vecta[2])
     }
 end
-
-__e2setcost(2) -- approximation
 
 local deg2rad = pi / 180
 local rad2deg = 180 / pi
@@ -205,42 +199,42 @@ e2function vector2 cot(vector2 vectah)
     }
 end
 
-e2function vector2 rcos(vector2 vectah)
+e2function vector2 cosr(vector2 vectah)
     return {
         cos(vectah[1]),
         cos(vectah[2])
     }
 end
 
-e2function vector2 rsec(vector2 vectah)
+e2function vector2 secr(vector2 vectah)
     return {
         1/cos(vectah[1]),
         1/cos(vectah[2])
     }
 end
 
-e2function vector2 rsin(vector2 vectah)
+e2function vector2 sinr(vector2 vectah)
     return {
         sin(vectah[1]),
         sin(vectah[2])
     }
 end
 
-e2function vector2 rcsc(vector2 vectah)
+e2function vector2 cscr(vector2 vectah)
     return {
         1/sin(vectah[1]),
         1/sin(vectah[2])
     }
 end
 
-e2function vector2 rtan(vector2 vectah)
+e2function vector2 tanr(vector2 vectah)
     return {
         tan(vectah[1]),
         tan(vectah[2])
     }
 end
 
-e2function vector2 rcot(vector2 vectah)
+e2function vector2 cotr(vector2 vectah)
     return {
         1/tan(vectah[1]),
         1/tan(vectah[2])
