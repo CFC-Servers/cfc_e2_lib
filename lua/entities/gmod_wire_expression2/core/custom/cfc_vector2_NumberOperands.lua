@@ -128,32 +128,6 @@ __e2setcost(2) -- approximation
 local deg2rad = pi / 180
 local rad2deg = 180 / pi
 
-e2function vector2 toRad(vector2 vectah)
-    return {
-        vectah[1] * deg2rad,
-        vectah[2] * deg2rad
-    }
-end
-e2function vector2 vector2:toRad()
-    return {
-        this[1] * deg2rad,
-        this[2] * deg2rad
-    }
-end
-
-e2function vector2 toDeg(vector2 vectah)
-    return {
-        vectah[1] * rad2deg,
-        vectah[2] * rad2deg
-    }
-end
-e2function vector2 vector2:toDeg()
-    return {
-        this[1] * rad2deg,
-        this[2] * rad2deg
-    }
-end
-
 e2function vector2 acosvec2(vector2 vectah)
     return {
         acos(vectah[1]) * rad2deg,
