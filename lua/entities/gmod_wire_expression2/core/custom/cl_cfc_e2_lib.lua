@@ -44,3 +44,19 @@ E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at whi
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+-- Angle Functions
+E2Helper.Descriptions["reOrder(a:nnn)"]        = "Returns a angle with the pitch, yaw, and roll values ordered in the way you set them. Example ang(1,3,5):reOrder(2,1,3) outputs ang(3,1,5)"
+
+-- Vector 2 Functions
+E2Helper.Descriptions["reOrder(xv2:nn)"]       = "Returns a vector 2 with the x and y values ordered in the way you set them. Example vec2(1,3):reOrder(2,1) outputs vec2(3,1)"
+
+-- Vector 3 Functions
+E2Helper.Descriptions["reOrder(v:nnn)"]        = "Returns a vector 3 with the x, y, and z values ordered in the way you set them. Example vec(3,5,7):reOrder(3,1,2) outputs vec(7,3,5)"
+
+-- Vector 4 Functions
+E2Helper.Descriptions["reOrder(xv4:nnnn)"]     = "Returns a vector 4 with the x, y, z, and w values ordered in the way you set them. Example vec4(3,5,7,9):reOrder(3,4,1,2) outputs vec4(7,9,3,5)"
+
+-- Entity Functions
+E2Helper.Descriptions["props()"]     = "Returns an array with all the prop entities in the server."
+E2Helper.Descriptions["entities()"]     = "Returns an array with the entities in the server. Except for a good select few."
