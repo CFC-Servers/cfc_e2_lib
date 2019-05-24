@@ -44,3 +44,7 @@ E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at whi
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+-- Booleans
+E2Helper.Descriptions["True"]                  = "This variable represents a 'true' boolean, implemented as equal to 1"
+E2Helper.Descriptions["False"]                 = "This variable represents a 'false' boolean, implemented as equal to 0"
