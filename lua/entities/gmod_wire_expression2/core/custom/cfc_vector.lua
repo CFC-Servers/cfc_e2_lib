@@ -5,11 +5,12 @@ e2function vector vector:reOrder(number xLoc, number yLoc, number zLoc)
     local locs = {xLoc,yLoc,zLoc}
     local wantedValues = values
 
-    for looplocat = 1, 3, 1 do --loop through the inputs
-        local num = locs[looplocat] --store the current input's number
-        for xYZ = 1, 3, 1 do --loop through x y and z
-            if (xYZ == num) then -- if the current input's number is equal to x (1) y(2) z(3)
-                wantedValues[xYZ] = values[looplocat] --store the current angle part ( x y or z) into the wantedVecs output.
+    for xYZ = 1, 3, 1 do
+        for loopVals = 1, 3, 1 do
+            local value = values[loopVals]
+            local valNum = locs[loopVals]
+            if valNum == xYZ then
+                wantedValues[xYZ] = value
             end
         end
     end
