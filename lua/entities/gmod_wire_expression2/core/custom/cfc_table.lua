@@ -1,5 +1,7 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
+local naN = 0/0
+
 e2function entity table:firstEntity()
     return this.n[ 1 ] or NULL
 end
