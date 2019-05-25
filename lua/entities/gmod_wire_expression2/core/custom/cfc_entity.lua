@@ -54,8 +54,9 @@ e2function void entity:ejectPodTo(vector pos)
     driver:SetPos(clampedPos)
 end
 
-__e2setcost(100)
+__e2setcost(30)
 e2function array entities()
+	if query_blocked(self, 1) then return 0 end
     local arr = {}
     local allents = ents.GetAll()
     local do_not_show_entities = {
@@ -90,7 +91,8 @@ e2function array entities()
     return arr
 end
 
-__e2setcost(5)
+__e2setcost(15)
 e2function array props()
+	if query_blocked(self, 1) then return 0 end
     return ents.FindByClass("prop_*")
 end
