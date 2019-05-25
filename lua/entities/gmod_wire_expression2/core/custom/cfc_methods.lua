@@ -1,4 +1,4 @@
-E2Lib.RegisterExtension( "cfc_e2_lib", true )
+CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 e2function array getPvpers()
     local pvpers = {}
