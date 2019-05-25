@@ -8,6 +8,6 @@ function CFCE2Lib.RegisterExtension( name, default, description, warning )
         return E2Lib.RegisterExtension( name, default, description, warning )
     end
 
-    local status = E2Lib.GetExtensionStatus( name ),
+    local status = E2Lib.GetExtensionStatus( name )
     assert( status, "EXTENSION_DISABLED" )
 end
