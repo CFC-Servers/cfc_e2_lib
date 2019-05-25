@@ -56,7 +56,7 @@ end
 
 __e2setcost(30)
 e2function array entities()
-	if query_blocked(self, 1) then return 0 end
+	if query_blocked(self, 1) then return {} end
     local arr = {}
     local allents = ents.GetAll()
     local do_not_show_entities = {
@@ -93,6 +93,6 @@ end
 
 __e2setcost(15)
 e2function array props()
-	if query_blocked(self, 1) then return 0 end
+	if query_blocked(self, 1) then return {} end
     return ents.FindByClass("prop_*")
 end
