@@ -54,7 +54,7 @@ e2function void entity:ejectPodTo(vector pos)
     driver:SetPos(clampedPos)
 end
 
-__e2setcost(50)
+__e2setcost(100)
 e2function array entities()
     local arr = {}
     local allents = ents.GetAll()
