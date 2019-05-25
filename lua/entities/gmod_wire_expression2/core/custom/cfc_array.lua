@@ -90,3 +90,88 @@ e2function number array:indexOf(vector4 vec4)
     return indexOfPackedValue( this, vec4 )
 end
 
+e2function entity array:firstEntity()
+    return this[1]
+end
+e2function string array:firstString()
+    return this[1]
+end
+e2function number array:firstNumber()
+    return this[1]
+end
+e2function vector array:firstVector()
+    return this[1]
+end
+e2function vector2 array:firstVector2()
+    return this[1]
+end
+e2function vector4 array:firstVector4()
+    return this[1]
+end
+e2function angle array:firstAngle()
+    return this[1]
+end
+e2function ranger array:firstRanger()
+    return this[1]
+end
+e2function bone array:firstBone()
+    return this[1]
+end
+e2function matrix2 array:firstMatrix2()
+    return this[1]
+end
+e2function matrix array:firstMatrix()
+    return this[1]
+end
+e2function matrix4 array:firstMatrix4()
+    return this[1]
+end
+e2function wirelink array:firstWirelink()
+    return this[1]
+end
+e2function complex array:firstComplex()
+    return this[1]
+end
+
+e2function entity array:lastEntity()
+    return this[ #this ]
+end
+e2function string array:lastString()
+    return this[ #this ]
+end
+e2function number array:lastNumber()
+    return this[ #this ]
+end
+e2function vector array:lastVector()
+    return this[ #this ]
+end
+e2function vector2 array:lastVector2()
+    return this[ #this ]
+end
+e2function vector4 array:lastVector4()
+    return this[ #this ]
+end
+e2function angle array:lastAngle()
+    return this[ #this ]
+end
+e2function ranger array:lastRanger()
+    return this[ #this ]
+end
+e2function bone array:lastBone()
+    return this[ #this ]
+end
+e2function matrix2 array:lastMatrix2()
+    return this[ #this ]
+end
+e2function matrix array:lastMatrix()
+    return this[ #this ]
+end
+e2function matrix4 array:lastMatrix4()
+    return this[ #this ]
+end
+e2function wirelink array:lastWirelink()
+    return this[ #this ]
+end
+e2function complex array:lastComplex()
+    return this[ #this ]
+end
