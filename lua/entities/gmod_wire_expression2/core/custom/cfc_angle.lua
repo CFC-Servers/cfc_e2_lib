@@ -15,3 +15,6 @@ e2function angle angle:reOrder(number pitchLoc, number yawLoc, number rollLoc)
     end
     return wantedAngs
 end
+e2function angle angle:reOrder(number pitchLoc, number yawLoc, number rollLoc)
+    return {this[pitchLoc],this[yawLoc],this[rollLoc]}
+end
