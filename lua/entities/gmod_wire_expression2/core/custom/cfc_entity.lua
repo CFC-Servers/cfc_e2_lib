@@ -90,13 +90,5 @@ e2function array entities()
 end
 
 e2function array props()
-    local strEx = string.Explode
-    local arr = {}
-    local allents = ents.GetAll()
-    for _, chk in pairs( allents ) do
-		if (strEx( "_", chk:GetClass() )[1] == "prop") then
-            arr[#arr + 1] = chk
-        end
-    end
-    return arr
+    return ents.FindByClass("prop_*")
 end
