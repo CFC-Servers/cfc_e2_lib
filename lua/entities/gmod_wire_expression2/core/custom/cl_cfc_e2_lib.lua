@@ -44,3 +44,9 @@ E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at whi
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+-- Vector Functions
+E2Helper.Descriptions["toIndex3D(v,v)"]        = "Takes a vector for a voxel or 3d position vector and the maximum position vector for it and outputs an unique index for it."
+
+-- Vector2 Functions
+E2Helper.Descriptions["toIndex2D(xv2,xv2)"]    = "Takes a vector for a pixel or 2d position vector and the maximum position vector for it and outputs an unique index for it."
