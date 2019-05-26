@@ -53,3 +53,195 @@ e2function void entity:ejectPodTo(vector pos)
     driver:ExitVehicle()
     driver:SetPos(clampedPos)
 end
+
+e2function void fadeDoor(entity ent , number state , string theSoundOn, string theSoundOff, number theTransParencyOn, number theTransParencyOff , string theMaterialOn , string theMaterialOff, number volume)
+    if !IsValid(ent) then return end
+    if !isOwner(self, ent) then return end
+    local MaxDuration = GetConVar("MaxFadingSoundDuration"):GetFloat()
+    local soundOn, soundOff, materialOn, materialOff = theSoundOn,theSoundOff,theMaterialOn,theMaterialOff
+    if SoundDuration( theSoundOn ) >= MaxDuration then soundOn = "" end-- we dont want them spamming long sounds, do we?
+    if SoundDuration( theSoundOff ) >= MaxDuration then soundOff = "" end-- we dont want them spamming long sounds, do we?
+    if theMaterialOn == "" then materialOn = ent:GetMaterial() end
+    if theMaterialOff == "" then materialOff = ent:GetMaterial() end
+    local entCol = ent:GetColor()
+    if state != 0 then
+        if(ent:GetCollisionGroup() == 0) then sound.Play( soundOn , ent:GetPos() , 60 , 100 , volume / 100 ) end
+        ent:SetMaterial( materialOn )
+        WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOn) )
+        ent:SetCollisionGroup( COLLISION_GROUP_WORLD )
+    else
+        if(ent:GetCollisionGroup() == 20) then sound.Play( soundOff , ent:GetPos() , 60 , 100 , volume / 100 ) end
+        ent:SetMaterial( materialOff )
+        WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOff) )
+        ent:SetCollisionGroup( COLLISION_GROUP_NONE )
+    end
+end --shoutout to boxterot for the idea.
+
+e2function void fadeDoor(array entities , number state , string theSoundOn, string theSoundOff, number theTransParencyOn, number theTransParencyOff, string theMaterialOn , string theMaterialOff, number volume, number playAll)
+    local MaxDuration = GetConVar("MaxFadingSoundDuration"):GetFloat()
+    local soundOn, soundOff, materialOn, materialOff = theSoundOn,theSoundOff,theMaterialOn,theMaterialOff
+    if SoundDuration( theSoundOn ) >= MaxDuration then soundOn = "" end-- we dont want them spamming long sounds, do we?
+    if SoundDuration( theSoundOff ) >= MaxDuration then soundOff = "" end-- we dont want them spamming long sounds, do we?
+    for _, ent in pairs( entities ) do
+        if !IsValid(ent) then return end
+        if !isOwner(self, ent) then return end
+        if theMaterialOn == "" then materialOn = ent:GetMaterial() end
+        if theMaterialOff == "" then materialOff = ent:GetMaterial() end
+        local entCol = ent:GetColor()
+        if state != 0 then
+            if playAll != 0 then
+                if (ent:GetCollisionGroup() == 0) then sound.Play( soundOn , ent:GetPos() , 60 , 100 , volume / 100 ) end
+            else
+                if (ent:GetCollisionGroup() == 0) then sound.Play( soundOn , entities[1]:GetPos() , 60 , 100 , volume / 100 ) end
+            end
+            ent:SetMaterial( materialOn )
+            WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOn) )
+            ent:SetCollisionGroup( COLLISION_GROUP_WORLD )
+        else
+            if playAll != 0 then
+                if (ent:GetCollisionGroup() == 20) then sound.Play( soundOff , ent:GetPos() , 60 , 100 , volume / 100 ) end
+            else
+                if (ent:GetCollisionGroup() == 20) then sound.Play( soundOff , entities[1]:GetPos() , 60 , 100 , volume / 100 ) end
+            end
+            ent:SetMaterial( materialOff )
+            WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOff) )
+            ent:SetCollisionGroup( COLLISION_GROUP_NONE )
+        end
+    end
+end --shoutout to boxterot for the idea.
+
+e2function void fadeDoor(entity ent , number state)
+    if !IsValid(ent) then return end
+    if !isOwner(self, ent) then return end
+    if state != 0 then
+        ent:SetCollisionGroup( COLLISION_GROUP_WORLD )
+    else
+        ent:SetCollisionGroup( COLLISION_GROUP_NONE )
+    end
+end --shoutout to boxterot for the idea.
+
+e2function void fadeDoor(array entities , number state)
+    for _, ent in pairs( entities ) do
+        if !IsValid(ent) then return end
+        if !isOwner(self, ent) then return end
+        if state != 0 then
+            ent:SetCollisionGroup( COLLISION_GROUP_WORLD )
+        else
+            ent:SetCollisionGroup( COLLISION_GROUP_NONE )
+        end
+    end
+end --shoutout to boxterot for the idea.
+
+e2function void fadeDoor(entity ent , number state, number theTransParencyOn, number theTransParencyOff, string theMaterialOn , string theMaterialOff)
+    if !IsValid(ent) then return end
+    if !isOwner(self, ent) then return end
+    local materialOn, materialOff = theMaterialOn,theMaterialOff
+    if theMaterialOn == "" then materialOn = ent:GetMaterial() end
+    if theMaterialOff == "" then materialOff = ent:GetMaterial() end
+    local entCol = ent:GetColor()
+    if state != 0 then
+        ent:SetMaterial( materialOn )
+        WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOn) )
+        ent:SetCollisionGroup( COLLISION_GROUP_WORLD )
+    else
+        ent:SetMaterial( materialOff )
+        WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOff) )
+        ent:SetCollisionGroup( COLLISION_GROUP_NONE )
+    end
+end --shoutout to boxterot for the idea.
+
+e2function void fadeDoor(array entities , number state , number theTransParencyOn, number theTransParencyOff, string theMaterialOn , string theMaterialOff)
+    local MaxDuration = GetConVar("MaxFadingSoundDuration"):GetFloat()
+    local materialOn, materialOff = theMaterialOn,theMaterialOff
+    for _, ent in pairs( entities ) do
+        if !IsValid(ent) then return end
+        if !isOwner(self, ent) then return end
+        if theMaterialOn == "" then materialOn = ent:GetMaterial() end
+        if theMaterialOff == "" then materialOff = ent:GetMaterial() end
+        local entCol = ent:GetColor()
+        if state != 0 then
+            ent:SetMaterial( materialOn )
+            WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOn) )
+            ent:SetCollisionGroup( COLLISION_GROUP_WORLD )
+        else
+            ent:SetMaterial( materialOff )
+            WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOff) )
+            ent:SetCollisionGroup( COLLISION_GROUP_NONE )
+        end
+    end
+end --shoutout to boxterot for the idea.
+e2function void fadeDoor(entity ent , number state , string theSoundOn, string theSoundOff, number theTransParencyOn, number theTransParencyOff, number volume)
+    if !IsValid(ent) then return end
+    if !isOwner(self, ent) then return end
+    local MaxDuration = GetConVar("MaxFadingSoundDuration"):GetFloat()
+    local soundOn, soundOff  = theSoundOn,theSoundOff
+    if SoundDuration( theSoundOn ) >= MaxDuration then soundOn = "" end-- we dont want them spamming long sounds, do we?
+    if SoundDuration( theSoundOff ) >= MaxDuration then soundOff = "" end-- we dont want them spamming long sounds, do we?
+    local entCol = ent:GetColor()
+    if state != 0 then
+        if(ent:GetCollisionGroup() == 0) then sound.Play( soundOn , ent:GetPos() , 60 , 100 , volume / 100 ) end
+        WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOn) )
+        ent:SetCollisionGroup( COLLISION_GROUP_WORLD )
+    else
+        if(ent:GetCollisionGroup() == 20) then sound.Play( soundOff , ent:GetPos() , 60 , 100 , volume / 100 ) end
+        WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOff) )
+        ent:SetCollisionGroup( COLLISION_GROUP_NONE )
+    end
+end --shoutout to boxterot for the idea.
+
+e2function void fadeDoor(array entities , number state , string theSoundOn, string theSoundOff, number theTransParencyOn, number theTransParencyOff, number volume, number playAll)
+    local MaxDuration = GetConVar("MaxFadingSoundDuration"):GetFloat()
+    local soundOn, soundOff = theSoundOn,theSoundOff
+    if SoundDuration( theSoundOn ) >= MaxDuration then soundOn = "" end-- we dont want them spamming long sounds, do we?
+    if SoundDuration( theSoundOff ) >= MaxDuration then soundOff = "" end-- we dont want them spamming long sounds, do we?
+    for _, ent in pairs( entities ) do
+        if !IsValid(ent) then return end
+        if !isOwner(self, ent) then return end
+        local entCol = ent:GetColor()
+        if state != 0 then
+            if playAll != 0 then
+                if (ent:GetCollisionGroup() == 0) then sound.Play( soundOn , ent:GetPos() , 60 , 100 , volume / 100 ) end
+            else
+                if (ent:GetCollisionGroup() == 0) then sound.Play( soundOn , entities[1]:GetPos() , 60 , 100 , volume / 100 ) end
+            end
+            WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOn) )
+            ent:SetCollisionGroup( COLLISION_GROUP_WORLD )
+        else
+            if playAll != 0 then
+                if (ent:GetCollisionGroup() == 20) then sound.Play( soundOff , ent:GetPos() , 60 , 100 , volume / 100 ) end
+            else
+                if (ent:GetCollisionGroup() == 20) then sound.Play( soundOff , entities[1]:GetPos() , 60 , 100 , volume / 100 ) end
+            end
+            WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOff) )
+            ent:SetCollisionGroup( COLLISION_GROUP_NONE )
+        end
+    end
+end --shoutout to boxterot for the idea.
+
+e2function void fadeDoor(entity ent , number state, number theTransParencyOn, number theTransParencyOff)
+    if !IsValid(ent) then return end
+    if !isOwner(self, ent) then return end
+    local entCol = ent:GetColor()
+    if state != 0 then
+        WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOn) )
+        ent:SetCollisionGroup( COLLISION_GROUP_WORLD )
+    else
+        WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOff) )
+        ent:SetCollisionGroup( COLLISION_GROUP_NONE )
+    end
+end --shoutout to boxterot for the idea.
+
+e2function void fadeDoor(array entities , number state, number theTransParencyOn, number theTransParencyOff)
+    for _, ent in pairs( entities ) do
+        if !IsValid(ent) then return end
+        if !isOwner(self, ent) then return end
+        local entCol = ent:GetColor()
+        if state != 0 then
+            WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOn) )
+            ent:SetCollisionGroup( COLLISION_GROUP_WORLD )
+        else
+            WireLib.SetColor(ent, Color(entCol.r,entCol.b,entCol.g,theTransParencyOff) )
+            ent:SetCollisionGroup( COLLISION_GROUP_NONE )
+        end
+    end
+end --shoutout to boxterot for the idea.
