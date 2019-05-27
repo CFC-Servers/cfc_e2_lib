@@ -44,3 +44,15 @@ E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at whi
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+-- Enitity Functions
+E2Helper.Descriptions["fadeDoor(en)"]          = "Fades the given entity. 1 to activate 0 to deactivate."
+E2Helper.Descriptions["fadeDoor(ennn)"]        = "Fades the given entity, with the given transparency for each state. 1 to activate 0 to deactivate."
+E2Helper.Descriptions["fadeDoor(ennnss)"]      = "Fades the given entity, with the given transparency for each state as well as the given material. 1 to activate 0 to deactivate."
+E2Helper.Descriptions["fadeDoor(enssnnn)"]     = "Fades the given entity, with the given transparency for each state, as well as plays the given sound for each state. 1 to activate 0 to deactivate."
+E2Helper.Descriptions["fadeDoor(enssnnssn)"]   = "Fades the given entity, with the given transparency for each state, plays the given sound, and uses the given materials. 1 to activate 0 to deactivate."
+E2Helper.Descriptions["fadeDoor(rn)"]          = "Fades the given array of entities. 1 to activate 0 to deactivate."
+E2Helper.Descriptions["fadeDoor(rnnn)"]        = "Fades the given array of entities, with the given transparency for each state. 1 to activate 0 to deactivate."
+E2Helper.Descriptions["fadeDoor(rnnnss)"]      = "Fades the given array of entities, with the given transparency for each state as well as the given material. 1 to activate 0 to deactivate."
+E2Helper.Descriptions["fadeDoor(rnssnnnn)"]    = "Fades the given array of entities, with the given transparency for each state, as well as plays the given sound for each state, as well as if to play the sound for all of the props or just the first one. 1 to activate 0 to deactivate."
+E2Helper.Descriptions["fadeDoor(rnssnnssnn)"]  = "Fades the given array of entities, with the given transparency for each state, plays the given sound, and uses the given materials, as well as if to play them all or just the first one. 1 to activate 0 to deactivate."
