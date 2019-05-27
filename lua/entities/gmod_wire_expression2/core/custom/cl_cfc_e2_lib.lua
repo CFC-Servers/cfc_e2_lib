@@ -1,3 +1,5 @@
+CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
+
 -- PvP Functions
 E2Helper.Descriptions["playerIsInPvp(e:)"]     = "Returns 1 if a player is in Pvp, and 0 otherwise."
 E2Helper.Descriptions["playerIsInBuild(e:)"]   = "Returns 1 if a player is in build, and 0 otherwise."
