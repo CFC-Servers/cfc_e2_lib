@@ -56,7 +56,7 @@ end
 
 e2function number entity:setFairPos(vector target)
     if not IsValid(this) or this:IsPlayer() then return -3 end -- Debug output -3 if the target is a player
-    local MaxFairDistance = GetConVar("MaxFairDistance"):GetFloat()
+    local MaxFairDistance = GetConVar("MaxFairPosDistance"):GetFloat()
     local posToLoc = Vector(target[1],target[2],target[3]) - self.entity:GetPos() -- Localized the position of the target to the e2
     local lengthPos = posToLoc[1]^2 + posToLoc[2]^2 + posToLoc[3]^2 -- this uses 3d pythagorean therom, but doesnt square root the end result, as that would just waste time when we could square the convar, which would use less power to calculate
 
@@ -67,5 +67,17 @@ e2function number entity:setFairPos(vector target)
     if entLength >= MaxFairDistance^2 then return -2 end -- Debug output -2 if the target entity pos is out of bounds and end
 
     this:SetPos(Vector(target[1],target[2],target[3])) -- set the pos and end it
+    return 1 --passed all tests, debug 1 for success
+end
+
+e2function number entity:setFairAng(angle target)
+    if not IsValid(this) or this:IsPlayer() then return -3 end -- Debug output -3 if the target is a player
+    local MaxFairDistance = GetConVar("MaxFairAngDistance"):GetFloat()
+    local entB4PosLoc = this:GetPos() - self.entity:GetPos() -- Localizes the target entity
+    local entLength = entB4PosLoc[1]^2 + entB4PosLoc[2]^2 + entB4PosLoc[3]^2 -- we dont need to do the square root on this, itll just waste time and resources
+
+    if entLength >= MaxFairDistance^2 then return -2 end -- Debug output -2 if the target entity pos is out of bounds and end
+
+    this:SetAngles(Angle(target[1],target[2],target[3])) -- set the ang and end it
     return 1 --passed all tests, debug 1 for success
 end
