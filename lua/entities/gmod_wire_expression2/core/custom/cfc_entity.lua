@@ -57,7 +57,7 @@ end
 e2function number entity:setFairPos(vector target)
     if not IsValid(this) or this:IsPlayer() then return -3 end -- Debug output -3 if the target is a player
     local MaxFairDistance = GetConVar("MaxFairDistance"):GetFloat()
-    local posToLoc = target - self.entity:GetPos() -- Localized the position of the target to the e2
+    local posToLoc = Vector(target[1],target[2],target[3]) - self.entity:GetPos() -- Localized the position of the target to the e2
     local lengthPos = posToLoc[1]^2 + posToLoc[2]^2 + posToLoc[3]^2 -- this uses 3d pythagorean therom, but doesnt square root the end result, as that would just waste time when we could square the convar, which would use less power to calculate
 
     local entB4PosLoc = this:GetPos() - self.entity:GetPos() -- Localizes the target entity
