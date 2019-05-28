@@ -78,8 +78,8 @@ e2function number entity:setFairAng(angle target)
 
     if entLength >= MaxFairDistance^2 then return -2 end -- Debug output -2 if the target entity pos is out of bounds and end
 
-    this:GetPhysicsObject:SetAngleDragCoefficient(0)
-    this:GetPhysicsObject:SetAngles(Angle(target[1],target[2],target[3])) -- set the ang and end it
+    this:GetPhysicsObject():SetAngleDragCoefficient(0)
+    this:GetPhysicsObject():SetAngles(Angle(target[1],target[2],target[3])) -- set the ang and end it
     this:SetAngles(Angle(target[1],target[2],target[3])) -- set the ang and end it
     return 1 --passed all tests, debug 1 for success
 end
