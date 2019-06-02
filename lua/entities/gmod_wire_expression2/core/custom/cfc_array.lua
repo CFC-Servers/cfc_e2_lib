@@ -66,6 +66,10 @@ local function indexOfPackedValue(arr, val)
     return 0
 end
 
+e2function number array:indexOf(entity ent)
+    return indexOfNormalValue( this, ent )
+end
+
 e2function number array:indexOf(number num)
     return indexOfNormalValue( this, num )
 end
