@@ -48,6 +48,13 @@ e2function array array:sub(number n)
     return {unpack( this, n )}
 end
 
+local function compareArrays( r1, r2 ) 
+    if #r1 ~= #r2 then return false end
+    for idx = 1, #r1 do
+        if r1[idx] ~= r2[idx] then return false end
+    end
+    return true
+end
 -- Index functions
 local function indexOfNormalValue(arr, val)
     for idx = 1, #arr do
@@ -58,9 +65,8 @@ local function indexOfNormalValue(arr, val)
 end
 
 local function indexOfPackedValue(arr, val)
-    local unpacked = unpack( val )
     for idx = 1, #arr do
-        if unpacked == unpack( arr[idx] ) then return idx end
+        if compareArrays( arr[idx], val ) then return idx end
     end
 
     return 0
