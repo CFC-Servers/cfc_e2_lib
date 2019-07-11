@@ -49,6 +49,9 @@ e2function array array:sub(number n)
 end
 
 local function compareArrays( r1, r2 ) 
+    if type(r1) ~= "table" then return false end
+    if type(r2) ~= "table" then return false end
+
     if #r1 ~= #r2 then return false end
     for idx = 1, #r1 do
         if r1[idx] ~= r2[idx] then return false end
