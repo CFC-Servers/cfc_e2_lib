@@ -44,3 +44,7 @@ E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at whi
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+-- Player Functions
+E2Helper.Descriptions["getPlyCol(e:)"]         = "Returns the player's player color"
+E2Helper.Descriptions["getWepCol(e:)"]         = "Returns the player's weapon color"
