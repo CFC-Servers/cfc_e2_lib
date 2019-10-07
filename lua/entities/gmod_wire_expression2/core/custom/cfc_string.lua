@@ -13,7 +13,7 @@ end
 
 e2function number string:isLetters()
     -- This regex tests for only letters ( case insensitive ) and spaces
-    if string.find( this, "^[%a ] * $" ) then return 1 end
+    if string.find( this, "^[%a ]*$" ) then return 1 end
     return 0
 end
 
