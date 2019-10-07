@@ -10,7 +10,7 @@ e2function array array:shuffled()
     return this
 end
 
-e2function array array:difference(array arrayDiff)
+e2function array array:difference( array arrayDiff )
     local difference = {}
     for _, v in pairs( this ) do
         if !table.KeyFromValue( arrayDiff, v ) then difference[#difference + 1] = v end
@@ -19,7 +19,7 @@ e2function array array:difference(array arrayDiff)
     return difference
 end
 
-e2function array array:intersection(array arrayDiff)
+e2function array array:intersection( array arrayDiff )
     local same = {}
     local added = {}
     for _, v in pairs( this ) do
@@ -36,21 +36,21 @@ e2function array array:reversed()
     return table.Reverse( this )
 end
 
-e2function array array:sub(number n1, number n2)
+e2function array array:sub( number n1, number n2 )
     if n1 < 1 then n1 = 1 end
     if n2 > #this then n2 = #this end
 
     return {unpack( this, n1, n2 )}
 end
 
-e2function array array:sub(number n)
+e2function array array:sub( number n )
     if n > #this then return {this[#this]} end
     return {unpack( this, n )}
 end
 
-local function compareArrays( r1, r2 ) 
-    if type(r1) ~= "table" then return false end
-    if type(r2) ~= "table" then return false end
+local function compareArrays( r1, r2 )
+    if type( r1 ) ~= "table" then return false end
+    if type( r2 ) ~= "table" then return false end
 
     if #r1 ~= #r2 then return false end
     for idx = 1, #r1 do
@@ -59,7 +59,7 @@ local function compareArrays( r1, r2 )
     return true
 end
 -- Index functions
-local function indexOfNormalValue(arr, val)
+local function indexOfNormalValue( arr, val )
     for idx = 1, #arr do
         if arr[idx] == val then return idx end
     end
@@ -67,7 +67,7 @@ local function indexOfNormalValue(arr, val)
     return 0
 end
 
-local function indexOfPackedValue(arr, val)
+local function indexOfPackedValue( arr, val )
     for idx = 1, #arr do
         if compareArrays( arr[idx], val ) then return idx end
     end
@@ -75,31 +75,31 @@ local function indexOfPackedValue(arr, val)
     return 0
 end
 
-e2function number array:indexOf(entity ent)
+e2function number array:indexOf( entity ent )
     return indexOfNormalValue( this, ent )
 end
 
-e2function number array:indexOf(number num)
+e2function number array:indexOf( number num )
     return indexOfNormalValue( this, num )
 end
 
-e2function number array:indexOf(string str)
+e2function number array:indexOf( string str )
     return indexOfNormalValue( this, str )
 end
 
-e2function number array:indexOf(angle ang)
+e2function number array:indexOf( angle ang )
     return indexOfPackedValue( this, ang )
 end
 
-e2function number array:indexOf(vector vec)
+e2function number array:indexOf( vector vec )
     return indexOfPackedValue( this, vec )
 end
 
-e2function number array:indexOf(vector2 vec2)
+e2function number array:indexOf( vector2 vec2 )
     return indexOfPackedValue( this, vec2 )
 end
 
-e2function number array:indexOf(vector4 vec4)
+e2function number array:indexOf( vector4 vec4 )
     return indexOfPackedValue( this, vec4 )
 end
 
