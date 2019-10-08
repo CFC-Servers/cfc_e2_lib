@@ -43,7 +43,7 @@ end
 local whitelist = {
     ["prop_physics"] = true
 }
-e2function entity:propIgnite(duration)
+e2function void entity:propIgnite(duration)
     duration = duration or 30
     if not IsValid(this) then return end
     
