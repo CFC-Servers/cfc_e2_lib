@@ -46,3 +46,6 @@ E2Helper.Descriptions["indexOf(r:v4)"]         = "Returns the first index at whi
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+-- Entity Functions
+E2Helper.Descriptions["propIgnite(e:n"]        = "Ignites a prop for the defined duration"
