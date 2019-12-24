@@ -103,3 +103,25 @@ e2function number maxLoss()
 
     return max
 end
+
+e2function array getAlive()
+    local arrayOfLiving = {}
+    local humans = player.GetHumans()
+
+    for _, human in pairs( humans ) do
+        if human:Alive() then arrayOfLiving[#arrayOfLiving + 1] = human end
+    end
+
+    return arrayOfLiving
+end
+
+e2function array getDead()
+    local arrayOfDead = {}
+    local humans = player.GetHumans()
+
+    for _, human in pairs( humans ) do
+        if not human:Alive() then arrayOfDead[#arrayOfDead + 1] = human end
+    end
+
+    return arrayOfDead
+end
