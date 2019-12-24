@@ -109,7 +109,7 @@ e2function array getAlive()
     local humans = player.GetHumans()
 
     for _, human in pairs( humans ) do
-        if human:Alive() then table.insert(arrayOfLiving, human) end
+        if human:Alive() then table.insert( arrayOfLiving, human ) end
     end
 
     return arrayOfLiving
