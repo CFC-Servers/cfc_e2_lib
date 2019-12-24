@@ -120,7 +120,7 @@ e2function array getDead()
     local humans = player.GetHumans()
 
     for _, human in pairs( humans ) do
-        if not human:Alive() then table.insert(arrayOfDead, human) end
+        if not human:Alive() then table.insert( arrayOfDead, human ) end
     end
 
     return arrayOfDead
