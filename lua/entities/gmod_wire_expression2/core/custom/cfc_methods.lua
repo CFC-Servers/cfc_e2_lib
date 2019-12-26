@@ -104,6 +104,7 @@ e2function number maxLoss()
     return max
 end
 
+__e2setcost(10)
 e2function array getAlive()
     local arrayOfLiving = {}
     local humans = player.GetHumans()
@@ -115,6 +116,7 @@ e2function array getAlive()
     return arrayOfLiving
 end
 
+__e2setcost(10)
 e2function array getDead()
     local arrayOfDead = {}
     local humans = player.GetHumans()
