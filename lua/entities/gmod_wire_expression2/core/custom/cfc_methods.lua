@@ -1,4 +1,4 @@
-E2Lib.RegisterExtension( "cfc_e2_lib", true )
+CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 e2function array getPvpers()
     local pvpers = {}
@@ -102,4 +102,28 @@ e2function number maxLoss()
     end
 
     return max
+end
+
+__e2setcost(10)
+e2function array getAlive()
+    local arrayOfLiving = {}
+    local humans = player.GetHumans()
+
+    for _, human in pairs( humans ) do
+        if human:Alive() then table.insert( arrayOfLiving, human ) end
+    end
+
+    return arrayOfLiving
+end
+
+__e2setcost(10)
+e2function array getDead()
+    local arrayOfDead = {}
+    local humans = player.GetHumans()
+
+    for _, human in pairs( humans ) do
+        if not human:Alive() then table.insert( arrayOfDead, human ) end
+    end
+
+    return arrayOfDead
 end

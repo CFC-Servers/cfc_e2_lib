@@ -42,6 +42,12 @@ E2Helper.Descriptions["indexOf(r:n)"]          = "Returns the first index at whi
 E2Helper.Descriptions["indexOf(r:s)"]          = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
 E2Helper.Descriptions["indexOf(r:a)"]          = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
 E2Helper.Descriptions["indexOf(r:v)"]          = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
+E2Helper.Descriptions["indexOf(r:v2)"]         = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
+E2Helper.Descriptions["indexOf(r:v4)"]         = "Returns the first index at which the value is stored in the array, and 0 if it was not found."
 
 -- Vehicle Functions
 E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desired location."
+
+-- Player Functions
+E2Helper.Descriptions["getAlive()"]            = "Returns an array with all alive players."
+E2Helper.Descriptions["getDead()"]             = "Returns an array with all dead players."

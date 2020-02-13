@@ -1,8 +1,11 @@
-E2Lib.RegisterExtension( "cfc_e2_lib", true )
+CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
+
 
 local alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 e2function number string:startsWith(string start)
+
+e2function number string:startsWith( string start )
     if string.StartWith( this, start ) then return 1 end
     return 0
 end
@@ -14,7 +17,7 @@ e2function number string:isNumber()
 end
 
 e2function number string:isLetters()
-    -- This regex tests for only letters (case insensitive) and spaces
+    -- This regex tests for only letters ( case insensitive ) and spaces
     if string.find( this, "^[%a ]*$" ) then return 1 end
     return 0
 end
