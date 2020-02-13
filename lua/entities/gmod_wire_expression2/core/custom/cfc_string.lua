@@ -1,5 +1,6 @@
 E2Lib.RegisterExtension( "cfc_e2_lib", true )
 
+local alphabet = "abcdefghijklmnopqrstuvwxyz"
 
 e2function number string:startsWith(string start)
     if string.StartWith( this, start ) then return 1 end
@@ -41,6 +42,6 @@ e2function number string:isLower()
 end
 
 e2function string alphabet()
-    return "abcdefghijklmnopqrstuvwxyz"
+    return alphabet
 end
-E2Lib.registerConstant("_ALPHABET", alphabet)
+E2Lib.registerConstant( "_ALPHABET", alphabet )
