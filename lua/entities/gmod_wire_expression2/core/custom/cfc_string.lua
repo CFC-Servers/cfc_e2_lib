@@ -1,7 +1,7 @@
 CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 
-local alphabet = "abcdefghijklmnopqrstuvwxyz"
+local ALPHABET = "abcdefghijklmnopqrstuvwxyz"
 
 e2function number string:startsWith( string start )
     if string.StartWith( this, start ) then return 1 end
@@ -43,7 +43,7 @@ e2function number string:isLower()
 end
 
 e2function string alphabet()
-    return alphabet
+    return ALPHABET
 end
 
-E2Lib.registerConstant( "ALPHABET", alphabet )
+E2Lib.registerConstant( "ALPHABET", ALPHABET )
