@@ -28,6 +28,7 @@ E2Helper.Descriptions["hasNumber(s:)"]         = "Returns 1 if string contains n
 E2Helper.Descriptions["hasLetter(s:)"]         = "Returns 1 if string has letters, 0 otherwise."
 E2Helper.Descriptions["isUpper(s:)"]           = "Returns 1 if string is uppercase, 0 otherwise."
 E2Helper.Descriptions["isLower(s:)"]           = "Returns 1 if string is lowercase, 0 otherwise."
+E2Helper.Descriptions["alphabet()"]            = "Returns the alphabet (a-z) as a lowercase string"
 
 -- Array Functions
 E2Helper.Descriptions["shuffled(r:)"]          = "Returns a shuffled array."
