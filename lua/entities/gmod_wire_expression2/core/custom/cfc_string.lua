@@ -46,4 +46,4 @@ e2function string alphabet()
     return ALPHABET
 end
 
-E2Lib.registerConstant( "ALPHABET", ALPHABET )
+E2Lib.registerConstant( "_ALPHABET", ALPHABET )
