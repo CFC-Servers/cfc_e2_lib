@@ -41,6 +41,7 @@ e2function number entity:isInFaction()
 end
 
 -- Vehicle Entities
+
 e2function void entity:ejectPodTo( vector pos )
     local clampedPos = clamp( pos )
 
@@ -54,16 +55,17 @@ e2function void entity:ejectPodTo( vector pos )
     driver:SetPos( clampedPos )
 end
 
--- Prop Entities ?
+-- All Entities
+
 e2function void entity:propIgnite( number duration )
 	local minDuration = 1
 	local maxDuration = 500
 
-	duration = math.Clamp(duration, minDuration, maxDuration)
+	duration = math.Clamp( duration, minDuration, maxDuration )
     
     if not IsValid( this ) then return end
     if this:CPPIGetOwner() ~= self.player then return end
 
-    this:Ignite(duration)
+    this:Ignite( duration )
 
 end
