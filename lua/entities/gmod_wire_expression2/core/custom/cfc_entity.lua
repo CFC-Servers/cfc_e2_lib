@@ -53,3 +53,17 @@ e2function void entity:ejectPodTo( vector pos )
     driver:ExitVehicle()
     driver:SetPos( clampedPos )
 end
+
+-- Prop Entities ?
+e2function void entity:propIgnite( number duration )
+	local minDuration = 1
+	local maxDuration = 500
+
+	duration = math.Clamp(duration, minDuration, maxDuration)
+    
+    if not IsValid( this ) then return end
+    if this:CPPIGetOwner() ~= self.player then return end
+
+    this:Ignite(duration)
+
+end
