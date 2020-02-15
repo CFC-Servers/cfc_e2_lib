@@ -58,10 +58,10 @@ end
 -- All Entities
 
 e2function void entity:propIgnite( number duration )
-	local minDuration = 1
-	local maxDuration = 500
+    local minDuration = 1
+    local maxDuration = 500
 
-	duration = math.Clamp( duration, minDuration, maxDuration )
+    duration = math.Clamp( duration, minDuration, maxDuration )
     
     if not IsValid( this ) then return end
     if this:CPPIGetOwner() ~= self.player then return end
