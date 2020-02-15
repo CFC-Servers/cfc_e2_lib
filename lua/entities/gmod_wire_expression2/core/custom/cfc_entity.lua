@@ -53,3 +53,15 @@ e2function void entity:ejectPodTo( vector pos )
     driver:ExitVehicle()
     driver:SetPos( clampedPos )
 end
+
+-- Prop Entities ?
+e2function void entity:propIgnite( number duration )
+    local minDuration = 1
+    local maxDuration = 500
+
+    math.Clamp(duration, minDuration, maxDuration)
+    
+    if not IsValid( this )
+
+    this:Ignite(duration)
+end
