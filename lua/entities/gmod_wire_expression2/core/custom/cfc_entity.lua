@@ -67,5 +67,4 @@ e2function void entity:propIgnite( number duration )
     if this:CPPIGetOwner() ~= self.player then return end
 
     this:Ignite( duration )
-
 end
