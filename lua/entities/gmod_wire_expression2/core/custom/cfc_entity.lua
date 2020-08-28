@@ -41,7 +41,7 @@ e2function number entity:isInFaction()
 end
 
 e2function entity entity:getPhysicsObject()
-    if not IsValid( this ) or not this::getPhysicsObject()
+    if not IsValid( this ) or not this:getPhysicsObject()
     return this:getPhysicsObject()
 end
 
