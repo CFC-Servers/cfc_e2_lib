@@ -40,6 +40,7 @@ e2function number entity:isInFaction()
     return this:IsInFaction()
 end
 
+-- npc and player entities
 e2function entity entity:getPhysicsObject()
     if not IsValid( this ) or not this:getPhysicsObject()
     return this:getPhysicsObject()
