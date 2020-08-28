@@ -40,6 +40,11 @@ e2function number entity:isInFaction()
     return this:IsInFaction()
 end
 
+e2function entity entity:getPhysicsObject()
+    if not IsValid( this ) or not this::getPhysicsObject()
+    return this:getPhysicsObject()
+end
+
 -- Vehicle Entities
 e2function void entity:ejectPodTo( vector pos )
     local clampedPos = clamp( pos )
