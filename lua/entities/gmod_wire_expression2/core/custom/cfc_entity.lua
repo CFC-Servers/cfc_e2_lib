@@ -41,8 +41,15 @@ e2function number entity:isInFaction()
 end
 
 -- Vehicle Entities
+local ejectRange = 500
 e2function void entity:ejectPodTo( vector pos )
     local clampedPos = clamp( pos )
+
+    local seatPos = this:GetPos()
+    local x = math.clamp( clampedPos.x, seatPos.x - ejectRange, seatPos.x + ejectRange)
+    local y = math.clamp( clampedPos.y, seatPos.y - ejectRange, seatPos.y + ejectRange)
+    local z = math.clamp( clampedPos.z, seatPos.z - ejectRange, seatPos.z + ejectRange)
+    clampedPos = Vector(x, y, z)
 
     if not IsValid( this ) or not this:IsVehicle() then return end
     if this:CPPIGetOwner() ~= self.player then return end
