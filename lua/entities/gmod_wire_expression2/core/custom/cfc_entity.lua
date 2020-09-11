@@ -45,7 +45,7 @@ e2function void entity:ejectPodTo( vector pos )
     local clampedPos = clamp( pos )
 
     if not IsValid( this ) or not this:IsVehicle() then return end
-    if not this:CPPIGetOwner() == self.player then return end
+    if this:CPPIGetOwner() ~= self.player then return end
 
     local driver = this:GetDriver()
     if not IsValid( driver ) or not driver:IsPlayer() then return end
