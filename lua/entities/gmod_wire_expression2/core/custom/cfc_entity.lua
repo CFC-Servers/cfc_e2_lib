@@ -43,7 +43,8 @@ end
 -- Vehicle Entities
 local ejectRange = 500
 e2function void entity:ejectPodTo( vector pos )
-    local clampedPos = clamp( pos )
+    local posVec = Vector( pos[1], pos[2], pos[3] )
+    local clampedPos = clamp( posVec )
 
     local seatPos = this:GetPos()
     local x = math.Clamp( clampedPos[1], seatPos[1] - ejectRange, seatPos[1] + ejectRange)
