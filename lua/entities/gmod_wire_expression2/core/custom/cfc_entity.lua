@@ -46,9 +46,9 @@ e2function void entity:ejectPodTo( vector pos )
     local clampedPos = clamp( pos )
 
     local seatPos = this:GetPos()
-    local x = math.clamp( clampedPos[1], seatPos[1] - ejectRange, seatPos[1] + ejectRange)
-    local y = math.clamp( clampedPos[2], seatPos[2] - ejectRange, seatPos[2] + ejectRange)
-    local z = math.clamp( clampedPos[3], seatPos[3] - ejectRange, seatPos[3] + ejectRange)
+    local x = math.Clamp( clampedPos[1], seatPos[1] - ejectRange, seatPos[1] + ejectRange)
+    local y = math.Clamp( clampedPos[2], seatPos[2] - ejectRange, seatPos[2] + ejectRange)
+    local z = math.Clamp( clampedPos[3], seatPos[3] - ejectRange, seatPos[3] + ejectRange)
     clampedPos = Vector(x, y, z)
 
     if not IsValid( this ) or not this:IsVehicle() then return end
