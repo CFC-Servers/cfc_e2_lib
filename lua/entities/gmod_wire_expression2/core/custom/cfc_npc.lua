@@ -57,55 +57,55 @@ e2function void entity:npcSetDamageMultiplier( number mul )
     if not ValidNpc( this ) then return end
     if not ValidPly( self.player ) then return end
     if not hasAccess( self.player ) then return end
-	
-	this.cfce2libNpcDamageMultiplier = mul
+    
+    this.cfce2libNpcDamageMultiplier = mul
 end
 
 e2function string entity:npcSetGlobalSquad( number squadnum ) 
     if not ValidNpc( this ) then return NULL end
     if not ValidPly( self.player ) then return NULL end
     if not hasAccess( self.player ) then return NULL end
-	if not squadnum then return NULL end
-	
-	local squad = "squad" .. tostring( squadnum )
-	
-	this:SetKeyValue( "squadname", squad )
-	
-	return squad
+    if not squadnum then return NULL end
+    
+    local squad = "squad" .. tostring( squadnum )
+    
+    this:SetKeyValue( "squadname", squad )
+    
+    return squad
 end
 
 e2function string entity:npcGetGlobalSquad()
     if not ValidNpc( this ) then return NULL end
     if not ValidPly( self.player ) then return NULL end
     if not hasAccess( self.player ) then return NULL end
-	
-	local squad = this:GetKeyValues()["squadname"]
-	
-	if not squad then return NULL end
-	
-	return squad
+    
+    local squad = this:GetKeyValues()["squadname"]
+    
+    if not squad then return NULL end
+        
+    return squad
 end
 
 e2function entity npcCreate( string npcclass, vector position )
     if not ValidPly( self.player ) then return NULL end
     if not hasAccess( self.player ) then return NULL end
     if not npcclass then return NULL end
-	if not position then return NULL end
-	
+    if not position then return NULL end
+    
     local NPC = ents.Create( npcclass )
     
-	if not IsValid( NPC ) then return NULL end
+    if not IsValid( NPC ) then return NULL end
     if not NPC:IsNPC() then return NULL end
     
     NPC:SetPos( position )
     NPC:Spawn()
-	
-	cleanup.Add( self.player, "npcs", NPC )
-	
-	undo.Create( "npc" )
-		undo.AddEntity( NPC )
-		undo.SetPlayer( self.player )
-	undo.Finish( "npc" .. " (" .. npcclass .. ")" )
+    
+    cleanup.Add( self.player, "npcs", NPC )
+    
+    undo.Create( "npc" )
+        undo.AddEntity( NPC )
+        undo.SetPlayer( self.player )
+    undo.Finish( "npc" .. " (" .. npcclass .. ")" )
     
     return NPC
 end
@@ -118,10 +118,10 @@ local function scaleNPCDamage( target, dmgInfo )
     
     if not IsValid( attacker ) then return end
     if not attacker:IsNPC() then return end
-	
+    
     local dmgmul = attacker.cfce2libNpcDamageMultiplier
-	
-	if not dmgmul then return end
+    
+    if not dmgmul then return end
 
     dmgInfo:ScaleDamage( dmgmul )
 end
