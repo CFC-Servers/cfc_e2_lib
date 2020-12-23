@@ -51,3 +51,12 @@ E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desir
 -- Player Functions
 E2Helper.Descriptions["getAlive()"]            = "Returns an array with all alive players."
 E2Helper.Descriptions["getDead()"]             = "Returns an array with all dead players."
+
+-- NPC functions
+E2Helper.Descriptions["npcSetMaxHealth(e:n)"]          = "Sets an NPC's maximum health. Admin only."
+E2Helper.Descriptions["npcSetHealth(e:n)"]             = "Sets an NPC's health. Admin only."
+E2Helper.Descriptions["npcSetScale(e:n)"]              = "Sets the scale of an NPC. Admin only."
+E2Helper.Descriptions["npcSetDamageMultiplier(e:n)"]   = "Sets the damage multipler for an NPC, so if N = 2, an NPC that does 10 damage will do 20. Admin only"
+E2Helper.Descriptions["npcSetGlobalSquad(e:n)"]        = "Changes the squad of an NPC to a new numbered squad. NPCs in the same squad will work together, firing in turns and covering eachother when they reload. Admin only."
+E2Helper.Descriptions["npcGetGlobalSquad(e:n)"]        = "Returns an NPC's squad (string). Admin only. "
+E2Helper.Descriptions["npcCreate(sv)"]                 = "Creates an npc of class S, at position V. Admin only."
