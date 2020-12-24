@@ -67,7 +67,7 @@ e2function string entity:npcSetGlobalSquad( number squadnum )
     if not hasAccess( self.player ) then return NULL end
     if not squadnum then return NULL end
     
-    local squad = "squad" .. tostring( squadnum )
+    local squad = "squad" .. squadnum
     
     this:SetKeyValue( "squadname", squad )
     
@@ -86,28 +86,28 @@ e2function string entity:npcGetGlobalSquad()
     return squad
 end
 
-e2function entity npcCreate( string npcclass, vector position )
+e2function entity npcCreate( string npcClass, vector position )
     if not ValidPly( self.player ) then return NULL end
     if not hasAccess( self.player ) then return NULL end
-    if not npcclass then return NULL end
+    if not npcClass then return NULL end
     if not position then return NULL end
     
-    local NPC = ents.Create( npcclass )
+    local npc = ents.Create( npcClass )
     
-    if not IsValid( NPC ) then return NULL end
-    if not NPC:IsNPC() then return NULL end
+    if not IsValid( npc ) then return NULL end
+    if not npc:IsNPC() then return NULL end
     
-    NPC:SetPos( position )
-    NPC:Spawn()
+    npc:SetPos( position )
+    npc:Spawn()
     
-    cleanup.Add( self.player, "npcs", NPC )
+    cleanup.Add( self.player, "npcs", npc )
     
     undo.Create( "npc" )
-        undo.AddEntity( NPC )
+        undo.AddEntity( npc )
         undo.SetPlayer( self.player )
-    undo.Finish( "npc" .. " (" .. npcclass .. ")" )
+    undo.Finish( "npc" .. " (" .. npcClass .. ")" )
     
-    return NPC
+    return npc
 end
 
 
@@ -126,5 +126,4 @@ local function scaleNPCDamage( target, dmgInfo )
     dmgInfo:ScaleDamage( dmgmul )
 end
 
-hook.Remove( "EntityTakeDamage", "ScaleNPCDamage" )
-hook.Add( "EntityTakeDamage", "ScaleNPCDamage", scaleNPCDamage )
+hook.Add( "EntityTakeDamage", "CFC_E2Lib_ScaleNPCDamage", scaleNPCDamage )
