@@ -22,6 +22,43 @@ local function isValidNpc( npc )
 end
 
 
+-- Unrestricted get functions
+
+e2function number entity:npcGetWeaponProficiency() 
+    if not isValidNpc( this ) then return end
+    if not hasAccess( self.player, 0 ) then return end
+    
+    return this:GetCurrentWeaponProficiency()
+end
+
+e2function number entity:npcGetDamageMultiplier() 
+    if not isValidNpc( this ) then return end
+    if not hasAccess( self.player, 0 ) then return end
+    
+	if not this.cfcE2LibNpcDamageMultiplier then return NULL end
+	
+    return this.cfcE2LibNpcDamageMultiplier
+end
+
+e2function string entity:npcGetGlobalSquad()
+    if not isValidNpc( this ) then return NULL end
+    if not hasAccess( self.player, 0 ) then return NULL end
+    
+    local squad = this:GetKeyValues().squadname
+    
+    if not squad then return NULL end
+        
+    return squad
+end
+
+e2function string entity:npcCouldNotReach( entity reachableIn )
+    if not isValidNpc( this ) then return NULL end
+    if not hasAccess( self.player, 0 ) then return NULL end
+
+    return this:IsUnreachable( reachableIn )
+end
+
+
 -- Admin only npc functions
 
 e2function void entity:npcSetMaxHealth( number maxHealth )
@@ -45,6 +82,20 @@ e2function void entity:npcSetScale( number scale )
     this:SetModelScale( scale, 0 )
 end
 
+e2function void entity:npcSetScale( number scale, number time )
+    if not isValidNpc( this ) then return end
+    if not hasAccess( self.player, 1 ) then return end
+    
+    this:SetModelScale( scale, time )
+end
+
+e2function void entity:npcSetWeaponProficiency( number weapProf )
+    if not isValidNpc( this ) then return end
+    if not hasAccess( self.player, 1 ) then return end
+    
+    this:SetCurrentWeaponProficiency( weapProf )
+end
+
 e2function void entity:npcSetDamageMultiplier( number mul ) 
     if not isValidNpc( this ) then return end
     if not hasAccess( self.player, 1 ) then return end
@@ -52,25 +103,12 @@ e2function void entity:npcSetDamageMultiplier( number mul )
     this.cfcE2LibNpcDamageMultiplier = mul
 end
 
-e2function string entity:npcSetGlobalSquad( number squadNum ) 
+e2function string entity:npcSetGlobalSquad( string squadIn ) 
     if not isValidNpc( this ) then return NULL end
     if not hasAccess( self.player, 1 ) then return NULL end
     
-    local squad = "squad" .. squadNum
+    this:SetKeyValue( "squadname", squadIn )
     
-    this:SetKeyValue( "squadname", squad )
-    
-    return squad
-end
-
-e2function string entity:npcGetGlobalSquad()
-    if not isValidNpc( this ) then return NULL end
-    if not hasAccess( self.player, 1 ) then return NULL end
-    
-    local squad = this:GetKeyValues().squadname
-    
-    if not squad then return NULL end
-        
     return squad
 end
 
