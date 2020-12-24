@@ -4,14 +4,14 @@ CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 -- Setting up local functions 
 
-local function ValidPly( ply )
+local function isValidPly( ply )
     if not ply or not ply:IsValid() or not ply:IsPlayer() then
         return false
     end
     return true
 end
 
-local function ValidNpc( npc )
+local function isValidNpc( npc )
     if not npc or not npc:IsValid() or not npc:IsNPC() then
         return false
     end
@@ -20,10 +20,7 @@ end
 
 
 local function hasAccess(ply)
-    if ply:IsAdmin() then
-        return true
-    end
-    return false
+    return ply:IsAdmin()
 end
 
 
