@@ -35,8 +35,8 @@ e2function number entity:npcGetDamageMultiplier()
     if not isValidNpc( this ) then return end
     if not hasAccess( self.player, 0 ) then return end
     
-	if not this.cfcE2LibNpcDamageMultiplier then return NULL end
-	
+    if not this.cfcE2LibNpcDamageMultiplier then return NULL end
+    
     return this.cfcE2LibNpcDamageMultiplier
 end
 
