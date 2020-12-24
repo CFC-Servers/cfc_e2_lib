@@ -5,16 +5,16 @@ CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 -- Setting up local functions 
 
 local function isValidPly( ply )
-    if not ply or not ply:IsValid() or not ply:IsPlayer() then
-        return false
-    end
+    if not IsValid( ply ) then return false end
+    if not ply:IsPlayer() then return false end
+    
     return true
 end
 
 local function isValidNpc( npc )
-    if not npc or not npc:IsValid() or not npc:IsNPC() then
-        return false
-    end
+    if not IsValid( npc ) then return false end
+    if not npc:IsNPC() then return false end
+    
     return true
 end
 
@@ -76,7 +76,7 @@ e2function string entity:npcGetGlobalSquad()
     if not ValidPly( self.player ) then return NULL end
     if not hasAccess( self.player ) then return NULL end
     
-    local squad = this:GetKeyValues()["squadname"]
+    local squad = this:GetKeyValues().squadname
     
     if not squad then return NULL end
         
@@ -99,10 +99,12 @@ e2function entity npcCreate( string npcClass, vector position )
     
     cleanup.Add( self.player, "npcs", npc )
     
+    local undoLine = "npc " .. " (" .. npc:GetClass() .. ")" )
+
     undo.Create( "npc" )
         undo.AddEntity( npc )
         undo.SetPlayer( self.player )
-    undo.Finish( "npc" .. " (" .. npcClass .. ")" )
+    undo.Finish( undoLine )
     
     return npc
 end
