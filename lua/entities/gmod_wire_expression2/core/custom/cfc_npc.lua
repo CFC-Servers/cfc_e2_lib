@@ -109,7 +109,7 @@ e2function string entity:npcSetGlobalSquad( string squadIn )
     
     this:SetKeyValue( "squadname", squadIn )
     
-    return squad
+    return modelIn 
 end
 
 e2function entity npcCreate( string npcClass, vector position )
@@ -125,7 +125,31 @@ e2function entity npcCreate( string npcClass, vector position )
     cleanup.Add( self.player, "npcs", npc )
     
     local undoLine = "npc " .. " (" .. npc:GetClass() .. ")"
+	
+    undo.Create( "npc" )
+        undo.AddEntity( npc )
+        undo.SetPlayer( self.player )
+    undo.Finish( undoLine )
+    
+    return npc
+end
 
+e2function entity npcCreate( string npcClass, vector position, string modelIn )
+    if not hasAccess( self.player, 1 ) then return NULL end
+    
+    local npc = ents.Create( npcClass )
+    
+    if not isValidNpc( npc ) then return NULL end
+	
+    npc:SetKeyValue( "model", modelIn )
+	
+    npc:SetPos( position )
+    npc:Spawn()
+        
+    cleanup.Add( self.player, "npcs", npc )
+    
+    local undoLine = "npc " .. " (" .. npc:GetClass() .. ")"
+	
     undo.Create( "npc" )
         undo.AddEntity( npc )
         undo.SetPlayer( self.player )
