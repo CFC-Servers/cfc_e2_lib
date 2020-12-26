@@ -108,7 +108,6 @@ e2function void entity:npcSetGlobalSquad( string squadIn )
     if not hasAccess( self.player, 1 ) then return end
     
     this:SetKeyValue( "squadname", squadIn )
-	
 end
 
 e2function entity npcCreate( string npcClass, vector position )
