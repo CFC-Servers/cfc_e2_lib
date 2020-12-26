@@ -2,8 +2,8 @@ CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 -- Made by StrawWagen
 
--- Setting up local functions 
 
+-- Setting up local functions 
 
 local function hasAccess( ply, requiresAdmin )
     if not IsValid ( ply ) then return false end
@@ -103,13 +103,12 @@ e2function void entity:npcSetDamageMultiplier( number mul )
     this.cfcE2LibNpcDamageMultiplier = mul
 end
 
-e2function string entity:npcSetGlobalSquad( string squadIn ) 
-    if not isValidNpc( this ) then return NULL end
-    if not hasAccess( self.player, 1 ) then return NULL end
+e2function void entity:npcSetGlobalSquad( string squadIn ) 
+    if not isValidNpc( this ) then return end
+    if not hasAccess( self.player, 1 ) then return end
     
     this:SetKeyValue( "squadname", squadIn )
-    
-    return modelIn 
+	
 end
 
 e2function entity npcCreate( string npcClass, vector position )
@@ -125,7 +124,7 @@ e2function entity npcCreate( string npcClass, vector position )
     cleanup.Add( self.player, "npcs", npc )
     
     local undoLine = "npc " .. " (" .. npc:GetClass() .. ")"
-	
+    
     undo.Create( "npc" )
         undo.AddEntity( npc )
         undo.SetPlayer( self.player )
@@ -140,16 +139,16 @@ e2function entity npcCreate( string npcClass, vector position, string modelIn )
     local npc = ents.Create( npcClass )
     
     if not isValidNpc( npc ) then return NULL end
-	
+    
     npc:SetKeyValue( "model", modelIn )
-	
+    
     npc:SetPos( position )
     npc:Spawn()
         
     cleanup.Add( self.player, "npcs", npc )
     
     local undoLine = "npc " .. " (" .. npc:GetClass() .. ")"
-	
+    
     undo.Create( "npc" )
         undo.AddEntity( npc )
         undo.SetPlayer( self.player )
