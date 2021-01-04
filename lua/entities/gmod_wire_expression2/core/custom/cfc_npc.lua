@@ -117,8 +117,8 @@ e2function entity npcCreate( string npcClass, vector positionIn )
     
     if not isValidNpc( npc ) then return NULL end
     
-	position = Vector( positionIn[1], positionIn[2], positionIn[3] )
-	
+    position = Vector( positionIn[1], positionIn[2], positionIn[3] )
+    
     npc:SetPos( position )
     npc:Spawn()
         
@@ -142,9 +142,9 @@ e2function entity npcCreate( string npcClass, vector positionIn, string modelIn 
     if not isValidNpc( npc ) then return NULL end
     
     npc:SetKeyValue( "model", modelIn )
-	
-	position = Vector( positionIn[1], positionIn[2], positionIn[3] )
-	
+    
+    position = Vector( positionIn[1], positionIn[2], positionIn[3] )
+        
     npc:SetPos( position )
     npc:Spawn()
         
