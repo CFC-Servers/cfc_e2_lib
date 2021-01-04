@@ -110,13 +110,15 @@ e2function void entity:npcSetGlobalSquad( string squadIn )
     this:SetKeyValue( "squadname", squadIn )
 end
 
-e2function entity npcCreate( string npcClass, vector position )
+e2function entity npcCreate( string npcClass, vector positionIn )
     if not hasAccess( self.player, 1 ) then return NULL end
     
     local npc = ents.Create( npcClass )
     
     if not isValidNpc( npc ) then return NULL end
     
+	position = Vector( positionIn[1], positionIn[2], positionIn[3] )
+	
     npc:SetPos( position )
     npc:Spawn()
         
@@ -132,7 +134,7 @@ e2function entity npcCreate( string npcClass, vector position )
     return npc
 end
 
-e2function entity npcCreate( string npcClass, vector position, string modelIn )
+e2function entity npcCreate( string npcClass, vector positionIn, string modelIn )
     if not hasAccess( self.player, 1 ) then return NULL end
     
     local npc = ents.Create( npcClass )
@@ -140,7 +142,9 @@ e2function entity npcCreate( string npcClass, vector position, string modelIn )
     if not isValidNpc( npc ) then return NULL end
     
     npc:SetKeyValue( "model", modelIn )
-    
+	
+	position = Vector( positionIn[1], positionIn[2], positionIn[3] )
+	
     npc:SetPos( position )
     npc:Spawn()
         
