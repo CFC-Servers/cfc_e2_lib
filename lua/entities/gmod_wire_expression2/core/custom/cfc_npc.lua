@@ -112,7 +112,7 @@ end
 
 e2function entity npcCreate( string npcClass, vector positionIn )
     if not hasAccess( self.player, 1 ) then return NULL end
-    position = Vector( positionIn[1], positionIn[2], positionIn[3] )
+    local position = Vector( positionIn[1], positionIn[2], positionIn[3] )
     
     local npc = ents.Create( npcClass )
     if not isValidNpc( npc ) then return NULL end
@@ -134,13 +134,12 @@ end
 
 e2function entity npcCreate( string npcClass, vector positionIn, string modelIn )
     if not hasAccess( self.player, 1 ) then return NULL end
-    position = Vector( positionIn[1], positionIn[2], positionIn[3] )
+    local position = Vector( positionIn[1], positionIn[2], positionIn[3] )
     
     local npc = ents.Create( npcClass )
     if not isValidNpc( npc ) then return NULL end
     
     npc:SetKeyValue( "model", modelIn )
-        
     npc:SetPos( position )
     npc:Spawn()
         
