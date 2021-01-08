@@ -9,7 +9,7 @@ local function hasAccess( ply, requiresAdmin )
     if not IsValid ( ply ) then return false end
 
     if not requiresAdmin then return true end
-    if not ply:IsAdmin() then return end
+    if not ply:IsAdmin() then return false end
 
     return true
 end
@@ -25,35 +25,35 @@ end
 -- Unrestricted get functions
 
 e2function number entity:npcGetWeaponProficiency() 
-    if not isValidNpc( this ) then return end
-    if not hasAccess( self.player, 0 ) then return end
+    if not isValidNpc( this ) then return 0 end
+    if not hasAccess( self.player, 0 ) then return 0 end
     
     return this:GetCurrentWeaponProficiency()
 end
 
 e2function number entity:npcGetDamageMultiplier() 
-    if not isValidNpc( this ) then return end
-    if not hasAccess( self.player, 0 ) then return end
+    if not isValidNpc( this ) then return 0 end
+    if not hasAccess( self.player, 0 ) then return 0 end
     
-    if not this.cfcE2LibNpcDamageMultiplier then return NULL end
+    if not this.cfcE2LibNpcDamageMultiplier then return 0 end
     
     return this.cfcE2LibNpcDamageMultiplier
 end
 
 e2function string entity:npcGetGlobalSquad()
-    if not isValidNpc( this ) then return NULL end
-    if not hasAccess( self.player, 0 ) then return NULL end
+    if not isValidNpc( this ) then return "" end
+    if not hasAccess( self.player, 0 ) then return "" end
     
     local squad = this:GetKeyValues().squadname
     
-    if not squad then return NULL end
+    if not squad then return "" end
         
     return squad
 end
 
 e2function string entity:npcCouldNotReach( entity reachableIn )
-    if not isValidNpc( this ) then return NULL end
-    if not hasAccess( self.player, 0 ) then return NULL end
+    if not isValidNpc( this ) then return "" end
+    if not hasAccess( self.player, 0 ) then return "" end
 
     return this:IsUnreachable( reachableIn )
 end
