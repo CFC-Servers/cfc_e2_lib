@@ -58,6 +58,7 @@ end
 
 e2function void entity:npcSetMaxHealth( number maxHealth )
     if not isValidNpc( this ) then return end
+    if not hasAccess( self.player ) then return end
 
     this:SetMaxHealth( maxHealth )
 end
@@ -93,7 +94,7 @@ end
 e2function void entity:npcSetDamageMultiplier( number mul )
     if not isValidNpc( this ) then return end
     if not hasAccess( self.player ) then return end
-    
+
     this.cfcE2LibNpcDamageMultiplier = mul
 end
 
@@ -106,6 +107,7 @@ end
 
 e2function entity npcCreate( string npcClass, vector positionIn )
     if not hasAccess( self.player ) then return NULL end
+
     local position = Vector( positionIn[1], positionIn[2], positionIn[3] )
 
     local npc = ents.Create( npcClass )
@@ -128,6 +130,7 @@ end
 
 e2function entity npcCreate( string npcClass, vector positionIn, string modelIn )
     if not hasAccess( self.player ) then return NULL end
+
     local position = Vector( positionIn[1], positionIn[2], positionIn[3] )
 
     local npc = ents.Create( npcClass )
