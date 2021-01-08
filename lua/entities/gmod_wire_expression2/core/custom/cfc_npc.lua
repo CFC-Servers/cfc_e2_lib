@@ -25,15 +25,13 @@ end
 
 e2function number entity:npcGetWeaponProficiency() 
     if not isValidNpc( this ) then return 0 end
-    if not IsValid( self.player ) then return 0 end
-    
+ 
     return this:GetCurrentWeaponProficiency()
 end
 
 e2function number entity:npcGetDamageMultiplier() 
     if not isValidNpc( this ) then return 0 end
-    if not IsValid( self.player ) then return 0 end
-    
+
     if not this.cfcE2LibNpcDamageMultiplier then return 0 end
     
     return this.cfcE2LibNpcDamageMultiplier
@@ -41,18 +39,16 @@ end
 
 e2function string entity:npcGetGlobalSquad()
     if not isValidNpc( this ) then return "" end
-    if not IsValid( self.player ) then return "" end
-    
+
     local squad = this:GetKeyValues().squadname
-    
+
     if not squad then return "" end
-        
+
     return squad
 end
 
 e2function string entity:npcCouldNotReach( entity reachableIn )
     if not isValidNpc( this ) then return "" end
-    if not IsValid( self.player ) then return "" end
 
     return this:IsUnreachable( reachableIn )
 end
@@ -62,7 +58,6 @@ end
 
 e2function void entity:npcSetMaxHealth( number maxHealth )
     if not isValidNpc( this ) then return end
-    if not hasAccess( self.player ) then return end
 
     this:SetMaxHealth( maxHealth )
 end
