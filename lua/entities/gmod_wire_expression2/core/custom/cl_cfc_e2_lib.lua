@@ -15,6 +15,9 @@ E2Helper.Descriptions["averagePing()"]         = "Returns a floating-point numbe
 E2Helper.Descriptions["minPing()"]             = "Returns a floating-point number representing the lowest ping of all players in the server."
 E2Helper.Descriptions["maxPing()"]             = "Returns a floating-point number representing the highest ping of all players in the server."
 
+-- GC Functions
+E2Helper.Descriptions["serverMemoryUsage()"]   = "Returns total kilobytes of memory currently in use by Lua on the server"
+
 -- Loss Functions
 E2Helper.Descriptions["averageLoss()"]         = "Returns a floating-point number representing the average packet loss of players in the server."
 E2Helper.Descriptions["minLoss()"]             = "Returns a floating-point number representing the lowest packet loss of all players in the server."
