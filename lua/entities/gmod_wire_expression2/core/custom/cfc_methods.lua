@@ -127,3 +127,17 @@ e2function array getDead()
 
     return arrayOfDead
 end
+
+local memCacheTime = 0.1
+local lastMemCountTime = CurTime()
+local cachedMemAmount = collectgarbage( "count" )
+
+_e2setcost(10)
+e2function number serverMemoryUsage()
+   if CurTime() < lastMemCountTime + memCacheTime then
+       return lastMemCountTime
+   end
+
+   cachedMemAmount = collectgarbage( "count" )
+   return cachedMemAmount
+end
