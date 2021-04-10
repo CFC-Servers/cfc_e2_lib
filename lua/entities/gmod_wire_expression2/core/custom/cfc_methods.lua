@@ -132,7 +132,7 @@ local memCacheTime = 0.1
 local lastMemCountTime = CurTime()
 local cachedMemAmount = collectgarbage( "count" )
 
-_e2setcost(10)
+__e2setcost(10)
 e2function number serverMemoryUsage()
    if CurTime() < lastMemCountTime + memCacheTime then
        return cachedMemAmount
