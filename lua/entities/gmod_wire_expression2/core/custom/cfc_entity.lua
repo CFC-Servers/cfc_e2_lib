@@ -61,3 +61,9 @@ e2function void entity:ejectPodTo( vector pos )
     driver:ExitVehicle()
     driver:SetPos( clampedPos )
 end
+
+-- Wire Gate Entities
+e2function string entity:getWireGateName()
+    if not IsValid( this ) or baseclass.Get( this ) then return "" end
+    return this.WireDebugName
+end

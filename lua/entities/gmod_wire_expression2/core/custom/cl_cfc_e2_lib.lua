@@ -69,3 +69,6 @@ E2Helper.Descriptions["npcGetGlobalSquad(e:)"]         = "Returns an NPC's squad
 E2Helper.Descriptions["npcGetWeaponProficiency(e:)"]   = "Returns the weapon proficiency of the NPC."
 E2Helper.Descriptions["npcGetDamageMultiplier(e:)"]    = "Returns the damage multiplier of the NPC"
 E2Helper.Descriptions["npcCouldNotReach(e:e)"]         = "Returns 1 if the NPC marked ent2 as unreachable"
+
+-- Wire Gate Functions
+E2Helper.Description["getGateDisplayName(e:)"]             = "Returns the display name of a Wire Gate."
