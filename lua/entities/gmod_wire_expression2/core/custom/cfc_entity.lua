@@ -64,6 +64,6 @@ end
 
 -- Wire Gate Entities
 e2function string entity:getWireGateName()
-    if not IsValid( this ) or baseclass.Get( this ) then return "" end
+    if not IsValid( this ) or not baseclass.Get( this ) then return "" end
     return this.WireDebugName
 end
