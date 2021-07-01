@@ -63,7 +63,7 @@ e2function void entity:ejectPodTo( vector pos )
 end
 
 -- Wire Gate Entities
-e2function string entity:getWireGateName()
+e2function string entity:getGateName()
     if not IsValid( this ) or not baseclass.Get( this ) then return "" end
     return this.WireDebugName
 end
