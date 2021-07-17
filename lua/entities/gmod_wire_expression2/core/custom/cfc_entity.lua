@@ -61,3 +61,4 @@ e2function void entity:ejectPodTo( vector pos )
     driver:ExitVehicle()
     driver:SetPos( clampedPos )
 end
+
