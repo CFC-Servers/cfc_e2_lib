@@ -1,12 +1,14 @@
 CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 
-local DEFAULT_GATE_MODEL = ""
+local DEFAULT_GATE_MODEL = "models/jaanus/wiretool/wiretool_gate.mdl"
 
 e2function string entity:getGateName()
     if not IsValid( this ) or not baseclass.Get( this ) then return "" end
     return this.WireDebugName
 end
 
+
+-- gateSpawn and optional arguments
 e2function entity gateSpawn( string type, string model, vector pos, vector ang, number nocollide, number frozen )
     local gate = WireLib.MakeWireGate( self.player, pos, ang, model, type, nocollide, frozen )
     return gate
