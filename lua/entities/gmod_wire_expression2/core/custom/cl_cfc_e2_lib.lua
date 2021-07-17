@@ -71,4 +71,4 @@ E2Helper.Descriptions["npcGetDamageMultiplier(e:)"]    = "Returns the damage mul
 E2Helper.Descriptions["npcCouldNotReach(e:e)"]         = "Returns 1 if the NPC marked ent2 as unreachable"
 
 -- Wire Gate Functions
-E2Helper.Description["getGateDisplayName(e:)"]             = "Returns the display name of a Wire Gate."
+E2Helper.Description["getGateName(e:)"]             = "Returns the display name of a Wire Gate."
