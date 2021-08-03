@@ -40,6 +40,16 @@ e2function number entity:isInFaction()
     return this:IsInFaction()
 end
 
+e2function vector entity:getPlayerColor()
+    if not IsValid( this ) or not this:IsPlayer() then return 0 end
+    return this:GetPlayerColor()
+end
+
+e2function vector entity:getWeaponColor()
+    if not IsValid( this ) or not this:IsPlayer() then return 0 end
+    return this:GetWeaponColor()
+end
+
 -- Vehicle Entities
 local ejectRange = 500
 e2function void entity:ejectPodTo( vector pos )
