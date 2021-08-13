@@ -50,9 +50,7 @@ end
 e2function number entity:npcGetCurrentSchedule()
     if not isValidNpc( this ) then return 0 end
     
-    local out = this:GetCurrentSchedule()
-    
-    return out
+    return this:GetCurrentSchedule()
 end
 
 e2function string entity:npcCouldNotReach( entity reachableIn )
