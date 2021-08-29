@@ -55,6 +55,10 @@ E2Helper.Descriptions["ejectPodTo(e:v)"]       = "Ejects driver of seat to desir
 E2Helper.Descriptions["getAlive()"]            = "Returns an array with all alive players."
 E2Helper.Descriptions["getDead()"]             = "Returns an array with all dead players."
 
+-- ACF functions 
+E2Helper.Descriptions["acfAdminDisable(e:)"]   = "Disables acf damage on an entity. Admin only."
+E2Helper.Descriptions["acfAdminEnable(e:)"]    = "Re-enables ACF damage on an entity. Admin only."
+
 -- NPC functions
 E2Helper.Descriptions["npcSetMaxHealth(e:n)"]          = "Sets an NPC's maximum health. Admin only."
 E2Helper.Descriptions["npcSetHealth(e:n)"]             = "Sets an NPC's health. Admin only."
