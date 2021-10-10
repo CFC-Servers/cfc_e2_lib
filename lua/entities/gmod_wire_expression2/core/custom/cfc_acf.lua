@@ -19,9 +19,7 @@ end
 
 local function acfDisabledCheck(_, Entity, _, _, _, _, _, _)
     if not IsValid( Entity ) then return end
-    
-    return not Entity.cfcE2LibACFDisableDamage
-    
+    if Entity.cfcE2LibACFDisableDamage then return false end
 end
 
 hook.Add( "ACF_BulletDamage", "CFC_E2Lib_ScaleACFDamage", acfDisabledCheck )
