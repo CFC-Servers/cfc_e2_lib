@@ -6,29 +6,23 @@ e2function string entity:getGateName()
     return this.WireDebugName or ""
 end
 
-
 -- gateSpawn and optional arguments
 e2function entity gateSpawn( string type, string model, vector pos, vector ang, number nocollide, number frozen )
-    local gate = WireLib.MakeWireGate( self.player, pos, ang, model, type, nocollide, frozen )
-    return gate
+    return WireLib.MakeWireGate( self.player, pos, ang, model, type, nocollide, frozen )
 end
 
 e2function entity gateSpawn( string type, vector pos, vector ang, number nocollide, number frozen )
-    local gate = WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, type, nocollide, frozen )
-    return gate
+    return WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, type, nocollide, frozen )
 end
 
 e2function entity gateSpawn( string type, vector pos, vector ang, number frozen )
-    local gate = WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, type, true, frozen )
-    return gate
+    return WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, type, true, frozen )
 end
 
 e2function entity gateSpawn( string type, vector pos, vector ang )
-    local gate = WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, type, true, true )
-    return gate
+    return WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, type, true, true )
 end
 
 e2function entity gateSpawn( string type, vector pos )
-    local gate = WireLib.MakeWireGate( self.player, pos, Vector( 0, 0, 0 ), DEFAULT_GATE_MODEL, type, true, true )
-    return gate
+    return WireLib.MakeWireGate( self.player, pos, Vector( 0, 0, 0 ), DEFAULT_GATE_MODEL, type, true, true )
 end
