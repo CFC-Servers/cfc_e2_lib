@@ -72,3 +72,8 @@ E2Helper.Descriptions["npcCouldNotReach(e:e)"]         = "Returns 1 if the NPC m
 
 -- Wire Gate Functions
 E2Helper.Descriptions["getGateName(e:)"]             = "Returns the display name of a Wire Gate."
+E2Helper.Descriptions["gateSpawn(ssvvnn)"]           = "Gate type name, Model path, Position, Rotation Angle, Nocollide, Frozen. Spawns a Wire gate."
+E2Helper.Descriptions["gateSpawn(svvnn)"]            = "Gate type name, Position, Rotation Angle, Nocollide, Frozen. Spawns a Wire gate."
+E2Helper.Descriptions["gateSpawn(svvn)"]             = "Gate type name, Position, Rotation Angle, Nocollide. Spawns a Wire gate."
+E2Helper.Descriptions["gateSpawn(svv)"]              = "Gate type name, Position, Rotation Angle. Spawns a Wire gate."
+E2helper.Descriptions["gateSpawn(sv)"]              = "Gate type name, Position. Spawns a Wire gate with an angle of 0."
