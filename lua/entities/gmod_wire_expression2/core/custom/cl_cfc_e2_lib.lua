@@ -76,4 +76,4 @@ E2Helper.Descriptions["gateSpawn(ssvvnn)"]           = "Gate type name, Model pa
 E2Helper.Descriptions["gateSpawn(svvnn)"]            = "Gate type name, Position, Rotation Angle, Nocollide, Frozen. Spawns a Wire gate."
 E2Helper.Descriptions["gateSpawn(svvn)"]             = "Gate type name, Position, Rotation Angle, Nocollide. Spawns a Wire gate."
 E2Helper.Descriptions["gateSpawn(svv)"]              = "Gate type name, Position, Rotation Angle. Spawns a Wire gate."
-E2helper.Descriptions["gateSpawn(sv)"]              = "Gate type name, Position. Spawns a Wire gate with an angle of 0."
+E2helper.Descriptions["gateSpawn(sv)"]               = "Gate type name, Position. Spawns a Wire gate with an angle of 0."
