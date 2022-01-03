@@ -3,8 +3,7 @@ CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 local DEFAULT_GATE_MODEL = "models/jaanus/wiretool/wiretool_gate.mdl"
 
 e2function string entity:getGateName()
-    if not IsValid( this ) or not baseclass.Get( this ) then return "" end
-    return this.WireDebugName
+    return this.WireDebugName or ""
 end
 
 
