@@ -7,7 +7,7 @@ e2function string entity:getGateName()
 end
 
 e2function string entity:getGateActionName()
-    return GateActions[action] or nil
+    return GateActions[action] or ""
 end
 
 e2function string isValidGateAction( string action )
