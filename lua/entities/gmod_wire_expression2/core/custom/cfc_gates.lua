@@ -6,23 +6,32 @@ e2function string entity:getGateName()
     return this.WireDebugName or ""
 end
 
+e2function string entity:getGateActionName()
+    return GateActions[action] or nil
+end
+
+e2function string isValidGateAction( string action )
+    local gateAction = GateActions[action]
+    return gateAction ~= nil and gateAction or false
+end
+
 -- gateSpawn and optional arguments
-e2function entity gateSpawn( string type, string model, vector pos, vector ang, number nocollide, number frozen )
-    return WireLib.MakeWireGate( self.player, pos, ang, model, type, nocollide, frozen )
+e2function entity gateSpawn( string action, string model, vector pos, vector ang, number nocollide, number frozen )
+    return WireLib.MakeWireGate( self.player, pos, ang, model, action, nocollide, frozen )
 end
 
-e2function entity gateSpawn( string type, vector pos, vector ang, number nocollide, number frozen )
-    return WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, type, nocollide, frozen )
+e2function entity gateSpawn( string action, vector pos, vector ang, number nocollide, number frozen )
+    return WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, action, nocollide, frozen )
 end
 
-e2function entity gateSpawn( string type, vector pos, vector ang, number frozen )
-    return WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, type, true, frozen )
+e2function entity gateSpawn( string action, vector pos, vector ang, number frozen )
+    return WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, action, true, frozen )
 end
 
-e2function entity gateSpawn( string type, vector pos, vector ang )
-    return WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, type, true, true )
+e2function entity gateSpawn( string action, vector pos, vector ang )
+    return WireLib.MakeWireGate( self.player, pos, ang, DEFAULT_GATE_MODEL, action, true, true )
 end
 
-e2function entity gateSpawn( string type, vector pos )
-    return WireLib.MakeWireGate( self.player, pos, Vector( 0, 0, 0 ), DEFAULT_GATE_MODEL, type, true, true )
+e2function entity gateSpawn( string action, vector pos )
+    return WireLib.MakeWireGate( self.player, pos, Vector( 0, 0, 0 ), DEFAULT_GATE_MODEL, action, true, true )
 end
