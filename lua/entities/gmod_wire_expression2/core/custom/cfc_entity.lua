@@ -6,21 +6,21 @@ local clamp   = E2Lib.clampPos
 -- Player Entities
 e2function number entity:playerIsInPvp()
     if not IsValid( this ) or not this:IsPlayer() then return 0 end
-    if this:GetNWBool( "CFC_PvP_Mode", false ) == true then return 1 end
+    if this:isInPvp() then return 1 end
 
     return 0
 end
 
 e2function number entity:playerIsInBuild()
     if not IsValid( this ) or not this:IsPlayer() then return 0 end
-    if this:GetNWBool( "CFC_PvP_Mode", false ) == false then return 1 end
+    if this:isInBuild() then return 1 end
 
     return 0
 end
 
 e2function string entity:getPvpStatus()
     if not IsValid( this ) or not this:IsPlayer() then return "" end
-    if this:GetNWBool( "CFC_PvP_Mode", false ) == true then return "pvp" end
+    if this:isInPvp() then return "pvp" end
 
     return "build"
 end
