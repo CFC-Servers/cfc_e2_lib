@@ -2,15 +2,19 @@ CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 
 local DEFAULT_GATE_MODEL = "models/jaanus/wiretool/wiretool_gate.mdl"
 
-e2function string entity:getGateName()
-    return this.WireDebugName or ""
+e2function table entity:getGateName()
+    if not IsValid( this ) then return "" end
+    local action = this.Action
+
+    return { group = action.group, name = action.name }
 end
 
 e2function string entity:getGateActionName()
-    return GateActions[action] or ""
+    if not IsValid( this ) or not this.Action then return "" end
+    return this.Action or ""
 end
 
-e2function string isValidGateAction( string action )
+e2function number isValidGateAction( string action )
     local gateAction = GateActions[action]
     return gateAction ~= nil and gateAction or false
 end
