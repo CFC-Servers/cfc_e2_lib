@@ -47,6 +47,12 @@ e2function string entity:npcGetGlobalSquad()
     return squad
 end
 
+e2function number entity:npcGetCurrentSchedule()
+    if not isValidNpc( this ) then return 0 end
+    
+    return this:GetCurrentSchedule()
+end
+
 e2function string entity:npcCouldNotReach( entity reachableIn )
     if not isValidNpc( this ) then return "" end
 
@@ -103,6 +109,13 @@ e2function void entity:npcSetGlobalSquad( string squadIn )
     if not hasAccess( self.player ) then return end
 
     this:SetKeyValue( "squadname", squadIn )
+end
+
+e2function void entity:npcSetSchedule( number schedule )
+    if not isValidNpc( this ) then return end
+    if not hasAccess( self.player ) then return end
+    
+    this:SetSchedule( schedule )
 end
 
 e2function entity npcCreate( string npcClass, vector positionIn )

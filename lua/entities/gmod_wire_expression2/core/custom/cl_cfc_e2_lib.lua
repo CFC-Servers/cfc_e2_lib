@@ -65,6 +65,7 @@ E2Helper.Descriptions["npcSetDamageMultiplier(e:n)"]   = "Sets the damage multip
 E2Helper.Descriptions["npcSetGlobalSquad(e:s)"]        = "Sets the squad of an NPC. Admin only."
 E2Helper.Descriptions["npcCreate(sv)"]                 = "Creates an npc of class S, at position V. Admin only."
 E2Helper.Descriptions["npcCreate(svs)"]                = "Creates an npc of class S1, at position V, setting S2 to the key value 'model'. Admin only."
+E2Helper.Descriptions["npcSetSchedule(e:n)"]           = "Sets an npc's schedule, See Enums/SCHED. Admin only."
 E2Helper.Descriptions["npcGetGlobalSquad(e:)"]         = "Returns an NPC's squad."
 E2Helper.Descriptions["npcGetWeaponProficiency(e:)"]   = "Returns the weapon proficiency of the NPC."
 E2Helper.Descriptions["npcGetDamageMultiplier(e:)"]    = "Returns the damage multiplier of the NPC"
