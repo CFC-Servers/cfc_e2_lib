@@ -102,4 +102,3 @@ end
 e2function number array:indexOf( vector4 vec4 )
     return indexOfPackedValue( this, vec4 )
 end
-

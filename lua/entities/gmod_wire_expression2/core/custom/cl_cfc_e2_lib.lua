@@ -68,6 +68,18 @@ E2Helper.Descriptions["npcCreate(svs)"]                = "Creates an npc of clas
 E2Helper.Descriptions["npcSetSchedule(e:n)"]           = "Sets an npc's schedule, See Enums/SCHED. Admin only."
 E2Helper.Descriptions["npcGetGlobalSquad(e:)"]         = "Returns an NPC's squad."
 E2Helper.Descriptions["npcGetWeaponProficiency(e:)"]   = "Returns the weapon proficiency of the NPC."
-E2Helper.Descriptions["npcGetDamageMultiplier(e:)"]    = "Returns the damage multiplier of the NPC."
-E2Helper.Descriptions["npcCouldNotReach(e:e)"]         = "Returns 1 if the NPC marked ent2 as unreachable."
+E2Helper.Descriptions["npcGetDamageMultiplier(e:)"]    = "Returns the damage multiplier of the NPC"
+E2Helper.Descriptions["npcCouldNotReach(e:e)"]         = "Returns 1 if the NPC marked ent2 as unreachable"
 E2Helper.Descriptions["npcGetCurrentSchedule(e:)"]     = "Returns the npc's current schedule. See Enums/SCHED"
+
+
+-- Wire Gate Functions
+E2Helper.Descriptions["getGateName(e:)"]             = "Returns the display name of a Wire Gate."
+E2helper.Descriptions["getGateGroupName(e:)"]        = "Returns the group name of a Wire Gate."
+E2Helper.Descriptions["getGateActionName(e:)"]       = "Returns the internal action name of a Wire Gate. (Used for spawning)"
+E2Helper.Descriptions["isValidGateAction(s)"]        = "Returns true if the action name exists in GateActions, else returns false."
+E2Helper.Descriptions["gateSpawn(ssvvnn)"]           = "Gate type name, Model path, Position, Rotation Angle, Nocollide, Frozen. Spawns a Wire gate."
+E2Helper.Descriptions["gateSpawn(svvnn)"]            = "Gate type name, Position, Rotation Angle, Nocollide, Frozen. Spawns a Wire gate."
+E2Helper.Descriptions["gateSpawn(svvn)"]             = "Gate type name, Position, Rotation Angle, Nocollide. Spawns a Wire gate."
+E2Helper.Descriptions["gateSpawn(svv)"]              = "Gate type name, Position, Rotation Angle. Spawns a Wire gate."
+E2helper.Descriptions["gateSpawn(sv)"]               = "Gate type name, Position. Spawns a Wire gate with an angle of 0."
