@@ -74,7 +74,8 @@ E2Helper.Descriptions["npcGetCurrentSchedule(e:)"]     = "Returns the npc's curr
 
 -- Wire Gate Functions
 E2Helper.Descriptions["getGateName(e:)"]             = "Returns the display name of a Wire Gate."
-E2Helper.Descriptions["getGateActionName(e:s)"]       = "Returns the internal action name of a Wire Gate. (Used for spawning)"
+E2helper.Descriptions["getGateGroupName(e:)"]        = "Returns the group name of a Wire Gate."
+E2Helper.Descriptions["getGateActionName(e:)"]       = "Returns the internal action name of a Wire Gate. (Used for spawning)"
 E2Helper.Descriptions["isValidGateAction(s)"]        = "Returns true if the action name exists in GateActions, else returns false."
 E2Helper.Descriptions["gateSpawn(ssvvnn)"]           = "Gate type name, Model path, Position, Rotation Angle, Nocollide, Frozen. Spawns a Wire gate."
 E2Helper.Descriptions["gateSpawn(svvnn)"]            = "Gate type name, Position, Rotation Angle, Nocollide, Frozen. Spawns a Wire gate."
