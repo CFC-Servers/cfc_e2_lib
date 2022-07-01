@@ -61,3 +61,11 @@ e2function void entity:ejectPodTo( vector pos )
     driver:ExitVehicle()
     driver:SetPos( clampedPos )
 end
+
+e2function entity:extinguish()
+    if not IsValid( this ) then return end
+    local ownedByMe = this:CPPIGetOwner() == self.player 
+    local hasAccess = ownedByMe or self.player:IsAdmin()
+    if not hasAccess then return end
+    this:Extinguish()
+end
