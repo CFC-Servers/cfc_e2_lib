@@ -5,6 +5,9 @@ E2Helper.Descriptions["getPvpStatus(e:)"]      = "Returns \"pvp\" if a player is
 E2Helper.Descriptions["getPvpers()"]           = "Returns a table of all players currently in Pvp."
 E2Helper.Descriptions["getBuilders()"]         = "Returns a table of all players currently in Build."
 
+--Ent functions!
+E2Helper.Descriptions["extinguish(e:)"]         = "Extinguishes your entity, Admins can use on anything."
+
 -- Faction Functions
 E2Helper.Descriptions["getFactionID(e:)"]      = "Returns a string of the player's faction ID. '0' if no faction, '' if invalid entity."
 E2Helper.Descriptions["getFactionRank(e:)"]    = "Returns a string of the player's rank or ''."
