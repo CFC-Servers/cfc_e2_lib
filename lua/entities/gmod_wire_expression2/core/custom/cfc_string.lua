@@ -46,4 +46,9 @@ e2function string alphabet()
     return ALPHABET
 end
 
+e2function table jsonToTable(string data)
+    if data == "" then return end
+    return util.TableToJSON(data)
+end
+
 E2Lib.registerConstant( "ALPHABET", ALPHABET )

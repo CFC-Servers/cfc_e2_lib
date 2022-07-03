@@ -8,18 +8,13 @@ E2Helper.Descriptions["getBuilders()"]         = "Returns a table of all players
 --Ent functions!
 E2Helper.Descriptions["extinguish(e:)"]         = "Extinguishes your entity, Admins can use on anything."
 
--- Faction Functions
-E2Helper.Descriptions["getFactionID(e:)"]      = "Returns a string of the player's faction ID. '0' if no faction, '' if invalid entity."
-E2Helper.Descriptions["getFactionRank(e:)"]    = "Returns a string of the player's rank or ''."
-E2Helper.Descriptions["isInFaction(e:)"]       = "Returns 1 if player is in faction, 0 otherwise."
-
 -- Ping Functions
 E2Helper.Descriptions["averagePing()"]         = "Returns a floating-point number representing the average ping of players in the server."
 E2Helper.Descriptions["minPing()"]             = "Returns a floating-point number representing the lowest ping of all players in the server."
 E2Helper.Descriptions["maxPing()"]             = "Returns a floating-point number representing the highest ping of all players in the server."
 
 -- GC Functions
-E2Helper.Descriptions["serverMemoryUsage()"]   = "Returns total kilobytes of memory currently in use by Lua on the server"
+E2Helper.Descriptions["serverMemoryUsage()"]   = "Returns total kilobytes of memory currently in use by Lua on the server."
 
 -- Loss Functions
 E2Helper.Descriptions["averageLoss()"]         = "Returns a floating-point number representing the average packet loss of players in the server."
@@ -34,7 +29,8 @@ E2Helper.Descriptions["hasNumber(s:)"]         = "Returns 1 if string contains n
 E2Helper.Descriptions["hasLetter(s:)"]         = "Returns 1 if string has letters, 0 otherwise."
 E2Helper.Descriptions["isUpper(s:)"]           = "Returns 1 if string is uppercase, 0 otherwise."
 E2Helper.Descriptions["isLower(s:)"]           = "Returns 1 if string is lowercase, 0 otherwise."
-E2Helper.Descriptions["alphabet()"]            = "Returns the alphabet (a-z) as a lowercase string"
+E2Helper.Descriptions["alphabet()"]            = "Returns the alphabet (a-z) as a lowercase string."
+E2Helper.Descriptions["jsonToTable()"]         = "Returns a table from the given JSON string."
 
 -- Array Functions
 E2Helper.Descriptions["shuffled(r:)"]          = "Returns a shuffled array."
@@ -73,4 +69,4 @@ E2Helper.Descriptions["npcGetGlobalSquad(e:)"]         = "Returns an NPC's squad
 E2Helper.Descriptions["npcGetWeaponProficiency(e:)"]   = "Returns the weapon proficiency of the NPC."
 E2Helper.Descriptions["npcGetDamageMultiplier(e:)"]    = "Returns the damage multiplier of the NPC."
 E2Helper.Descriptions["npcCouldNotReach(e:e)"]         = "Returns 1 if the NPC marked ent2 as unreachable."
-E2Helper.Descriptions["npcGetCurrentSchedule(e:)"]     = "Returns the npc's current schedule. See Enums/SCHED"
+E2Helper.Descriptions["npcGetCurrentSchedule(e:)"]     = "Returns the npc's current schedule. See Enums/SCHED."
