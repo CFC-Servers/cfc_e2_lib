@@ -6,38 +6,23 @@ local clamp   = E2Lib.clampPos
 -- Player Entities
 e2function number entity:playerIsInPvp()
     if not IsValid( this ) or not this:IsPlayer() then return 0 end
-    if this:isInPvp() then return 1 end
+    if this:IsInPvp() then return 1 end
 
     return 0
 end
 
 e2function number entity:playerIsInBuild()
     if not IsValid( this ) or not this:IsPlayer() then return 0 end
-    if this:isInBuild() then return 1 end
+    if this:IsInBuild() then return 1 end
 
     return 0
 end
 
 e2function string entity:getPvpStatus()
     if not IsValid( this ) or not this:IsPlayer() then return "" end
-    if this:isInPvp() then return "pvp" end
+    if this:IsInPvp() then return "pvp" end
 
     return "build"
-end
-
-e2function string entity:getFactionID()
-    if not IsValid( this ) or not this:IsPlayer() then return "" end
-    return this:GetFactionID()
-end
-
-e2function string entity:getFactionRank()
-    if not IsValid( this ) or not this:IsPlayer() then return "" end
-    return this:GetFactionRank()
-end
-
-e2function number entity:isInFaction()
-    if not IsValid( this ) or not this:IsPlayer() then return 0 end
-    return this:IsInFaction()
 end
 
 -- Vehicle Entities
@@ -64,7 +49,7 @@ end
 
 e2function void entity:extinguish()
     if not IsValid( this ) then return end
-    local ownedByMe = this:CPPIGetOwner() == self.player 
+    local ownedByMe = this.CPPIGetOwner and this:CPPIGetOwner() == self.player
     local hasAccess = ownedByMe or self.player:IsAdmin()
     if not hasAccess then return end
     this:Extinguish()

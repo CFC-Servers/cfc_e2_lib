@@ -5,7 +5,7 @@ e2function array getPvpers()
     local humans = player.GetHumans()
 
     for _, human in pairs( humans ) do
-        if human:isInPvp() then pvpers[#pvpers + 1] = human end
+        if human:IsInPvp() then pvpers[#pvpers + 1] = human end
     end
 
     return pvpers
@@ -16,7 +16,7 @@ e2function array getBuilders()
     local humans = player.GetHumans()
 
     for _, human in pairs( humans ) do
-        if human:isInBuild() then builders[#builders + 1] = human end
+        if human:IsInBuild() then builders[#builders + 1] = human end
     end
 
     return builders
