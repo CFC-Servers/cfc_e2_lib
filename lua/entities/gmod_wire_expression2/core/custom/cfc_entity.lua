@@ -3,28 +3,6 @@ CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 -- E2 Library Includes
 local clamp   = E2Lib.clampPos
 
--- Player Entities
-e2function number entity:playerIsInPvp()
-    if not IsValid( this ) or not this:IsPlayer() then return 0 end
-    if this:IsInPvp() then return 1 end
-
-    return 0
-end
-
-e2function number entity:playerIsInBuild()
-    if not IsValid( this ) or not this:IsPlayer() then return 0 end
-    if this:IsInBuild() then return 1 end
-
-    return 0
-end
-
-e2function string entity:getPvpStatus()
-    if not IsValid( this ) or not this:IsPlayer() then return "" end
-    if this:IsInPvp() then return "pvp" end
-
-    return "build"
-end
-
 -- Vehicle Entities
 local ejectRange = 500
 e2function void entity:ejectPodTo( vector pos )

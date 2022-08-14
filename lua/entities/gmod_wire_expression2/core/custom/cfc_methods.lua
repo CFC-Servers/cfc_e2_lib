@@ -1,27 +1,5 @@
 CFCE2Lib.RegisterExtension( "cfc_e2_lib", true )
 
-e2function array getPvpers()
-    local pvpers = {}
-    local humans = player.GetHumans()
-
-    for _, human in pairs( humans ) do
-        if human:IsInPvp() then pvpers[#pvpers + 1] = human end
-    end
-
-    return pvpers
-end
-
-e2function array getBuilders()
-    local builders = {}
-    local humans = player.GetHumans()
-
-    for _, human in pairs( humans ) do
-        if human:IsInBuild() then builders[#builders + 1] = human end
-    end
-
-    return builders
-end
-
 -- Ping Functions
 e2function number averagePing()
     local sum = 0

@@ -1,10 +1,3 @@
--- PvP Functions
-E2Helper.Descriptions["playerIsInPvp(e:)"]     = "Returns 1 if a player is in Pvp, and 0 otherwise."
-E2Helper.Descriptions["playerIsInBuild(e:)"]   = "Returns 1 if a player is in build, and 0 otherwise."
-E2Helper.Descriptions["getPvpStatus(e:)"]      = "Returns \"pvp\" if a player is in Pvp, and \"build\" if they are in build. If a player is invalid, or their status is unknown, an empty string is returned."
-E2Helper.Descriptions["getPvpers()"]           = "Returns a table of all players currently in Pvp."
-E2Helper.Descriptions["getBuilders()"]         = "Returns a table of all players currently in Build."
-
 --Ent functions!
 E2Helper.Descriptions["extinguish(e:)"]         = "Extinguishes your entity, Admins can use on anything."
 
