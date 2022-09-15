@@ -5,9 +5,9 @@ e2function number entity:getSimfphysHorsepower()
     
     local data = simfphys.BuildVehicleInfo( this )
     
-    if not data then return end
+    if not data then return 0 end
     
-    local horsepower = data["horsepower"] 
+    local horsepower = data["horsepower"] or 0
 
     return horsepower
 end
