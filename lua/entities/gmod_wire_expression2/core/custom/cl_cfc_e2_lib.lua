@@ -70,3 +70,6 @@ E2Helper.Descriptions["npcGetWeaponProficiency(e:)"]   = "Returns the weapon pro
 E2Helper.Descriptions["npcGetDamageMultiplier(e:)"]    = "Returns the damage multiplier of the NPC."
 E2Helper.Descriptions["npcCouldNotReach(e:e)"]         = "Returns 1 if the NPC marked ent2 as unreachable."
 E2Helper.Descriptions["npcGetCurrentSchedule(e:)"]     = "Returns the npc's current schedule. See Enums/SCHED."
+
+-- simfphys
+E2Helper.Descriptions["getSimfphysHorsepower(e:)"]     = "Returns a simfphys vehicle's horsepower"
