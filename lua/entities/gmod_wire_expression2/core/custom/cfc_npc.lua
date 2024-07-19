@@ -130,7 +130,6 @@ e2function entity entity:npcGiveSWEP( string rv2 )
 
 	local wep = this:Give( rv2 )
     return wep
-
 end
 
 e2function entity npcCreate( string npcClass, vector positionIn )
