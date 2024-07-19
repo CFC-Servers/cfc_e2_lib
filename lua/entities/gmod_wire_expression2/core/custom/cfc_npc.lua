@@ -119,16 +119,16 @@ e2function void entity:npcSetSchedule( number schedule )
 end
 
 e2function entity entity:npcGiveSWEP( string rv2 )
-	if not isValidNpc( this ) then return NULL end
+    if not isValidNpc( this ) then return NULL end
     if not hasAccess( self.player ) then return NULL end
 
-	local weapon = this:GetActiveWeapon()
-	if weapon:IsValid() then
-		if weapon:GetClass() == rv2 then return weapon end
-		weapon:Remove()
-	end
+    local weapon = this:GetActiveWeapon()
+    if weapon:IsValid() then
+        if weapon:GetClass() == rv2 then return weapon end
+        weapon:Remove()
+    end
 
-	local wep = this:Give( rv2 )
+    local wep = this:Give( rv2 )
     return wep
 end
 
